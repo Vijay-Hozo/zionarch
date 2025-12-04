@@ -2,6 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useMotionTemplate, useMotionValue } from "framer-motion";
 
 const services = [
   {
@@ -30,6 +31,32 @@ export function Services() {
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [cardRotations, setCardRotations] = useState<{ [key: number]: { x: number; y: number } }>({});
+
+  const handleMouseMove = (index: number, e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = (e.currentTarget as HTMLDivElement).getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = (y - centerY) * 0.1;
+    const rotateY = (centerX - x) * 0.1;
+
+    setCardRotations({
+      ...cardRotations,
+      [index]: { x: rotateX, y: rotateY },
+    });
+  };
+
+  const handleMouseLeave = (index: number) => {
+    setCardRotations({
+      ...cardRotations,
+      [index]: { x: 0, y: 0 },
+    });
+    setHoveredIndex(null);
+  };
 
   return (
     <section id="services" ref={containerRef} className="py-24 lg:py-32 bg-secondary/30 relative overflow-hidden">
@@ -53,7 +80,7 @@ export function Services() {
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-6 auto-rows-max">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -61,10 +88,16 @@ export function Services() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.15 }}
               onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-              className="group relative overflow-hidden rounded-xl bg-card cursor-pointer"
+              onMouseLeave={() => handleMouseLeave(index)}
+              onMouseMove={(e) => handleMouseMove(index, e)}
+              style={{
+                transformStyle: "preserve-3d",
+                rotateX: cardRotations[index]?.x ?? 0,
+                rotateY: cardRotations[index]?.y ?? 0,
+              }}
+              className="group relative overflow-hidden rounded-xl bg-card cursor-pointer h-80 transition-all duration-300"
             >
-              <div className="relative h-80 overflow-hidden">
+              <div className="relative w-full h-full overflow-hidden">
                 <motion.img
                   src={service.image}
                   alt={service.title}
@@ -74,17 +107,17 @@ export function Services() {
                   }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/50 to-transparent" />
+                <div className="absolute inset-0" />
                 
                 {/* Content Overlay */}
-                <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                <div className="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/40 to-transparent">
                   <motion.div
                     animate={{
                       y: hoveredIndex === index ? 0 : 20,
                     }}
                     transition={{ duration: 0.3 }}
                   >
-                    <h3 className="text-2xl font-display font-bold text-primary-foreground mb-3">
+                    <h3 className="text-2xl font-display font-bold text-white mb-3">
                       {service.title}
                     </h3>
                     <motion.p
@@ -93,7 +126,7 @@ export function Services() {
                         height: hoveredIndex === index ? "auto" : 0,
                       }}
                       transition={{ duration: 0.3 }}
-                      className="text-primary-foreground/80 font-body text-sm mb-4 line-clamp-3"
+                      className="text-white/80 font-body text-sm mb-4 line-clamp-3"
                     >
                       {service.description}
                     </motion.p>
@@ -113,11 +146,11 @@ export function Services() {
                 </div>
 
                 {/* Service Number */}
-                <div className="absolute top-6 right-6">
+                {/* <div className="absolute top-6 right-6">
                   <span className="text-6xl font-display font-bold text-primary-foreground/10">
                     0{index + 1}
                   </span>
-                </div>
+                </div> */}
               </div>
             </motion.div>
           ))}

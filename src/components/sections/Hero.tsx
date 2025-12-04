@@ -161,8 +161,8 @@ export function Hero() {
               y: mousePosition.y * 0.3,
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/50 to-background" />
-          <div className="absolute inset-0 bg-foreground/40 dark:bg-foreground/60" />
+          <div className="absolute inset-0 " />
+          <div className="absolute inset-0 " />
         </motion.div>
       </AnimatePresence>
 
