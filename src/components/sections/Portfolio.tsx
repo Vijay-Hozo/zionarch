@@ -63,7 +63,7 @@ export function Portfolio() {
   };
 
   return (
-    <section id="portfolio" ref={containerRef} className="py-24 lg:py-32 bg-foreground text-background relative overflow-hidden">
+    <section id="portfolio" ref={containerRef} className="py-24 lg:py-32 bg-card relative overflow-hidden">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <motion.div
@@ -75,7 +75,7 @@ export function Portfolio() {
           <span className="text-primary font-body text-sm tracking-[0.2em] uppercase mb-4 block">
             Our Work
           </span>
-          <h2 className="text-4xl lg:text-5xl font-display font-bold mb-6">
+          <h2 className="text-4xl lg:text-5xl font-display font-bold mb-6 text-foreground">
             Featured <span className="text-primary">Projects</span>
           </h2>
         </motion.div>
@@ -97,7 +97,7 @@ export function Portfolio() {
               className={`px-6 py-2 rounded-full font-body text-sm transition-all duration-300 ${
                 activeCategory === category
                   ? "bg-primary text-primary-foreground"
-                  : "bg-background/10 text-background/70 hover:bg-background/20"
+                  : "bg-muted text-muted-foreground hover:bg-muted/80"
               }`}
             >
               {category}
@@ -125,7 +125,7 @@ export function Portfolio() {
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.6 }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileHover={{ opacity: 1, y: 0 }}
@@ -152,7 +152,7 @@ export function Portfolio() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
-                  className="text-3xl lg:text-4xl font-display font-bold mt-4 mb-4"
+                  className="text-3xl lg:text-4xl font-display font-bold mt-4 mb-4 text-foreground"
                 >
                   {filteredProjects[currentIndex]?.title}
                 </motion.h3>
@@ -160,7 +160,7 @@ export function Portfolio() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
-                  className="text-background/60 font-body text-lg mb-8"
+                  className="text-muted-foreground font-body text-lg mb-8"
                 >
                   {filteredProjects[currentIndex]?.location}
                 </motion.p>
@@ -171,7 +171,7 @@ export function Portfolio() {
                     variant="outline"
                     size="icon"
                     onClick={prevSlide}
-                    className="border-background/20 text-background hover:bg-background hover:text-foreground"
+                    className="border-border text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary"
                   >
                     <ArrowLeft className="w-5 h-5" />
                   </Button>
@@ -179,11 +179,11 @@ export function Portfolio() {
                     variant="outline"
                     size="icon"
                     onClick={nextSlide}
-                    className="border-background/20 text-background hover:bg-background hover:text-foreground"
+                    className="border-border text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary"
                   >
                     <ArrowRight className="w-5 h-5" />
                   </Button>
-                  <span className="ml-4 text-background/60 font-body">
+                  <span className="ml-4 text-muted-foreground font-body">
                     {String(currentIndex + 1).padStart(2, "0")} / {String(filteredProjects.length).padStart(2, "0")}
                   </span>
                 </div>

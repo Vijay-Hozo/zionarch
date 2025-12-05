@@ -1,62 +1,125 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useMotionTemplate, useMotionValue } from "framer-motion";
 
 const services = [
   {
     title: "Architectural Design",
     description: "Feasibility Studies, Site Analysis, Space Planning, Massing, Building Approval Liaoning, Soil Testing, Site Surveying, Structural Design, HVAC design, MEP Design.",
     image: "https://zionarch.com/wp-content/uploads/2021/08/2-1.jpg",
+    size: "large", // Takes 2 columns
   },
   {
-    title: "Engineering - Structural & MEP",
+    title: "Engineering",
     description: "Material Procurement, Schedule Optimization, Site Progress Report, Labour Management, Quality Assurance and Quality Control, Post Occupancy Support.",
     image: "https://zionarch.com/wp-content/uploads/2021/08/construction-mgt.jpg",
+    size: "medium", // Takes 1 column, taller
   },
   {
     title: "Interior Design",
     description: "Site Measurement, Space Planning, Furniture Layout, Mood board Presentation, Conceptual Sketches, 3D Visualization, Working Drawings.",
     image: "https://zionarch.com/wp-content/uploads/2018/08/INTERIOR.jpg",
+    size: "small", // Takes 1 column
   },
   {
-    title: "Design & Build Services",
+    title: "Design & Build",
     description: "Bill of Quantity, Composite Quotations, Material Specifications, Finishes Schedule, Execution Schedule, Shop Drawings, Site Measurements.",
     image: "https://zionarch.com/wp-content/uploads/2021/08/20201222_115032.jpg",
+    size: "wide", // Takes 2 columns
   },
 ];
+
+function ServiceCard({ service, index, isInView }: { service: typeof services[0]; index: number; isInView: boolean }) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const getSizeClasses = () => {
+    switch (service.size) {
+      case "large":
+        return "md:col-span-2 md:row-span-2 h-[400px] md:h-[500px]";
+      case "medium":
+        return "md:col-span-1 md:row-span-2 h-[300px] md:h-[500px]";
+      case "wide":
+        return "md:col-span-2 h-[250px] md:h-[280px]";
+      default:
+        return "md:col-span-1 h-[250px] md:h-[240px]";
+    }
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className={`group relative overflow-hidden rounded-2xl cursor-pointer ${getSizeClasses()}`}
+    >
+      {/* Background Image */}
+      <motion.div
+        className="absolute inset-0"
+        animate={{ scale: isHovered ? 1.1 : 1 }}
+        transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+      >
+        <img
+          src={service.image}
+          alt={service.title}
+          className="w-full h-full object-cover"
+        />
+      </motion.div>
+
+      {/* Gradient Overlay */}
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent"
+        animate={{ opacity: isHovered ? 0.95 : 0.7 }}
+        transition={{ duration: 0.4 }}
+      />
+
+      {/* Content */}
+      <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end">
+        {/* Title - Always visible */}
+        <motion.h3
+          className="text-xl md:text-2xl font-display font-bold text-foreground mb-2"
+          animate={{ y: isHovered ? -10 : 0 }}
+          transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+        >
+          <span className="text-primary">—</span> {service.title}
+        </motion.h3>
+
+        {/* Description - Revealed on hover */}
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ 
+            opacity: isHovered ? 1 : 0, 
+            height: isHovered ? "auto" : 0,
+          }}
+          transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="overflow-hidden"
+        >
+          <p className="text-foreground/70 font-body text-sm leading-relaxed mt-2">
+            {service.description}
+          </p>
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: isHovered ? "60px" : 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="h-0.5 bg-primary mt-4"
+          />
+        </motion.div>
+      </div>
+
+      {/* Border Highlight on Hover */}
+      <motion.div
+        className="absolute inset-0 rounded-2xl border-2 border-primary pointer-events-none"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isHovered ? 1 : 0 }}
+        transition={{ duration: 0.3 }}
+      />
+    </motion.div>
+  );
+}
 
 export function Services() {
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [cardRotations, setCardRotations] = useState<{ [key: number]: { x: number; y: number } }>({});
-
-  const handleMouseMove = (index: number, e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = (e.currentTarget as HTMLDivElement).getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-
-    const rotateX = (y - centerY) * 0.1;
-    const rotateY = (centerX - x) * 0.1;
-
-    setCardRotations({
-      ...cardRotations,
-      [index]: { x: rotateX, y: rotateY },
-    });
-  };
-
-  const handleMouseLeave = (index: number) => {
-    setCardRotations({
-      ...cardRotations,
-      [index]: { x: 0, y: 0 },
-    });
-    setHoveredIndex(null);
-  };
 
   return (
     <section id="services" ref={containerRef} className="py-24 lg:py-32 bg-secondary/30 relative overflow-hidden">
@@ -79,80 +142,15 @@ export function Services() {
           </p>
         </motion.div>
 
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 gap-6 auto-rows-max">
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 auto-rows-auto">
           {services.map((service, index) => (
-            <motion.div
+            <ServiceCard
               key={service.title}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => handleMouseLeave(index)}
-              onMouseMove={(e) => handleMouseMove(index, e)}
-              style={{
-                transformStyle: "preserve-3d",
-                rotateX: cardRotations[index]?.x ?? 0,
-                rotateY: cardRotations[index]?.y ?? 0,
-              }}
-              className="group relative overflow-hidden rounded-xl bg-card cursor-pointer h-80 transition-all duration-300"
-            >
-              <div className="relative w-full h-full overflow-hidden">
-                <motion.img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover"
-                  animate={{
-                    scale: hoveredIndex === index ? 1.1 : 1,
-                  }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                />
-                <div className="absolute inset-0" />
-                
-                {/* Content Overlay */}
-                <div className="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-                  <motion.div
-                    animate={{
-                      y: hoveredIndex === index ? 0 : 20,
-                    }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <h3 className="text-2xl font-display font-bold text-white mb-3">
-                      {service.title}
-                    </h3>
-                    <motion.p
-                      animate={{
-                        opacity: hoveredIndex === index ? 1 : 0,
-                        height: hoveredIndex === index ? "auto" : 0,
-                      }}
-                      transition={{ duration: 0.3 }}
-                      className="text-white/80 font-body text-sm mb-4 line-clamp-3"
-                    >
-                      {service.description}
-                    </motion.p>
-                    <motion.div
-                      animate={{
-                        opacity: hoveredIndex === index ? 1 : 0,
-                        x: hoveredIndex === index ? 0 : -20,
-                      }}
-                      transition={{ duration: 0.3, delay: 0.1 }}
-                    >
-                      <Button variant="hero" size="sm" className="group/btn">
-                        Learn More
-                        <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                      </Button>
-                    </motion.div>
-                  </motion.div>
-                </div>
-
-                {/* Service Number */}
-                {/* <div className="absolute top-6 right-6">
-                  <span className="text-6xl font-display font-bold text-primary-foreground/10">
-                    0{index + 1}
-                  </span>
-                </div> */}
-              </div>
-            </motion.div>
+              service={service}
+              index={index}
+              isInView={isInView}
+            />
           ))}
         </div>
       </div>
