@@ -36,9 +36,9 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-foreground text-background relative overflow-hidden">
+    <footer className="bg-foreground text-background relative overflow-hidden z-10">
       {/* CTA Section */}
-      <div className="container mx-auto px-6 max-w-7xl">
+      <div className="container mx-auto px-6 max-w-7xl relative z-20">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
