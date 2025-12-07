@@ -49,34 +49,105 @@ export function Hero() {
       ref={containerRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
+      {/* Animated Background Shapes */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <motion.div
+          animate={{
+            rotate: [0, 360],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 30,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className="absolute -top-1/2 -left-1/2 w-full h-full opacity-5"
+        >
+          <div className="w-full h-full rounded-full border border-primary/30" />
+        </motion.div>
+        <motion.div
+          animate={{
+            rotate: [360, 0],
+            scale: [1.2, 1, 1.2],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className="absolute -bottom-1/2 -right-1/2 w-full h-full opacity-5"
+        >
+          <div className="w-full h-full rounded-full border border-primary/30" />
+        </motion.div>
+      </div>
+
       {/* Background Images with Smooth Ken Burns Effect */}
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide}
-          initial={{ opacity: 0, scale: 1.1 }}
+          initial={{ opacity: 0, scale: 1.2, filter: "blur(10px)" }}
           animate={{ 
             opacity: 1, 
             scale: 1,
-            transition: { opacity: { duration: 1 }, scale: { duration: 8, ease: "linear" } }
+            filter: "blur(0px)",
+            transition: { 
+              opacity: { duration: 1.2, ease: "easeOut" }, 
+              scale: { duration: 10, ease: "linear" },
+              filter: { duration: 1, ease: "easeOut" }
+            }
           }}
-          exit={{ opacity: 0, transition: { duration: 0.8 } }}
+          exit={{ 
+            opacity: 0, 
+            scale: 1.1,
+            filter: "blur(5px)",
+            transition: { duration: 0.8, ease: "easeInOut" } 
+          }}
           style={{ y, scale }}
           className="absolute inset-0 z-0"
         >
           <motion.div
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${slides[currentSlide].image})` }}
-            animate={{ scale: [1, 1.1] }}
-            transition={{ duration: 8, ease: "linear" }}
+            animate={{ scale: [1, 1.15] }}
+            transition={{ duration: 10, ease: "linear" }}
           />
           {/* Gradient Overlays */}
-          <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/40 to-background/90" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-background/60" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/50 to-background/95" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-transparent to-background/70" />
+          {/* Radial gradient for focus */}
+          <div className="absolute inset-0 bg-radial-gradient opacity-30" style={{
+            background: "radial-gradient(circle at center, transparent 0%, hsl(var(--background)) 70%)"
+          }} />
         </motion.div>
       </AnimatePresence>
 
+      {/* Floating Particles */}
+      <div className="absolute inset-0 z-5 pointer-events-none overflow-hidden">
+        {[...Array(6)].map((_, i) => (
+          <motion.div
+            key={i}
+            animate={{
+              y: [0, -100, 0],
+              x: [0, 30 * (i % 2 === 0 ? 1 : -1), 0],
+              opacity: [0.2, 0.5, 0.2],
+            }}
+            transition={{
+              duration: 8 + i * 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: i * 1.5,
+            }}
+            className="absolute w-1 h-1 rounded-full bg-primary/40"
+            style={{
+              left: `${15 + i * 15}%`,
+              top: `${60 + (i % 3) * 10}%`,
+            }}
+          />
+        ))}
+      </div>
+
       {/* Animated Grain Overlay */}
-      <div className="absolute inset-0 z-10 opacity-[0.015] pointer-events-none bg-[url('data:image/svg+xml,%3Csvg viewBox=%270 0 256 256%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cfilter id=%27noise%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.9%27 numOctaves=%274%27 stitchTiles=%27stitch%27/%3E%3C/filter%3E%3Crect width=%27100%25%27 height=%27100%25%27 filter=%27url(%23noise)%27/%3E%3C/svg%3E')]" />
+      <div className="absolute inset-0 z-10 opacity-[0.02] pointer-events-none bg-[url('data:image/svg+xml,%3Csvg viewBox=%270 0 256 256%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cfilter id=%27noise%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.9%27 numOctaves=%274%27 stitchTiles=%27stitch%27/%3E%3C/filter%3E%3Crect width=%27100%25%27 height=%27100%25%27 filter=%27url(%23noise)%27/%3E%3C/svg%3E')]" />
 
       {/* Slide Navigation Arrows */}
       <motion.div 

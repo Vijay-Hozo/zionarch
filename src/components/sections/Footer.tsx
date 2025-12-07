@@ -36,9 +36,9 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-foreground text-background relative">
+    <footer className="bg-foreground text-background relative overflow-hidden">
       {/* CTA Section */}
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -69,7 +69,7 @@ export function Footer() {
       </div>
 
       {/* Main Footer */}
-      <div className="container mx-auto px-6 pb-12">
+      <div className="container mx-auto px-6 pb-12 max-w-7xl">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 lg:gap-12 mb-12">
           {/* Brand */}
           <div className="col-span-2 lg:col-span-1">
