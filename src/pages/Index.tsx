@@ -9,9 +9,12 @@ import { Portfolio } from "@/components/sections/Portfolio";
 import { Stats } from "@/components/sections/Stats";
 import { Specializations } from "@/components/sections/Specializations";
 import { FullService } from "@/components/sections/FullService";
+import { Team } from "@/components/sections/Team";
+import { Testimonials } from "@/components/sections/Testimonials";
 import { Partners } from "@/components/sections/Partners";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 const Index = () => {
   return (
@@ -28,10 +31,13 @@ const Index = () => {
         <Stats />
         <Specializations />
         <FullService />
+        <Team />
+        <Testimonials />
         <Partners />
         <Contact />
       </main>
       <Footer />
+      <WhatsAppButton />
     </>
   );
 };
