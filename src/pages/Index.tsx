@@ -1,6 +1,7 @@
 import { PageLoader } from "@/components/PageLoader";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/sections/Hero";
+import { VideoShowcase } from "@/components/sections/VideoShowcase";
 import { About } from "@/components/sections/About";
 import { Services } from "@/components/sections/Services";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
@@ -19,6 +20,7 @@ const Index = () => {
       <Navbar />
       <main>
         <Hero />
+        <VideoShowcase />
         <About />
         <Services />
         <WhyChooseUs />
