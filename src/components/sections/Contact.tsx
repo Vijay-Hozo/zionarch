@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { MapPin, Phone, Mail, Send, Clock } from "lucide-react";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 const contactInfo = [
   {
@@ -38,12 +39,30 @@ export function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    toast.success("Message sent successfully! We'll get back to you soon.");
-    setIsSubmitting(false);
-    (e.target as HTMLFormElement).reset();
+    const formData = new FormData(e.target as HTMLFormElement);
+    const data = {
+      name: formData.get('name') as string,
+      email: formData.get('email') as string,
+      phone: formData.get('phone') as string,
+      projectType: formData.get('projectType') as string,
+      message: formData.get('message') as string,
+    };
+
+    try {
+      const { data: response, error } = await supabase.functions.invoke('send-contact-email', {
+        body: data,
+      });
+
+      if (error) throw error;
+
+      toast.success("Message sent successfully! We'll get back to you soon.");
+      (e.target as HTMLFormElement).reset();
+    } catch (error: any) {
+      console.error('Error sending message:', error);
+      toast.error("Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -108,6 +127,7 @@ export function Contact() {
                   <label className="block text-sm font-body font-medium mb-2">Your Name</label>
                   <Input 
                     type="text" 
+                    name="name"
                     placeholder="John Doe" 
                     required 
                     className="bg-background"
@@ -117,6 +137,7 @@ export function Contact() {
                   <label className="block text-sm font-body font-medium mb-2">Email Address</label>
                   <Input 
                     type="email" 
+                    name="email"
                     placeholder="john@example.com" 
                     required 
                     className="bg-background"
@@ -129,6 +150,7 @@ export function Contact() {
                   <label className="block text-sm font-body font-medium mb-2">Phone Number</label>
                   <Input 
                     type="tel" 
+                    name="phone"
                     placeholder="+91 98400 00000" 
                     className="bg-background"
                   />
@@ -137,6 +159,7 @@ export function Contact() {
                   <label className="block text-sm font-body font-medium mb-2">Project Type</label>
                   <Input 
                     type="text" 
+                    name="projectType"
                     placeholder="Residential / Commercial" 
                     className="bg-background"
                   />
@@ -146,6 +169,7 @@ export function Contact() {
               <div className="mb-6">
                 <label className="block text-sm font-body font-medium mb-2">Your Message</label>
                 <Textarea 
+                  name="message"
                   placeholder="Tell us about your project..." 
                   rows={5}
                   required
