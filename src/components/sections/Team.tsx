@@ -64,7 +64,7 @@ export function Team() {
         </motion.div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {teamMembers.map((member, index) => (
             <motion.div
               key={member.name}
@@ -74,9 +74,9 @@ export function Team() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group relative"
             >
-              <div className="relative overflow-hidden rounded-2xl bg-card">
+              <div className="relative overflow-hidden rounded-xl bg-card">
                 {/* Image Container */}
-                <div className="relative aspect-[3/4] overflow-hidden">
+                <div className="relative aspect-[4/5] overflow-hidden">
                   <motion.img
                     src={member.image}
                     alt={member.name}

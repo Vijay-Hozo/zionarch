@@ -116,9 +116,11 @@ export function About() {
                 Read More
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="outline" size="lg">
-                Our Team
-              </Button>
+              <a href="#team">
+                <Button variant="outline" size="lg">
+                  Our Team
+                </Button>
+              </a>
             </motion.div>
           </motion.div>
         </div>
