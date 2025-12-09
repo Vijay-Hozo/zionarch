@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
 import { Facebook, Instagram, Linkedin, Twitter, ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const footerLinks = {
   company: [
     { name: "About Us", href: "#about" },
-    { name: "Our Team", href: "#" },
+    { name: "Our Team", href: "#team" },
     { name: "Careers", href: "#" },
     { name: "News", href: "#" },
   ],
@@ -36,15 +37,15 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-foreground text-background relative overflow-hidden z-10">
+    <footer className="bg-foreground text-background relative overflow-hidden">
       {/* CTA Section */}
-      <div className="container mx-auto px-6 max-w-7xl relative z-20">
+      <div className="container mx-auto px-6 max-w-7xl relative z-50">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative -top-16 bg-primary text-primary-foreground p-8 lg:p-12 rounded-2xl flex flex-col lg:flex-row items-center justify-between gap-6"
+          className="relative -top-16 bg-primary text-primary-foreground p-8 lg:p-12 rounded-2xl flex flex-col lg:flex-row items-center justify-between gap-6 shadow-2xl"
         >
           <div>
             <h3 className="text-2xl lg:text-3xl font-display font-bold mb-2">
@@ -55,15 +56,19 @@ export function Footer() {
             </p>
           </div>
           <div className="flex gap-4">
-            <Button variant="hero-outline" size="lg">
-              Get a Quote
-            </Button>
-            <Button 
-              size="lg"
-              className="bg-primary-foreground text-primary hover:bg-primary-foreground/90"
-            >
-              Contact Us
-            </Button>
+            <Link to="/contact">
+              <Button variant="hero-outline" size="lg">
+                Get a Quote
+              </Button>
+            </Link>
+            <Link to="/contact">
+              <Button 
+                size="lg"
+                className="bg-primary-foreground text-primary hover:bg-primary-foreground/90"
+              >
+                Contact Us
+              </Button>
+            </Link>
           </div>
         </motion.div>
       </div>

@@ -1,7 +1,8 @@
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
-import { ArrowLeft, ArrowRight, ExternalLink, MapPin, Building2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, ExternalLink, MapPin, Building2, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 
 const projects = [
   {
@@ -10,6 +11,11 @@ const projects = [
     category: "Hospitality",
     year: "2018",
     area: "45,000 sq.ft",
+    images: [
+      "https://zionarch.com/wp-content/uploads/2018/08/Days-Hotel-1.jpg",
+      "https://zionarch.com/wp-content/uploads/2018/08/Days-Hotel-2.jpg",
+      "https://zionarch.com/wp-content/uploads/2018/08/Days-Hotel-3.jpg",
+    ],
     image: "https://zionarch.com/wp-content/uploads/2018/08/Days-Hotel-1.jpg",
     description: "A contemporary hotel design featuring modern amenities and elegant interiors."
   },
@@ -19,6 +25,10 @@ const projects = [
     category: "Residential",
     year: "2018",
     area: "12,000 sq.ft",
+    images: [
+      "https://zionarch.com/wp-content/uploads/2018/08/villa.jpg",
+      "https://zionarch.com/wp-content/uploads/2018/08/villa-2.jpg",
+    ],
     image: "https://zionarch.com/wp-content/uploads/2018/08/villa.jpg",
     description: "Luxurious gated community with premium residential villas."
   },
@@ -28,6 +38,10 @@ const projects = [
     category: "Residential",
     year: "2018",
     area: "8,500 sq.ft",
+    images: [
+      "https://zionarch.com/wp-content/uploads/2018/11/FEATURE-IMAGE.jpg",
+      "https://zionarch.com/wp-content/uploads/2018/11/IMAGE-2.jpg",
+    ],
     image: "https://zionarch.com/wp-content/uploads/2018/11/FEATURE-IMAGE.jpg",
     description: "A modern family residence blending contemporary design with traditional elements."
   },
@@ -37,6 +51,10 @@ const projects = [
     category: "Hospitality",
     year: "2019",
     area: "32,000 sq.ft",
+    images: [
+      "https://zionarch.com/wp-content/uploads/2019/10/0202020.jpg",
+      "https://zionarch.com/wp-content/uploads/2019/10/0202020-2.jpg",
+    ],
     image: "https://zionarch.com/wp-content/uploads/2019/10/0202020.jpg",
     description: "Boutique hotel with sophisticated architecture and premium facilities."
   },
@@ -46,6 +64,10 @@ const projects = [
     category: "Residential",
     year: "2021",
     area: "6,200 sq.ft",
+    images: [
+      "https://zionarch.com/wp-content/uploads/2021/08/FEATURE-IMAGE.png",
+      "https://zionarch.com/wp-content/uploads/2021/08/IMAGE-2.png",
+    ],
     image: "https://zionarch.com/wp-content/uploads/2021/08/FEATURE-IMAGE.png",
     description: "A serene holiday retreat featuring red brick colonial architecture."
   },
@@ -55,6 +77,10 @@ const projects = [
     category: "Institutional",
     year: "2022",
     area: "85,000 sq.ft",
+    images: [
+      "https://zionarch.com/wp-content/uploads/2022/09/FEATURE-IMAGE-1.jpg",
+      "https://zionarch.com/wp-content/uploads/2022/09/IMAGE-2.jpg",
+    ],
     image: "https://zionarch.com/wp-content/uploads/2022/09/FEATURE-IMAGE-1.jpg",
     description: "State-of-the-art CBSE school with modern educational facilities."
   },
@@ -64,6 +90,10 @@ const projects = [
     category: "Residential",
     year: "2021",
     area: "9,800 sq.ft",
+    images: [
+      "https://zionarch.com/wp-content/uploads/2021/08/feature-image-8-scaled.jpg",
+      "https://zionarch.com/wp-content/uploads/2021/08/feature-image-8-2.jpg",
+    ],
     image: "https://zionarch.com/wp-content/uploads/2021/08/feature-image-8-scaled.jpg",
     description: "Elegant French-inspired farmhouse with sprawling gardens."
   },
@@ -73,6 +103,10 @@ const projects = [
     category: "Residential",
     year: "2021",
     area: "7,500 sq.ft",
+    images: [
+      "https://zionarch.com/wp-content/uploads/2021/08/feature-image-2.jpg",
+      "https://zionarch.com/wp-content/uploads/2021/08/feature-image-2-2.jpg",
+    ],
     image: "https://zionarch.com/wp-content/uploads/2021/08/feature-image-2.jpg",
     description: "Luxury contemporary home with clean lines and premium finishes."
   },
@@ -86,6 +120,8 @@ export function Portfolio() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
+  const [modalImageIndex, setModalImageIndex] = useState(0);
 
   const filteredProjects = activeCategory === "All" 
     ? projects 
@@ -101,7 +137,25 @@ export function Portfolio() {
 
   const currentProject = filteredProjects[currentIndex];
 
+  const openProjectModal = (project: typeof projects[0]) => {
+    setSelectedProject(project);
+    setModalImageIndex(0);
+  };
+
+  const nextModalImage = () => {
+    if (selectedProject) {
+      setModalImageIndex((prev) => (prev + 1) % selectedProject.images.length);
+    }
+  };
+
+  const prevModalImage = () => {
+    if (selectedProject) {
+      setModalImageIndex((prev) => (prev - 1 + selectedProject.images.length) % selectedProject.images.length);
+    }
+  };
+
   return (
+    <>
     <section id="portfolio" ref={containerRef} className="py-24 lg:py-32 bg-background relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
@@ -301,7 +355,11 @@ export function Portfolio() {
                     </div>
                   </div>
 
-                  <Button variant="hero" className="w-full group">
+                  <Button 
+                    variant="hero" 
+                    className="w-full group"
+                    onClick={() => currentProject && openProjectModal(currentProject)}
+                  >
                     View Full Project
                     <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
@@ -375,5 +433,84 @@ export function Portfolio() {
         </motion.div>
       </div>
     </section>
+
+    {/* Project Detail Modal */}
+    <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
+      <DialogContent className="max-w-5xl p-0 overflow-hidden bg-card border-border">
+        {selectedProject && (
+          <div className="relative">
+            {/* Image Carousel */}
+            <div className="relative aspect-video bg-background">
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={modalImageIndex}
+                  src={selectedProject.images[modalImageIndex]}
+                  alt={selectedProject.title}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="w-full h-full object-cover"
+                />
+              </AnimatePresence>
+              
+              {/* Navigation */}
+              {selectedProject.images.length > 1 && (
+                <>
+                  <button
+                    onClick={prevModalImage}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground transition-all"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                  </button>
+                  <button
+                    onClick={nextModalImage}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground transition-all"
+                  >
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
+                </>
+              )}
+
+              {/* Dots */}
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                {selectedProject.images.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setModalImageIndex(idx)}
+                    className={`w-2 h-2 rounded-full transition-all ${
+                      idx === modalImageIndex ? "bg-primary w-6" : "bg-background/60"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Project Info */}
+            <div className="p-6">
+              <div className="flex items-center gap-3 mb-3">
+                <span className="px-3 py-1 bg-primary/10 text-primary text-xs font-body tracking-wider uppercase rounded-full">
+                  {selectedProject.category}
+                </span>
+                <span className="text-muted-foreground text-sm">{selectedProject.year}</span>
+                <span className="text-muted-foreground text-sm">•</span>
+                <span className="text-muted-foreground text-sm">{selectedProject.area}</span>
+              </div>
+              <h3 className="text-2xl font-display font-bold text-foreground mb-2">
+                {selectedProject.title}
+              </h3>
+              <div className="flex items-center gap-2 text-muted-foreground mb-4">
+                <MapPin className="w-4 h-4" />
+                <span className="font-body">{selectedProject.location}</span>
+              </div>
+              <p className="text-muted-foreground font-body">
+                {selectedProject.description}
+              </p>
+            </div>
+          </div>
+        )}
+      </DialogContent>
+    </Dialog>
+    </>
   );
 }
