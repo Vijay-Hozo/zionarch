@@ -2,14 +2,13 @@ import { PageLoader } from "@/components/PageLoader";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/sections/Hero";
 import { VideoShowcase } from "@/components/sections/VideoShowcase";
-import { About } from "@/components/sections/About";
+import { AboutPreview } from "@/components/sections/AboutPreview";
 import { Services } from "@/components/sections/Services";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
-import { Portfolio } from "@/components/sections/Portfolio";
+import { PortfolioPreview } from "@/components/sections/PortfolioPreview";
 import { Stats } from "@/components/sections/Stats";
 import { Specializations } from "@/components/sections/Specializations";
 import { FullService } from "@/components/sections/FullService";
-import { Team } from "@/components/sections/Team";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Partners } from "@/components/sections/Partners";
 import { Contact } from "@/components/sections/Contact";
@@ -24,14 +23,13 @@ const Index = () => {
       <main>
         <Hero />
         <VideoShowcase />
-        <About />
+        <AboutPreview />
         <Services />
         <WhyChooseUs />
-        <Portfolio />
+        <PortfolioPreview />
         <Stats />
         <Specializations />
         <FullService />
-        <Team />
         <Testimonials />
         <Partners />
         <Contact />
