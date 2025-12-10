@@ -2,13 +2,18 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export function About() {
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" ref={containerRef} className="py-24 lg:py-32 bg-background relative overflow-hidden">
+    <section
+      id="about"
+      ref={containerRef}
+      className="py-24 lg:py-32 bg-background relative overflow-hidden"
+    >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-[0.02]">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/20 to-transparent" />
@@ -36,7 +41,7 @@ export function About() {
                   className="w-full h-[500px] object-cover"
                 />
               </motion.div>
-              
+
               {/* Floating Card */}
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
@@ -45,7 +50,9 @@ export function About() {
                 className="absolute -bottom-8 -right-8 bg-primary text-primary-foreground p-8 rounded-lg shadow-2xl"
               >
                 <div className="text-5xl font-display font-bold">15+</div>
-                <div className="text-sm font-body tracking-wide opacity-90">Years Experience</div>
+                <div className="text-sm font-body tracking-wide opacity-90">
+                  Years Experience
+                </div>
               </motion.div>
 
               {/* Decorative Line */}
@@ -89,7 +96,11 @@ export function About() {
               transition={{ duration: 0.5, delay: 0.5 }}
               className="text-muted-foreground text-lg mb-4 font-body leading-relaxed"
             >
-              By God's Grace, Founded in 2010, Zionarch Architects has grown from a visionary start-up into one of the most trusted names in Architecture and Interior Design. With a deep commitment to innovation, quality, and collaboration, we craft spaces that inspire, perform, and endure.
+              By God's Grace, Founded in 2010, Zionarch Architects has grown
+              from a visionary start-up into one of the most trusted names in
+              Architecture and Interior Design. With a deep commitment to
+              innovation, quality, and collaboration, we craft spaces that
+              inspire, perform, and endure.
             </motion.p>
 
             <motion.p
@@ -98,7 +109,12 @@ export function About() {
               transition={{ duration: 0.5, delay: 0.55 }}
               className="text-muted-foreground mb-4 font-body leading-relaxed"
             >
-              Driven by a team of passionate professionals from the fields of architecture, design, engineering, and management, we deliver projects that not only meet expectations but redefine them. Our expertise spans across Institutional, Commercial, Residential, Industrial, Healthcare, and Hospitality sectors — guided by our philosophy to "Build Trust and Foster Long-Term Partnerships."
+              Driven by a team of passionate professionals from the fields of
+              architecture, design, engineering, and management, we deliver
+              projects that not only meet expectations but redefine them. Our
+              expertise spans across Institutional, Commercial, Residential,
+              Industrial, Healthcare, and Hospitality sectors — guided by our
+              philosophy to "Build Trust and Foster Long-Term Partnerships."
             </motion.p>
 
             <motion.p
@@ -107,7 +123,10 @@ export function About() {
               transition={{ duration: 0.5, delay: 0.6 }}
               className="text-muted-foreground mb-4 font-body leading-relaxed"
             >
-              We have now ventured into construction services and are successfully executing multiple projects, delivering the same design excellence and commitment to quality that define Zionarch Architects.
+              We have now ventured into construction services and are
+              successfully executing multiple projects, delivering the same
+              design excellence and commitment to quality that define Zionarch
+              Architects.
             </motion.p>
 
             <motion.p
@@ -116,7 +135,10 @@ export function About() {
               transition={{ duration: 0.5, delay: 0.65 }}
               className="text-muted-foreground mb-4 font-body leading-relaxed"
             >
-              At Zionarch, Design is our passion, and precision is our promise. Through our integrated Design & Build approach, we offer a One Stop Solution that seamlessly bridges imagination and execution — transforming visions into impactful realities.
+              At Zionarch, Design is our passion, and precision is our promise.
+              Through our integrated Design & Build approach, we offer a One
+              Stop Solution that seamlessly bridges imagination and execution —
+              transforming visions into impactful realities.
             </motion.p>
 
             <motion.p
@@ -125,7 +147,9 @@ export function About() {
               transition={{ duration: 0.5, delay: 0.7 }}
               className="text-muted-foreground mb-8 font-body leading-relaxed"
             >
-              In a dynamic and demanding market, we stand for creativity, reliability, and excellence, ensuring every project reflects our client's aspirations and our pursuit of perfection.
+              In a dynamic and demanding market, we stand for creativity,
+              reliability, and excellence, ensuring every project reflects our
+              client's aspirations and our pursuit of perfection.
             </motion.p>
 
             <motion.div
@@ -138,11 +162,11 @@ export function About() {
                 Read More
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <a href="#team">
-                <Button variant="outline" size="lg">
+              <Link to="/team">
+                <Button variant="outline" size="lg" className="cursor-pointer">
                   Our Team
                 </Button>
-              </a>
+              </Link>
             </motion.div>
           </motion.div>
         </div>

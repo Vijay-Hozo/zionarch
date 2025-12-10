@@ -112,9 +112,8 @@ export function Hero() {
             transition={{ duration: 10, ease: "linear" }}
           />
           {/* Gradient Overlays */}
-          <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/50 to-background/95" />
+          {/* <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/50 to-background/95" /> */}
           <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-transparent to-background/70" />
-          {/* Radial gradient for focus */}
           <div className="absolute inset-0 bg-radial-gradient opacity-30" style={{
             background: "radial-gradient(circle at center, transparent 0%, hsl(var(--background)) 70%)"
           }} />
@@ -195,10 +194,10 @@ export function Hero() {
       {/* Content */}
       <motion.div
         style={{ opacity }}
-        className="relative z-20 container mx-auto px-6 text-center"
+        className="absolute bottom-0 mb-20 lg:mb-32 z-20 container mx-auto px-6 text-center w-full"
       >
         {/* Badge */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
@@ -207,59 +206,33 @@ export function Hero() {
           <span className="inline-block px-6 py-3 text-xs font-body tracking-[0.3em] uppercase text-foreground/60 border border-foreground/20 rounded-full backdrop-blur-sm">
             Architecture & Design Studio
           </span>
-        </motion.div>
+        </motion.div> */}
 
-        {/* Main Title */}
-        <div className="overflow-hidden mb-6">
-          <motion.h1
-            initial={{ y: 100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold text-foreground leading-[0.9]"
-          >
-            BRIDGES BETWEEN
-          </motion.h1>
+        {/* Main Title and Subtitle Side by Side */}
+        <div className="flex flex-col lg:flex-row items-end justify-center gap-4 mb-8 flex-wrap">
+          <div className="overflow-hidden">
+            <motion.h1
+              initial={{ y: 100, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-6xl font-display font-bold text-foreground leading-[0.9]"
+            >
+              BRIDGES BETWEEN
+            </motion.h1>
+          </div>
+          
+          <div className="overflow-hidden">
+            <motion.h2
+              initial={{ y: 80, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 1, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-5xl font-display text-foreground/80"
+            >
+              <span className="">Inspirations & </span>
+              <span className="text-primary">Aspirations</span>
+            </motion.h2>
+          </div>
         </div>
-        
-        {/* Subtitle */}
-        <div className="overflow-hidden mb-8">
-          <motion.h2
-            initial={{ y: 80, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display text-foreground/80"
-          >
-            <span className="italic">Inspirations & </span>
-            <span className="text-primary">Aspirations</span>
-          </motion.h2>
-        </div>
-
-        {/* Current Slide Title */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentSlide}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5 }}
-            className="mb-8"
-          >
-            <span className="text-sm font-body tracking-widest uppercase text-primary/80 bg-primary/10 backdrop-blur-md px-6 py-3 rounded-full border border-primary/20">
-              {slides[currentSlide].title}
-            </span>
-          </motion.div>
-        </AnimatePresence>
-
-        {/* Description */}
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
-          className="max-w-2xl mx-auto text-foreground/60 text-lg mb-12 font-body leading-relaxed"
-        >
-          A collaboration of innovative design individuals from diverse disciplines 
-          forming a highly capable design team for your dream projects.
-        </motion.p>
 
         {/* CTA Buttons */}
         <motion.div
@@ -270,7 +243,7 @@ export function Hero() {
         >
           <Link to="/portfolio">
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-              <Button variant="hero" size="xl" className="group">
+              <Button variant="hero-outline" size="xl" className="group-hover:bg-none">
                 <span className="flex items-center gap-2">
                   Explore Portfolio
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
@@ -278,9 +251,9 @@ export function Hero() {
               </Button>
             </motion.div>
           </Link>
-          <Link to="/contact">
+          <Link to="/quote">
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-              <Button variant="hero-outline" size="xl">
+              <Button variant="hero" size="xl" >
                 Get a Quote
               </Button>
             </motion.div>

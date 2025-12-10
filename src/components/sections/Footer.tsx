@@ -39,7 +39,7 @@ export function Footer() {
   return (
     <>
       {/* CTA Section - Above Footer */}
-      <div className="container mx-auto px-6 max-w-7xl relative z-50 mb-0">
+      {/* <div className="container mx-auto px-6 max-w-7xl relative z-50 mb-0">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -71,13 +71,13 @@ export function Footer() {
             </Link>
           </div>
         </motion.div>
-      </div>
+      </div> */}
 
       <footer className="bg-foreground text-background relative pt-24">
 
       {/* Main Footer */}
       <div className="container mx-auto px-6 pb-12 max-w-7xl">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 lg:gap-12 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
           {/* Brand */}
           <div className="col-span-2 lg:col-span-1">
             <a href="#home" className="inline-block mb-6">
@@ -160,7 +160,7 @@ export function Footer() {
           </div>
 
           {/* Newsletter */}
-          <div className="col-span-2 md:col-span-4 lg:col-span-1">
+          {/* <div className="col-span-2 md:col-span-4 lg:col-span-1">
             <h4 className="font-display font-semibold text-background mb-4">Newsletter</h4>
             <p className="text-background/60 font-body text-sm mb-4">
               Subscribe for updates on our latest projects and news.
@@ -175,7 +175,7 @@ export function Footer() {
                 Subscribe
               </Button>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Bottom Bar */}
