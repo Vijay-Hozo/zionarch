@@ -87,23 +87,45 @@ export function About() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="text-muted-foreground text-lg mb-6 font-body leading-relaxed"
+              className="text-muted-foreground text-lg mb-4 font-body leading-relaxed"
             >
-              ZIONARCH is a collaboration of innovative design individuals from diverse 
-              disciplines forming a highly capable design team. We offer a complete range 
-              of design solutions for commercial, institutional, hospitality, healthcare, 
-              industrial and residential spaces.
+              By God's Grace, Founded in 2010, Zionarch Architects has grown from a visionary start-up into one of the most trusted names in Architecture and Interior Design. With a deep commitment to innovation, quality, and collaboration, we craft spaces that inspire, perform, and endure.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.55 }}
+              className="text-muted-foreground mb-4 font-body leading-relaxed"
+            >
+              Driven by a team of passionate professionals from the fields of architecture, design, engineering, and management, we deliver projects that not only meet expectations but redefine them. Our expertise spans across Institutional, Commercial, Residential, Industrial, Healthcare, and Hospitality sectors — guided by our philosophy to "Build Trust and Foster Long-Term Partnerships."
             </motion.p>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.6 }}
-              className="text-muted-foreground mb-8 font-body"
+              className="text-muted-foreground mb-4 font-body leading-relaxed"
             >
-              We believe that a residential, institutional, or corporate design involves 
-              not just layouts and arrangement of furniture but also the need for a design 
-              which yields Positive Energy and leads to a prosperous Lifestyle.
+              We have now ventured into construction services and are successfully executing multiple projects, delivering the same design excellence and commitment to quality that define Zionarch Architects.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.65 }}
+              className="text-muted-foreground mb-4 font-body leading-relaxed"
+            >
+              At Zionarch, Design is our passion, and precision is our promise. Through our integrated Design & Build approach, we offer a One Stop Solution that seamlessly bridges imagination and execution — transforming visions into impactful realities.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.7 }}
+              className="text-muted-foreground mb-8 font-body leading-relaxed"
+            >
+              In a dynamic and demanding market, we stand for creativity, reliability, and excellence, ensuring every project reflects our client's aspirations and our pursuit of perfection.
             </motion.p>
 
             <motion.div
