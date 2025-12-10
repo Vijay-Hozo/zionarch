@@ -37,15 +37,15 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-foreground text-background relative overflow-hidden">
-      {/* CTA Section */}
-      <div className="container mx-auto px-6 max-w-7xl relative z-50">
+    <>
+      {/* CTA Section - Above Footer */}
+      <div className="container mx-auto px-6 max-w-7xl relative z-50 mb-0">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative -top-16 bg-primary text-primary-foreground p-8 lg:p-12 rounded-2xl flex flex-col lg:flex-row items-center justify-between gap-6 shadow-2xl"
+          className="bg-primary text-primary-foreground p-8 lg:p-12 rounded-2xl flex flex-col lg:flex-row items-center justify-between gap-6 shadow-2xl transform translate-y-1/2"
         >
           <div>
             <h3 className="text-2xl lg:text-3xl font-display font-bold mb-2">
@@ -72,6 +72,8 @@ export function Footer() {
           </div>
         </motion.div>
       </div>
+
+      <footer className="bg-foreground text-background relative pt-24">
 
       {/* Main Footer */}
       <div className="container mx-auto px-6 pb-12 max-w-7xl">
@@ -200,5 +202,6 @@ export function Footer() {
         </div>
       </div>
     </footer>
+    </>
   );
 }
