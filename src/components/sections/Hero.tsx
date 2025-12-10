@@ -43,6 +43,22 @@ export function Hero() {
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
+  const slideVariants = {
+    enter: { opacity: 0, scale: 1.1, x: 100 },
+    center: { 
+      opacity: 1, 
+      scale: 1, 
+      x: 0,
+      transition: { duration: 1, ease: [0.25, 0.46, 0.45, 0.94] as const }
+    },
+    exit: { 
+      opacity: 0, 
+      scale: 0.95, 
+      x: -100,
+      transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] as const }
+    },
+  };
+
   return (
     <section
       id="home"
@@ -81,38 +97,24 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* Background Images with Smooth Ken Burns Effect */}
+      {/* Background Images with Smooth Sliding Animation */}
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide}
-          initial={{ opacity: 0, scale: 1.2, filter: "blur(10px)" }}
-          animate={{ 
-            opacity: 1, 
-            scale: 1,
-            filter: "blur(0px)",
-            transition: { 
-              opacity: { duration: 1.2, ease: "easeOut" }, 
-              scale: { duration: 10, ease: "linear" },
-              filter: { duration: 1, ease: "easeOut" }
-            }
-          }}
-          exit={{ 
-            opacity: 0, 
-            scale: 1.1,
-            filter: "blur(5px)",
-            transition: { duration: 0.8, ease: "easeInOut" } 
-          }}
+          variants={slideVariants}
+          initial="enter"
+          animate="center"
+          exit="exit"
           style={{ y, scale }}
           className="absolute inset-0 z-0"
         >
           <motion.div
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${slides[currentSlide].image})` }}
-            animate={{ scale: [1, 1.15] }}
-            transition={{ duration: 10, ease: "linear" }}
+            animate={{ scale: [1, 1.08] }}
+            transition={{ duration: 6, ease: "linear" }}
           />
           {/* Gradient Overlays */}
-          {/* <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/50 to-background/95" /> */}
           <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-transparent to-background/70" />
           <div className="absolute inset-0 bg-radial-gradient opacity-30" style={{
             background: "radial-gradient(circle at center, transparent 0%, hsl(var(--background)) 70%)"
@@ -148,12 +150,12 @@ export function Hero() {
       {/* Animated Grain Overlay */}
       <div className="absolute inset-0 z-10 opacity-[0.02] pointer-events-none bg-[url('data:image/svg+xml,%3Csvg viewBox=%270 0 256 256%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cfilter id=%27noise%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.9%27 numOctaves=%274%27 stitchTiles=%27stitch%27/%3E%3C/filter%3E%3Crect width=%27100%25%27 height=%27100%25%27 filter=%27url(%23noise)%27/%3E%3C/svg%3E')]" />
 
-      {/* Slide Navigation Arrows */}
+      {/* Slide Navigation Arrows - Hidden on Mobile */}
       <motion.div 
         initial={{ opacity: 0, x: -30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 1.2 }}
-        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30"
+        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 hidden md:block"
       >
         <motion.button
           onClick={prevSlide}
@@ -168,7 +170,7 @@ export function Hero() {
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 1.2 }}
-        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-30"
+        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 hidden md:block"
       >
         <motion.button
           onClick={nextSlide}
@@ -194,28 +196,16 @@ export function Hero() {
       {/* Content */}
       <motion.div
         style={{ opacity }}
-        className="absolute bottom-0 mb-20 lg:mb-32 z-20 container mx-auto px-6 text-center w-full"
+        className="absolute bottom-0 mb-16 md:mb-20 lg:mb-32 z-20 container mx-auto px-4 md:px-6 text-center w-full"
       >
-        {/* Badge */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="mb-8"
-        >
-          <span className="inline-block px-6 py-3 text-xs font-body tracking-[0.3em] uppercase text-foreground/60 border border-foreground/20 rounded-full backdrop-blur-sm">
-            Architecture & Design Studio
-          </span>
-        </motion.div> */}
-
         {/* Main Title and Subtitle Side by Side */}
-        <div className="flex flex-col lg:flex-row items-end justify-center gap-4 mb-8 flex-wrap">
+        <div className="flex flex-col items-center justify-center gap-2 md:gap-4 mb-6 md:mb-8">
           <div className="overflow-hidden">
             <motion.h1
               initial={{ y: 100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-6xl font-display font-bold text-foreground leading-[0.9]"
+              className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-display font-bold text-foreground leading-[0.9]"
             >
               BRIDGES BETWEEN
             </motion.h1>
@@ -226,20 +216,20 @@ export function Hero() {
               initial={{ y: 80, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 1, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-5xl font-display text-foreground/80"
+              className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-display text-foreground/80"
             >
-              <span className="">Inspirations & </span>
+              <span>Inspirations & </span>
               <span className="text-primary">Aspirations</span>
             </motion.h2>
           </div>
         </div>
 
-        {/* CTA Buttons */}
+        {/* CTA Buttons - Hidden on Mobile */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.1 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="hidden md:flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <Link to="/portfolio">
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
@@ -266,13 +256,13 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 0.8 }}
-        className="absolute bottom-16 left-1/2 -translate-x-1/2 z-20"
+        className="absolute bottom-8 md:bottom-16 left-1/2 -translate-x-1/2 z-20"
       >
         <motion.a
           href="#about"
           className="flex flex-col items-center gap-2 text-foreground/40 hover:text-foreground/60 transition-colors"
         >
-          <span className="text-xs font-body tracking-widest uppercase">Scroll</span>
+          <span className="text-xs font-body tracking-widest uppercase hidden md:block">Scroll</span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}

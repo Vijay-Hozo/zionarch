@@ -75,40 +75,53 @@ export function Testimonials() {
 
   const slideVariants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? 300 : -300,
+      x: direction > 0 ? 400 : -400,
       opacity: 0,
-      scale: 0.9,
+      scale: 0.85,
+      rotateY: direction > 0 ? 15 : -15,
     }),
     center: {
       x: 0,
       opacity: 1,
       scale: 1,
+      rotateY: 0,
       transition: {
-        duration: 0.5,
+        duration: 0.6,
         ease: [0.25, 0.46, 0.45, 0.94] as const,
       },
     },
     exit: (direction: number) => ({
-      x: direction < 0 ? 300 : -300,
+      x: direction < 0 ? 400 : -400,
       opacity: 0,
-      scale: 0.9,
+      scale: 0.85,
+      rotateY: direction < 0 ? 15 : -15,
       transition: {
-        duration: 0.5,
+        duration: 0.6,
         ease: [0.25, 0.46, 0.45, 0.94] as const,
       },
     }),
   };
 
+  const contentVariants = {
+    enter: { opacity: 0, y: 30 },
+    center: { 
+      opacity: 1, 
+      y: 0,
+      transition: { delay: 0.2, duration: 0.5 }
+    },
+    exit: { opacity: 0, y: -20, transition: { duration: 0.3 } },
+  };
+
   return (
-    <section id="testimonials" className="py-24 md:py-32 bg-card overflow-hidden">
-      <div className="container mx-auto px-6">
+    <section id="testimonials" className="py-16 md:py-24 lg:py-32 bg-card overflow-hidden">
+      <div className="container mx-auto px-4 md:px-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
           <motion.span
             initial={{ opacity: 0, y: 20 }}
@@ -119,19 +132,19 @@ export function Testimonials() {
           >
             Testimonials
           </motion.span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-6xl font-display font-bold text-foreground mb-6">
             What Our <span className="text-primary">Clients</span> Say
           </h2>
         </motion.div>
 
         {/* Testimonial Carousel */}
-        <div className="max-w-4xl mx-auto relative">
-          {/* Navigation Arrows */}
+        <div className="max-w-4xl mx-auto relative perspective-1000">
+          {/* Navigation Arrows - Hidden on Mobile */}
           <motion.button
             onClick={prevTestimonial}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="absolute left-0 md:-left-16 top-1/2 -translate-y-1/2 z-20 p-3 bg-background rounded-full shadow-lg text-foreground/60 hover:text-primary transition-colors"
+            className="absolute left-0 md:-left-16 top-1/2 -translate-y-1/2 z-20 p-3 bg-background rounded-full shadow-lg text-foreground/60 hover:text-primary transition-colors hidden md:block"
           >
             <ChevronLeft className="w-6 h-6" />
           </motion.button>
@@ -139,12 +152,12 @@ export function Testimonials() {
             onClick={nextTestimonial}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="absolute right-0 md:-right-16 top-1/2 -translate-y-1/2 z-20 p-3 bg-background rounded-full shadow-lg text-foreground/60 hover:text-primary transition-colors"
+            className="absolute right-0 md:-right-16 top-1/2 -translate-y-1/2 z-20 p-3 bg-background rounded-full shadow-lg text-foreground/60 hover:text-primary transition-colors hidden md:block"
           >
             <ChevronRight className="w-6 h-6" />
           </motion.button>
 
-          <div className="relative overflow-hidden py-8">
+          <div className="relative overflow-hidden py-4 md:py-8">
             <AnimatePresence mode="wait" custom={direction}>
               <motion.div
                 key={currentIndex}
@@ -153,63 +166,74 @@ export function Testimonials() {
                 initial="enter"
                 animate="center"
                 exit="exit"
-                className="bg-background rounded-3xl p-8 md:p-12 shadow-xl relative"
+                className="bg-background rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-12 shadow-xl relative"
               >
                 {/* Quote Icon */}
-                <div className="absolute top-8 right-8 text-primary/10">
-                  <Quote className="w-20 h-20" />
+                <div className="absolute top-6 right-6 md:top-8 md:right-8 text-primary/10">
+                  <Quote className="w-12 h-12 md:w-20 md:h-20" />
                 </div>
 
-                <div className="flex flex-col md:flex-row items-center gap-8">
+                <motion.div
+                  variants={contentVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  className="flex flex-col md:flex-row items-center gap-6 md:gap-8"
+                >
                   {/* Avatar */}
-                  <motion.div
-                    initial={{ scale: 0.8, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ delay: 0.2, duration: 0.5 }}
-                    className="relative shrink-0"
-                  >
-                    <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-primary/20">
+                  <div className="relative shrink-0">
+                    <motion.div
+                      initial={{ scale: 0.8, opacity: 0, rotate: -10 }}
+                      animate={{ scale: 1, opacity: 1, rotate: 0 }}
+                      transition={{ delay: 0.3, duration: 0.5, type: "spring" }}
+                      className="w-20 h-20 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-primary/20"
+                    >
                       <img
                         src={testimonials[currentIndex].image}
                         alt={testimonials[currentIndex].name}
                         className="w-full h-full object-cover"
                       />
-                    </div>
-                    <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-                      <Quote className="w-5 h-5 text-primary-foreground" />
-                    </div>
-                  </motion.div>
+                    </motion.div>
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ delay: 0.5, type: "spring" }}
+                      className="absolute -bottom-2 -right-2 w-8 h-8 md:w-10 md:h-10 bg-primary rounded-full flex items-center justify-center"
+                    >
+                      <Quote className="w-4 h-4 md:w-5 md:h-5 text-primary-foreground" />
+                    </motion.div>
+                  </div>
 
                   {/* Content */}
                   <div className="flex-1 text-center md:text-left">
                     <motion.p
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.3, duration: 0.5 }}
-                      className="text-foreground/80 font-body text-lg md:text-xl leading-relaxed mb-6 italic"
+                      transition={{ delay: 0.4, duration: 0.5 }}
+                      className="text-foreground/80 font-body text-base md:text-lg lg:text-xl leading-relaxed mb-4 md:mb-6 italic"
                     >
                       "{testimonials[currentIndex].quote}"
                     </motion.p>
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.4, duration: 0.5 }}
+                      transition={{ delay: 0.5, duration: 0.5 }}
                     >
-                      <h4 className="text-xl font-display font-semibold text-foreground mb-1">
+                      <h4 className="text-lg md:text-xl font-display font-semibold text-foreground mb-1">
                         {testimonials[currentIndex].name}
                       </h4>
-                      <p className="text-foreground/60 font-body text-sm">
+                      <p className="text-foreground/60 font-body text-xs md:text-sm">
                         {testimonials[currentIndex].role}
                       </p>
                     </motion.div>
                   </div>
-                </div>
+                </motion.div>
               </motion.div>
             </AnimatePresence>
           </div>
 
           {/* Dots Indicator */}
-          <div className="flex justify-center gap-2 mt-6">
+          <div className="flex justify-center gap-2 mt-4 md:mt-6">
             {testimonials.map((_, index) => (
               <button
                 key={index}
@@ -219,7 +243,7 @@ export function Testimonials() {
                 }}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
                   index === currentIndex
-                    ? "bg-primary w-8"
+                    ? "bg-primary w-6 md:w-8"
                     : "bg-foreground/20 hover:bg-foreground/40"
                 }`}
               />
