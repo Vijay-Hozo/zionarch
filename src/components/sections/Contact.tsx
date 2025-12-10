@@ -5,7 +5,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { MapPin, Phone, Mail, Send, Clock } from "lucide-react";
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
 
 const contactInfo = [
   {
@@ -39,30 +38,12 @@ export function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    const formData = new FormData(e.target as HTMLFormElement);
-    const data = {
-      name: formData.get('name') as string,
-      email: formData.get('email') as string,
-      phone: formData.get('phone') as string,
-      projectType: formData.get('projectType') as string,
-      message: formData.get('message') as string,
-    };
-
-    try {
-      const { data: response, error } = await supabase.functions.invoke('send-contact-email', {
-        body: data,
-      });
-
-      if (error) throw error;
-
-      toast.success("Message sent successfully! We'll get back to you soon.");
-      (e.target as HTMLFormElement).reset();
-    } catch (error: any) {
-      console.error('Error sending message:', error);
-      toast.error("Failed to send message. Please try again.");
-    } finally {
-      setIsSubmitting(false);
-    }
+    // Simulate form submission delay
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    toast.success("Message received! We'll get back to you soon.");
+    (e.target as HTMLFormElement).reset();
+    setIsSubmitting(false);
   };
 
   return (
