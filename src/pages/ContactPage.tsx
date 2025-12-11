@@ -6,7 +6,7 @@ const ContactPage = () => {
   return (
     <>
       <Navbar />
-      <main className="pt-20">
+      <main>
         <Contact />
       </main>
       <Footer />
