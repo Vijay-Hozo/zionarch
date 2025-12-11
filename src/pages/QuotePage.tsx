@@ -93,7 +93,7 @@ const QuotePage = () => {
   return (
     <>
       <Navbar />
-      <main className="pt-20 min-h-screen bg-background">
+      <main className="min-h-screen bg-background">
         {/* Hero Section */}
         <section className="py-16 lg:py-24 relative overflow-hidden">
           <div className="absolute inset-0 pointer-events-none">

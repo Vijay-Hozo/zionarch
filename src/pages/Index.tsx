@@ -13,7 +13,6 @@ import { Testimonials } from "@/components/sections/Testimonials";
 import { Partners } from "@/components/sections/Partners";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 const Index = () => {
   return (
@@ -35,7 +34,6 @@ const Index = () => {
         <Contact />
       </main>
       <Footer />
-      <WhatsAppButton />
     </>
   );
 };
