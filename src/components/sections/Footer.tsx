@@ -78,10 +78,10 @@ export function Footer() {
         </motion.div>
       </div>
 
-      <footer className="bg-foreground text-background relative pt-32 md:pt-36 overflow-hidden">
-        {/* Large Background Text - Like Reference Image */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
-          <span className="text-[12vw] md:text-[15vw] font-display font-bold text-background/[0.03] whitespace-nowrap select-none">
+      <footer className="bg-foreground text-background relative pt-32 md:pt-40 pb-20 md:pb-28 overflow-hidden min-h-[500px] md:min-h-[600px]">
+        {/* Large Background Text - At Bottom Like Reference Image */}
+        <div className="absolute bottom-4 md:bottom-8 left-0 right-0 flex items-end justify-center pointer-events-none overflow-hidden">
+          <span className="text-[18vw] md:text-[20vw] font-display font-bold text-background/[0.06] whitespace-nowrap select-none leading-none">
             ZIONARCH
           </span>
         </div>
