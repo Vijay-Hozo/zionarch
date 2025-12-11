@@ -1,5 +1,6 @@
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { ArrowLeft, ArrowRight, ExternalLink, MapPin, Building2, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
@@ -117,11 +118,21 @@ const categories = ["All", "Residential", "Hospitality", "Institutional"];
 export function Portfolio() {
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
+  const [searchParams] = useSearchParams();
   const [activeCategory, setActiveCategory] = useState("All");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
   const [modalImageIndex, setModalImageIndex] = useState(0);
+
+  // Read category from URL params
+  useEffect(() => {
+    const categoryParam = searchParams.get("category");
+    if (categoryParam && categories.includes(categoryParam)) {
+      setActiveCategory(categoryParam);
+      setCurrentIndex(0);
+    }
+  }, [searchParams]);
 
   const filteredProjects = activeCategory === "All" 
     ? projects 

@@ -22,7 +22,15 @@ const navItems = [
     ]
   },
   { name: "SERVICES", href: "/services" },
-  { name: "PORTFOLIO", href: "/portfolio" },
+  { 
+    name: "PORTFOLIO", 
+    href: "/portfolio",
+    subItems: [
+      { name: "Residential", href: "/portfolio?category=Residential" },
+      { name: "Hospitality", href: "/portfolio?category=Hospitality" },
+      { name: "Institutional", href: "/portfolio?category=Institutional" }
+    ]
+  },
   { name: "QUOTE", href: "/quote" },
   { name: "CONTACT US", href: "/contact" },
 ];
