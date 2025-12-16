@@ -3,20 +3,35 @@ import { useRef, useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroImage from "@/assets/hero-building.jpg";
 
 const slides = [
   {
-    title: "HOLIDAY HOME AT MAHABALIPURAM",
-    image: "https://zionarch.com/wp-content/uploads/2021/08/FEATURE-IMAGE.png",
+    title: "MURUGESH BABU RESIDENCE",
+    image: "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642087/MAIN-1_1_-_Photo_spmnak.jpg",
   },
   {
-    title: "CONTEMPORARY RESIDENCE AT KARUR",
-    image: "https://zionarch.com/wp-content/uploads/2021/08/feature-image-2.jpg",
+    title: "SHOLAA LAKE VIEW RESORT",
+    image: "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642173/MAIN-1_1_-_Photo_d0ercs.jpg",
   },
   {
-    title: "FRENCH STYLE FARM HOUSE",
-    image: heroImage,
+    title: "VASIYAM HOMES",
+    image: "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642032/MAIN-1_1_vihwcn.jpg",
+  },
+  {
+    title: "RAMAKRISHNAN RESIDENCE",
+    image: "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642061/MAIN-1_2_-_Photo_wv1urc.jpg",
+  },
+  {
+    title: "AJITH RESIDENCE",
+    image: "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642253/MAIN-AERIAL_VIEW_o6cvgt.jpg",
+  },
+  {
+    title: "PRABHAKARAN RESIDENCE",
+    image: "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642251/MAIN-1_2_-_Photo_fiy9iy.jpg",
+  },
+  {
+    title: "SREE CHAITANYA VISHNU",
+    image: "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642244/MAIN-2_15_-_Photo_zzoajx.jpg",
   },
 ];
 
@@ -115,7 +130,6 @@ export function Hero() {
             transition={{ duration: 6, ease: "linear" }}
           />
           {/* Gradient Overlays */}
-          <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-transparent to-background/70" />
           <div className="absolute inset-0 bg-radial-gradient opacity-30" style={{
             background: "radial-gradient(circle at center, transparent 0%, hsl(var(--background)) 70%)"
           }} />
@@ -205,7 +219,7 @@ export function Hero() {
               initial={{ y: 100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-display font-bold text-foreground leading-[0.9]"
+              className="text-2xl sm:text-3xl md:text-5xl lg:text-3xl font-display font-semibold text-foreground leading-[0.9]"
             >
               BRIDGES BETWEEN
             </motion.h1>
@@ -216,7 +230,7 @@ export function Hero() {
               initial={{ y: 80, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 1, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-display text-foreground/80"
+              className="text-xl sm:text-2xl md:text-4xl lg:text-3xl font-display text-foreground/80"
             >
               <span>Inspirations & </span>
               <span className="text-primary">Aspirations</span>

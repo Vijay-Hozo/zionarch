@@ -35,10 +35,13 @@ export function About() {
                 transition={{ duration: 1.2, ease: "easeOut" }}
                 className="overflow-hidden rounded-lg"
               >
-                <img
-                  src="https://zionarch.com/wp-content/uploads/2018/08/AREA-OF-SPECIALIZATION1.jpg"
-                  alt="ZIONARCH Architecture"
+                <video
+                  src="https://res.cloudinary.com/dfrlskgto/video/upload/v1765883924/ABOUT_US_wmclnl.mp4"
                   className="w-full h-[500px] object-cover"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
                 />
               </motion.div>
 
@@ -126,25 +129,15 @@ export function About() {
               We have now ventured into construction services and are
               successfully executing multiple projects, delivering the same
               design excellence and commitment to quality that define Zionarch
-              Architects.
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.65 }}
-              className="text-muted-foreground mb-4 font-body leading-relaxed"
-            >
-              At Zionarch, Design is our passion, and precision is our promise.
-              Through our integrated Design & Build approach, we offer a One
-              Stop Solution that seamlessly bridges imagination and execution —
+              Architects. Through our integrated Design & Build approach, we
+              offer a One Stop Solution that bridges imagination and execution —
               transforming visions into impactful realities.
             </motion.p>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.7 }}
+              transition={{ duration: 0.5, delay: 0.65 }}
               className="text-muted-foreground mb-8 font-body leading-relaxed"
             >
               In a dynamic and demanding market, we stand for creativity,
@@ -158,15 +151,18 @@ export function About() {
               transition={{ duration: 0.5, delay: 0.7 }}
               className="flex flex-wrap gap-4"
             >
-              <Button variant="default" size="lg" className="group">
-                Read More
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <Button asChild variant="default" size="lg" className="group cursor-pointer">
+                <Link to="/quote">
+                  Get a Quote
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
               </Button>
-              <Link to="/team">
-                <Button variant="outline" size="lg" className="cursor-pointer">
-                  Our Team
-                </Button>
-              </Link>
+              <Button asChild variant="outline" size="lg" className="group cursor-pointer">
+                <Link to="/contact">
+                  Contact Us
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </Button>
             </motion.div>
           </motion.div>
         </div>

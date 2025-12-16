@@ -38,47 +38,7 @@ export function Footer() {
 
   return (
     <>
-      {/* CTA Section - Above Footer */}
-      <div className="container mx-auto px-4 md:px-6 max-w-7xl relative z-50 mb-0">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="bg-primary text-primary-foreground p-6 md:p-8 lg:p-12 rounded-2xl flex flex-col lg:flex-row items-center justify-between gap-6 shadow-2xl transform translate-y-1/2"
-        >
-          <div className="text-center lg:text-left">
-            <h3 className="text-xl md:text-2xl lg:text-3xl font-display font-bold mb-2">
-              Ready to Start Your Project?
-            </h3>
-            <p className="text-primary-foreground/80 font-body text-sm md:text-base">
-              Let's create something amazing together
-            </p>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
-            <Link to="/quote">
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button variant="hero-outline" size="lg" className="group w-full sm:w-auto">
-                  Get a Quote
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </motion.div>
-            </Link>
-            <Link to="/contact">
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button 
-                  size="lg"
-                  className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 w-full sm:w-auto"
-                >
-                  Contact Us
-                </Button>
-              </motion.div>
-            </Link>
-          </div>
-        </motion.div>
-      </div>
-
-      <footer className="bg-foreground text-background relative pt-32 md:pt-40 pb-20 md:pb-28 overflow-hidden min-h-[500px] md:min-h-[600px]">
+      <footer className="bg-foreground text-background relative pt-32 md:pt-10 pb-20 md:pb-28 overflow-hidden min-h-[500px] md:min-h-[600px]">
         {/* Large Background Text - At Bottom Like Reference Image */}
         <div className="absolute bottom-4 md:bottom-8 left-0 right-0 flex items-end justify-center pointer-events-none overflow-hidden">
           <span className="text-[18vw] md:text-[20vw] font-display font-bold text-background/[0.06] whitespace-nowrap select-none leading-none">

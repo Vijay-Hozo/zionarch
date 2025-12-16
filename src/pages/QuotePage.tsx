@@ -6,15 +6,61 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { ArrowRight, ArrowLeft, Check, Building2, Home, Hotel, Church, GraduationCap, Factory, Send, User, Mail, Phone, MapPin, FileText } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowLeft,
+  Check,
+  Building2,
+  Home,
+  Hotel,
+  Church,
+  GraduationCap,
+  Factory,
+  Send,
+  User,
+  Mail,
+  Phone,
+  MapPin,
+  FileText,
+} from "lucide-react";
 
 const projectTypes = [
-  { id: "residential", label: "Residential Project", icon: Home, description: "Homes, Villas, Apartments" },
-  { id: "commercial", label: "Commercial Project", icon: Building2, description: "Offices, Retail Spaces, Showrooms" },
-  { id: "hospitality", label: "Hospitality Project", icon: Hotel, description: "Hotels, Resorts, Restaurants" },
-  { id: "religious", label: "Religious Project", icon: Church, description: "Temples, Churches, Mosques" },
-  { id: "institutional", label: "Institutional Project", icon: GraduationCap, description: "Schools, Colleges, Hospitals" },
-  { id: "industrial", label: "Industrial Project", icon: Factory, description: "Factories, Warehouses, Plants" },
+  {
+    id: "residential",
+    label: "Residential Project",
+    icon: Home,
+    description: "Homes, Villas, Apartments",
+  },
+  {
+    id: "commercial",
+    label: "Commercial Project",
+    icon: Building2,
+    description: "Offices, Retail Spaces, Showrooms",
+  },
+  {
+    id: "hospitality",
+    label: "Hospitality Project",
+    icon: Hotel,
+    description: "Hotels, Resorts, Restaurants",
+  },
+  {
+    id: "religious",
+    label: "Religious Project",
+    icon: Church,
+    description: "Temples, Churches, Mosques",
+  },
+  {
+    id: "institutional",
+    label: "Institutional Project",
+    icon: GraduationCap,
+    description: "Schools, Colleges, Hospitals",
+  },
+  {
+    id: "industrial",
+    label: "Industrial Project",
+    icon: Factory,
+    description: "Factories, Warehouses, Plants",
+  },
 ];
 
 const steps = [
@@ -44,7 +90,9 @@ const QuotePage = () => {
     setFormData({ ...formData, projectType: type });
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -53,8 +101,14 @@ const QuotePage = () => {
       toast({ title: "Please select a project type", variant: "destructive" });
       return;
     }
-    if (currentStep === 2 && (!formData.name || !formData.email || !formData.phone)) {
-      toast({ title: "Please fill in all required fields", variant: "destructive" });
+    if (
+      currentStep === 2 &&
+      (!formData.name || !formData.email || !formData.phone)
+    ) {
+      toast({
+        title: "Please fill in all required fields",
+        variant: "destructive",
+      });
       return;
     }
     setCurrentStep((prev) => Math.min(prev + 1, 4));
@@ -69,10 +123,30 @@ const QuotePage = () => {
     // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 2000));
     setIsSubmitting(false);
+
+    // Build WhatsApp message with the collected details
+    const summary = `Quote Request:\nProject Type: ${
+      formData.projectType || "-"
+    }\nName: ${formData.name || "-"}\nEmail: ${formData.email || "-"}\nPhone: ${
+      formData.phone || "-"
+    }\nLocation: ${formData.location || "-"}\nPlot Size: ${
+      formData.plotSize || "-"
+    }\nBudget: ${formData.budget || "-"}\nTimeline: ${
+      formData.timeline || "-"
+    }\nDescription: ${formData.description || "-"}`;
+
+    const waUrl = `https://wa.me/918838725310?text=${encodeURIComponent(
+      summary
+    )}`;
+
     toast({
-      title: "Quote Request Submitted!",
-      description: "We'll get back to you within 24 hours.",
+      title: "Thank you!",
+      description: "We will reach out to you very soon.",
     });
+
+    // Open WhatsApp with the message ready to send
+    window.open(waUrl, "_blank");
+
     // Reset form
     setFormData({
       projectType: "",
@@ -88,7 +162,9 @@ const QuotePage = () => {
     setCurrentStep(1);
   };
 
-  const selectedProjectType = projectTypes.find((p) => p.id === formData.projectType);
+  const selectedProjectType = projectTypes.find(
+    (p) => p.id === formData.projectType
+  );
 
   return (
     <>
@@ -128,7 +204,8 @@ const QuotePage = () => {
                 Get a <span className="text-primary">Quote</span>
               </h1>
               <p className="text-muted-foreground font-body max-w-2xl mx-auto text-lg">
-                Tell us about your project and we'll provide you with a detailed quote within 24 hours.
+                Tell us about your project and we'll provide you with a detailed
+                quote within 24 hours.
               </p>
             </motion.div>
 
@@ -146,13 +223,22 @@ const QuotePage = () => {
                       <motion.div
                         animate={{
                           scale: currentStep === step.id ? 1.1 : 1,
-                          backgroundColor: currentStep >= step.id ? "hsl(var(--primary))" : "hsl(var(--muted))",
+                          backgroundColor:
+                            currentStep >= step.id
+                              ? "hsl(var(--primary))"
+                              : "hsl(var(--muted))",
                         }}
                         className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-sm font-display font-bold transition-all duration-300 ${
-                          currentStep >= step.id ? "text-primary-foreground" : "text-muted-foreground"
+                          currentStep >= step.id
+                            ? "text-primary-foreground"
+                            : "text-muted-foreground"
                         }`}
                       >
-                        {currentStep > step.id ? <Check className="w-5 h-5" /> : step.id}
+                        {currentStep > step.id ? (
+                          <Check className="w-5 h-5" />
+                        ) : (
+                          step.id
+                        )}
                       </motion.div>
                       <p className="text-xs md:text-sm font-body mt-2 text-muted-foreground hidden md:block">
                         {step.title}
@@ -161,7 +247,9 @@ const QuotePage = () => {
                     {index < steps.length - 1 && (
                       <div className="w-8 md:w-16 h-px bg-border mx-2 md:mx-4">
                         <motion.div
-                          animate={{ width: currentStep > step.id ? "100%" : "0%" }}
+                          animate={{
+                            width: currentStep > step.id ? "100%" : "0%",
+                          }}
                           className="h-full bg-primary"
                           transition={{ duration: 0.3 }}
                         />
@@ -224,7 +312,9 @@ const QuotePage = () => {
                               <h3 className="font-display font-semibold text-foreground mb-1">
                                 {type.label}
                               </h3>
-                              <p className="text-sm text-muted-foreground">{type.description}</p>
+                              <p className="text-sm text-muted-foreground">
+                                {type.description}
+                              </p>
                               {formData.projectType === type.id && (
                                 <motion.div
                                   initial={{ scale: 0 }}
@@ -439,20 +529,36 @@ const QuotePage = () => {
                           </h3>
                           <div className="grid grid-cols-2 gap-4">
                             <div>
-                              <p className="text-sm text-muted-foreground">Name</p>
-                              <p className="font-body text-foreground">{formData.name || "-"}</p>
+                              <p className="text-sm text-muted-foreground">
+                                Name
+                              </p>
+                              <p className="font-body text-foreground">
+                                {formData.name || "-"}
+                              </p>
                             </div>
                             <div>
-                              <p className="text-sm text-muted-foreground">Email</p>
-                              <p className="font-body text-foreground">{formData.email || "-"}</p>
+                              <p className="text-sm text-muted-foreground">
+                                Email
+                              </p>
+                              <p className="font-body text-foreground">
+                                {formData.email || "-"}
+                              </p>
                             </div>
                             <div>
-                              <p className="text-sm text-muted-foreground">Phone</p>
-                              <p className="font-body text-foreground">{formData.phone || "-"}</p>
+                              <p className="text-sm text-muted-foreground">
+                                Phone
+                              </p>
+                              <p className="font-body text-foreground">
+                                {formData.phone || "-"}
+                              </p>
                             </div>
                             <div>
-                              <p className="text-sm text-muted-foreground">Location</p>
-                              <p className="font-body text-foreground">{formData.location || "-"}</p>
+                              <p className="text-sm text-muted-foreground">
+                                Location
+                              </p>
+                              <p className="font-body text-foreground">
+                                {formData.location || "-"}
+                              </p>
                             </div>
                           </div>
                         </div>
@@ -464,22 +570,38 @@ const QuotePage = () => {
                           </h3>
                           <div className="grid grid-cols-3 gap-4 mb-4">
                             <div>
-                              <p className="text-sm text-muted-foreground">Plot Size</p>
-                              <p className="font-body text-foreground">{formData.plotSize || "-"}</p>
+                              <p className="text-sm text-muted-foreground">
+                                Plot Size
+                              </p>
+                              <p className="font-body text-foreground">
+                                {formData.plotSize || "-"}
+                              </p>
                             </div>
                             <div>
-                              <p className="text-sm text-muted-foreground">Budget</p>
-                              <p className="font-body text-foreground">{formData.budget || "-"}</p>
+                              <p className="text-sm text-muted-foreground">
+                                Budget
+                              </p>
+                              <p className="font-body text-foreground">
+                                {formData.budget || "-"}
+                              </p>
                             </div>
                             <div>
-                              <p className="text-sm text-muted-foreground">Timeline</p>
-                              <p className="font-body text-foreground">{formData.timeline || "-"}</p>
+                              <p className="text-sm text-muted-foreground">
+                                Timeline
+                              </p>
+                              <p className="font-body text-foreground">
+                                {formData.timeline || "-"}
+                              </p>
                             </div>
                           </div>
                           {formData.description && (
                             <div>
-                              <p className="text-sm text-muted-foreground mb-2">Description</p>
-                              <p className="font-body text-foreground text-sm">{formData.description}</p>
+                              <p className="text-sm text-muted-foreground mb-2">
+                                Description
+                              </p>
+                              <p className="font-body text-foreground text-sm">
+                                {formData.description}
+                              </p>
                             </div>
                           )}
                         </div>
@@ -516,7 +638,11 @@ const QuotePage = () => {
                         <>
                           <motion.div
                             animate={{ rotate: 360 }}
-                            transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+                            transition={{
+                              repeat: Infinity,
+                              duration: 1,
+                              ease: "linear",
+                            }}
                             className="w-4 h-4 border-2 border-primary-foreground border-t-transparent rounded-full"
                           />
                           Submitting...

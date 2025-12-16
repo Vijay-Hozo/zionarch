@@ -111,9 +111,22 @@ const projects = [
     image: "https://zionarch.com/wp-content/uploads/2021/08/feature-image-2.jpg",
     description: "Luxury contemporary home with clean lines and premium finishes."
   },
+  {
+    title: "Sholaa Lake View Resort",
+    location: "Karur",
+    category: "Hospitality",
+    year: "2021",
+    area: "7,500 sq.ft",
+    images: [
+      "https://zionarch.com/wp-content/uploads/2021/08/feature-image-2.jpg",
+      "https://zionarch.com/wp-content/uploads/2021/08/feature-image-2-2.jpg",
+    ],
+    image: "https://zionarch.com/wp-content/uploads/2021/08/feature-image-2.jpg",
+    description: "Luxury contemporary home with clean lines and premium finishes."
+  },
 ];
 
-const categories = ["All", "Residential", "Hospitality", "Institutional"];
+const categories = ["All", "Residential", "Hospitality", "Institutional","Apartments","Commercial","Interiors"];
 
 export function Portfolio() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -289,17 +302,17 @@ export function Portfolio() {
                       <span className="px-4 py-1.5 bg-primary text-primary-foreground text-xs font-body tracking-wider uppercase rounded-full">
                         {currentProject?.category}
                       </span>
-                      <span className="text-foreground/80 text-sm font-body">
+                      {/* <span className="text-foreground/80 text-sm font-body">
                         {currentProject?.year}
-                      </span>
+                      </span> */}
                     </div>
                     <h3 className="text-3xl lg:text-4xl font-display font-bold text-foreground mb-2">
                       {currentProject?.title}
                     </h3>
-                    <div className="flex items-center gap-2 text-foreground/70">
+                    {/* <div className="flex items-center gap-2 text-foreground/70">
                       <MapPin className="w-4 h-4" />
                       <span className="font-body">{currentProject?.location}</span>
-                    </div>
+                    </div> */}
                   </motion.div>
                 </motion.div>
 
@@ -339,7 +352,7 @@ export function Portfolio() {
                       </div>
                       <div>
                         <p className="text-xs text-muted-foreground uppercase tracking-wider">Project Details</p>
-                        <p className="text-foreground font-display font-semibold">{currentProject?.area}</p>
+                        {/* <p className="text-foreground font-display font-semibold">{currentProject?.area}</p> */}
                       </div>
                     </div>
 
@@ -503,17 +516,17 @@ export function Portfolio() {
                 <span className="px-3 py-1 bg-primary/10 text-primary text-xs font-body tracking-wider uppercase rounded-full">
                   {selectedProject.category}
                 </span>
-                <span className="text-muted-foreground text-sm">{selectedProject.year}</span>
+                {/* <span className="text-muted-foreground text-sm">{selectedProject.year}</span> */}
                 <span className="text-muted-foreground text-sm">•</span>
                 <span className="text-muted-foreground text-sm">{selectedProject.area}</span>
               </div>
               <h3 className="text-2xl font-display font-bold text-foreground mb-2">
                 {selectedProject.title}
               </h3>
-              <div className="flex items-center gap-2 text-muted-foreground mb-4">
+              {/* <div className="flex items-center gap-2 text-muted-foreground mb-4">
                 <MapPin className="w-4 h-4" />
                 <span className="font-body">{selectedProject.location}</span>
-              </div>
+              </div> */}
               <p className="text-muted-foreground font-body">
                 {selectedProject.description}
               </p>

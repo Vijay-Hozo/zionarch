@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import zalogo from "../../public/ZAWhite.png";
 
 export function PageLoader() {
   const [isLoading, setIsLoading] = useState(true);
@@ -43,22 +44,11 @@ export function PageLoader() {
               className="flex items-center gap-3"
             >
               <div className="relative">
-                <motion.span
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                  className="text-4xl font-display font-bold text-primary"
-                >
-                  Z
-                </motion.span>
-                <motion.span
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.5 }}
-                  className="text-4xl font-display font-bold"
-                >
-                  A
-                </motion.span>
+                <img
+                  src={zalogo}
+                  alt="ZA Logo"
+                  className="w-[120px] h-[30px] md:w-[140px] md:h-[40px]"
+                />
               </div>
             </motion.div>
 

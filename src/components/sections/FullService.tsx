@@ -42,9 +42,9 @@ export function FullService() {
                 className="overflow-hidden rounded-2xl"
               >
                 <img
-                  src="https://zionarch.com/wp-content/uploads/2018/08/ONE-STOP-SOLUTION.jpg"
+                  src="https://res.cloudinary.com/dfrlskgto/image/upload/v1765882491/ONE_STOP_SOLUTION_dekecr.jpg"
                   alt="Full Service Architecture"
-                  className="w-full h-[500px] object-cover"
+                  className="w-full object-cover"
                 />
               </motion.div>
 

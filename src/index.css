@@ -207,6 +207,11 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+
+  /* Ensure snap stops exactly at card center */
+  .snap-always {
+    scroll-snap-stop: always;
+  }
 }
 
 /* Custom scrollbar */

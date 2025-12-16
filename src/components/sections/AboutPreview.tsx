@@ -2,11 +2,12 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export function AboutPreview() {
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
+  const navigate = useNavigate();
 
   return (
     <section
@@ -35,10 +36,13 @@ export function AboutPreview() {
                 transition={{ duration: 1.2, ease: "easeOut" }}
                 className="overflow-hidden rounded-lg"
               >
-                <img
-                  src="https://zionarch.com/wp-content/uploads/2018/08/AREA-OF-SPECIALIZATION1.jpg"
-                  alt="ZIONARCH Architecture"
-                  className="w-full h-[300px] md:h-[400px] lg:h-[500px] object-cover"
+                <video
+                  src="https://res.cloudinary.com/dfrlskgto/video/upload/v1765883924/ABOUT_US_wmclnl.mp4"
+                  className="w-full h-[500px] object-cover"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
                 />
               </motion.div>
 
@@ -49,7 +53,9 @@ export function AboutPreview() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="absolute -bottom-6 -right-4 md:-bottom-8 md:-right-8 bg-primary text-primary-foreground p-4 md:p-8 rounded-lg shadow-2xl"
               >
-                <div className="text-3xl md:text-5xl font-display font-bold">15+</div>
+                <div className="text-3xl md:text-5xl font-display font-bold">
+                  15+
+                </div>
                 <div className="text-xs md:text-sm font-body tracking-wide opacity-90">
                   Years Experience
                 </div>
@@ -121,22 +127,36 @@ export function AboutPreview() {
               transition={{ duration: 0.5, delay: 0.7 }}
               className="flex flex-wrap gap-4"
             >
-              <Link to="/about">
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Button variant="default" size="lg" className="group">
-                    Read More
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </motion.div>
-              </Link>
-              <Link to="/quote">
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Button variant="outline" size="lg" className="group">
-                    Get a Quote
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </motion.div>
-              </Link>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button
+                  type="button"
+                  variant="default"
+                  size="lg"
+                  className="group w-full cursor-pointer"
+                  onClick={() => navigate("/about")}
+                >
+                  Read More
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="lg"
+                  className="group w-full cursor-pointer"
+                  onClick={() => navigate("/quote")}
+                >
+                  Get a Quote
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </motion.div>
             </motion.div>
           </motion.div>
         </div>

@@ -5,7 +5,7 @@ const services = [
   {
     title: "Architectural Design",
     description: "Feasibility Studies, Site Analysis, Space Planning, Massing, Building Approval Liaoning, Soil Testing, Site Surveying, Structural Design, HVAC design, MEP Design.",
-    image: "https://zionarch.com/wp-content/uploads/2021/08/2-1.jpg",
+    image: "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642107/MAIN-CHRYSALIS_MWC__4-Photo-1024x576_bxmfct.jpg",
     size: "large", // Takes 2 columns
   },
   {
@@ -14,16 +14,17 @@ const services = [
     image: "https://zionarch.com/wp-content/uploads/2021/08/construction-mgt.jpg",
     size: "medium", // Takes 1 column, taller
   },
-  {
-    title: "Interior Design",
-    description: "Site Measurement, Space Planning, Furniture Layout, Mood board Presentation, Conceptual Sketches, 3D Visualization, Working Drawings.",
-    image: "https://zionarch.com/wp-content/uploads/2018/08/INTERIOR.jpg",
-    size: "small", // Takes 1 column
-  },
+  
   {
     title: "Design & Build",
     description: "Bill of Quantity, Composite Quotations, Material Specifications, Finishes Schedule, Execution Schedule, Shop Drawings, Site Measurements.",
     image: "https://zionarch.com/wp-content/uploads/2021/08/20201222_115032.jpg",
+    size: "small", // Takes 1 column
+  },
+  {
+    title: "Interior Design",
+    description: "Site Measurement, Space Planning, Furniture Layout, Mood board Presentation, Conceptual Sketches, 3D Visualization, Working Drawings.",
+    image: "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642037/3_rc2smp.jpg",
     size: "wide", // Takes 2 columns
   },
 ];

@@ -7,19 +7,35 @@ import { Link } from "react-router-dom";
 const showcaseImages = [
   {
     image: "https://zionarch.com/wp-content/uploads/2018/08/Days-Hotel-1.jpg",
-    title: "Hospitality",
+    category: "Hospitality",
   },
   {
     image: "https://zionarch.com/wp-content/uploads/2021/08/FEATURE-IMAGE.png",
-    title: "Residential",
+    category: "Residential",
   },
   {
     image: "https://zionarch.com/wp-content/uploads/2022/09/FEATURE-IMAGE-1.jpg",
-    title: "Institutional",
+    category: "Institutional",
   },
   {
     image: "https://zionarch.com/wp-content/uploads/2021/08/feature-image-8-scaled.jpg",
-    title: "Commercial",
+    category: "Commercial",
+  },
+  {
+    image: "https://zionarch.com/wp-content/uploads/2021/08/feature-image-8-scaled.jpg",
+    category: "Commercial",
+  },
+  {
+    image: "https://zionarch.com/wp-content/uploads/2021/08/feature-image-8-scaled.jpg",
+    category: "Commercial",
+  },
+  {
+    image: "https://zionarch.com/wp-content/uploads/2021/08/feature-image-8-scaled.jpg",
+    category: "Commercial",
+  },
+  {
+    image: "https://zionarch.com/wp-content/uploads/2021/08/feature-image-8-scaled.jpg",
+    category: "Commercial",
   },
 ];
 
@@ -72,38 +88,46 @@ export function PortfolioPreview() {
         </motion.div>
 
         {/* Image Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 mb-12">
-          {showcaseImages.map((item, index) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 40, scale: 0.9 }}
-              animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-              whileHover={{ scale: 1.03, y: -8 }}
-              className="relative group cursor-pointer overflow-hidden rounded-xl aspect-[3/4]"
-            >
-              <motion.img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
-              
-              {/* Hover Content */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileHover={{ opacity: 1, y: 0 }}
-                className="absolute bottom-0 left-0 right-0 p-4 md:p-6"
+        <div className="mb-12 overflow-x-auto lg:overflow-visible scrollbar-hide snap-x snap-mandatory lg:snap-none scroll-smooth">
+          <div className="flex lg:grid gap-4 md:gap-6 lg:grid-cols-4 pb-4 lg:pb-0">
+            {showcaseImages.map((item, index) => (
+              <Link 
+                key={`${item.category}-${index}`}
+                to={`/portfolio?category=${item.category}`}
+                className="flex-shrink-0 w-[85vw] sm:w-[70vw] lg:w-auto snap-center snap-always lg:snap-align-none"
               >
-                <span className="text-background font-display font-semibold text-sm md:text-lg">
-                  {item.title}
-                </span>
-              </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.6, delay: 0.1 + index * 0.05 }}
+                  whileHover={{ scale: 1.03, y: -8 }}
+                  className="relative group cursor-pointer overflow-hidden rounded-xl aspect-[3/4] h-full"
+                >
+                <motion.img
+                  src={item.image}
+                  alt={item.category}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/40 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
+                
+                {/* Hover Content */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 transition-all duration-300">
+                  <div className="space-y-2">
+                    <span className="text-background font-display font-semibold text-sm md:text-lg block">
+                      {item.category}
+                    </span>
+                    <p className="text-background/80 font-body text-xs md:text-sm opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300">
+                      Click to explore more about our work
+                    </p>
+                  </div>
+                </div>
 
-              {/* Animated Border */}
-              <div className="absolute bottom-0 left-0 w-0 h-1 bg-primary group-hover:w-full transition-all duration-500" />
-            </motion.div>
-          ))}
+                {/* Animated Border */}
+                <div className="absolute bottom-0 left-0 w-0 h-1 bg-primary group-hover:w-full transition-all duration-500" />
+              </motion.div>
+            </Link>
+            ))}
+          </div>
         </div>
 
         {/* CTA Button */}
