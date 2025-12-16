@@ -4,11 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Check, ArrowRight } from "lucide-react";
 
 const features = [
-  "Full-service architects offer a very wide range of client services",
-  "Many clients choose the full range of services for optimal peace of mind",
-  "Assist with every stage of the design and build process",
-  "From concept through building code plans and approvals",
-  "Cost estimating and construction observation included",
+  "We offer a comprehensive range of architectural services as full-service architects",
+  "Our clients choose our complete service package for optimal peace of mind",
+  "We assist with every stage of your design and build process",
+  "We guide you from initial concept through building code plans and approvals",
+  "We include detailed cost estimating and ongoing construction observation",
 ];
 
 export function FullService() {
