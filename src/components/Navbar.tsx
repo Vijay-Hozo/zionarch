@@ -11,8 +11,8 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { cn } from "@/lib/utils";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useTheme } from "@/components/ThemeProvider";
-import zalogo from "../../public/ZA.png";
-import zawhitelogo from "../../public/ZAwhite.png";
+import zalogo from "../assets/ZAwhite.png";
+import zawhitelogo from "../assets/ZAWhite.png";
 
 const navItems = [
   { name: "HOME", href: "/" },
@@ -45,6 +45,7 @@ export function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
   const { theme } = useTheme();
+  const logoSrc = theme === "dark" ? zawhitelogo : zalogo;
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 50);
@@ -119,10 +120,10 @@ export function Navbar() {
                 whileTap={{ scale: 0.98 }}
               >
                 <div className="flex items-baseline">
-                  <img 
-                    src={theme === "dark" ? zawhitelogo : zalogo} 
-                    alt="ZA Logo" 
-                    className="w-[120px] h-[30px] md:w-[140px] md:h-[40px]" 
+                  <img
+                    src={logoSrc}
+                    alt="ZA Logo"
+                    className="w-[120px] h-[30px] md:w-[140px] md:h-[40px]"
                   />
                 </div>
               </motion.div>

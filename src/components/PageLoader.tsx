@@ -1,10 +1,14 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
-import zalogo from "../../public/ZAWhite.png";
+import zalogo from "@/assets/ZA.png";
+import zawhitelogo from "@/assets/ZAWhite.png";
+import { useTheme } from "./ThemeProvider";
 
 export function PageLoader() {
   const [isLoading, setIsLoading] = useState(true);
   const [progress, setProgress] = useState(0);
+   const { theme } = useTheme();
+  const logoSrc = theme === "dark" ? zawhitelogo : zalogo;
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -45,7 +49,7 @@ export function PageLoader() {
             >
               <div className="relative">
                 <img
-                  src={zalogo}
+                  src={logoSrc}
                   alt="ZA Logo"
                   className="w-[120px] h-[30px] md:w-[140px] md:h-[40px]"
                 />
