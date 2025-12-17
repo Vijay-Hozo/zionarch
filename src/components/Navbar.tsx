@@ -11,8 +11,8 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { cn } from "@/lib/utils";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useTheme } from "@/components/ThemeProvider";
-import zalogo from "../assets/ZAwhite.png";
-import zawhitelogo from "../assets/ZAWhite.png";
+import zalogo from "@/assets/ZA.png";
+import zawhitelogo from "@/assets/ZAWhite.png";
 
 const navItems = [
   { name: "HOME", href: "/" },
