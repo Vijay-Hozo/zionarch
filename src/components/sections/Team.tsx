@@ -17,6 +17,12 @@ const teamMembers = [
     image:
       "https://res.cloudinary.com/dfrlskgto/image/upload/c_crop,ar_3:4/v1765642015/PREM_RAJ_ADMIN_dlzhia.jpg",
   },
+   {
+    name: "Rayan",
+    role: "Senior Architect",
+    image:
+      "https://zionarch.com/wp-content/uploads/2023/02/RAYAN-300x300.jpeg",
+  },
   {
     name: "Menaka",
     role: "Junior Architect",
@@ -187,7 +193,7 @@ export function Team() {
           <div className="lg:w-3/5">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 h-full">
               {/* First two members - Top Row */}
-              {teamMembers.slice(1, 4).map((member, index) => (
+              {teamMembers.slice(1, 5).map((member, index) => (
                 <motion.div
                   key={member.name}
                   initial={{ opacity: 0, y: 60 }}
@@ -254,118 +260,6 @@ export function Team() {
             </div>
           </div>
         </div>
-
-        {/* Past Employees Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mt-24 md:mt-32"
-        >
-          <div className="text-center mb-12">
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="inline-block px-4 py-2 text-xs font-body tracking-[0.2em] uppercase text-primary bg-primary/10 rounded-full mb-6"
-            >
-              Alumni
-            </motion.span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
-              Past <span className="text-primary">Employees</span>
-            </h2>
-            <p className="text-foreground/60 font-body max-w-2xl mx-auto">
-              Talented professionals who contributed to our journey
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {pastEmployees.map((employee, index) => (
-              <motion.div
-                key={employee.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative"
-              >
-                <div className="relative overflow-hidden rounded-lg bg-card border border-border p-6 h-full hover:border-primary/50 transition-all duration-300">
-                  <div className="absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-bl-full transition-all duration-300 group-hover:w-24 group-hover:h-24" />
-                  <div className="relative z-10">
-                    <h3 className="font-display font-semibold text-foreground text-xl mb-2">
-                      {employee.name}
-                    </h3>
-                    <p className="text-primary font-body text-sm mb-2">
-                      {employee.role}
-                    </p>
-                    <p className="text-foreground/50 font-body text-xs">
-                      {employee.period}
-                    </p>
-                  </div>
-                  <div className="absolute bottom-0 left-0 w-0 h-1 bg-primary group-hover:w-full transition-all duration-500" />
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Past Intern Students Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mt-24 md:mt-32"
-        >
-          <div className="text-center mb-12">
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="inline-block px-4 py-2 text-xs font-body tracking-[0.2em] uppercase text-primary bg-primary/10 rounded-full mb-6"
-            >
-              Learning Program
-            </motion.span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
-              Past <span className="text-primary">Interns</span>
-            </h2>
-            <p className="text-foreground/60 font-body max-w-2xl mx-auto">
-              Bright students who gained experience and contributed to our projects
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {pastInterns.map((intern, index) => (
-              <motion.div
-                key={intern.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative"
-              >
-                <div className="relative overflow-hidden rounded-lg bg-card border border-border p-6 h-full hover:border-primary/50 transition-all duration-300">
-                  <div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 rounded-bl-full transition-all duration-300 group-hover:w-20 group-hover:h-20" />
-                  <div className="relative z-10">
-                    <h3 className="font-display font-semibold text-foreground text-lg mb-2">
-                      {intern.name}
-                    </h3>
-                    <p className="text-foreground/70 font-body text-sm mb-1">
-                      {intern.university}
-                    </p>
-                    <p className="text-primary font-body text-xs">
-                      {intern.period}
-                    </p>
-                  </div>
-                  <div className="absolute bottom-0 left-0 w-0 h-1 bg-primary group-hover:w-full transition-all duration-500" />
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );

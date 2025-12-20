@@ -14,8 +14,8 @@ export function About() {
       ref={containerRef}
       className="py-24 lg:py-32 bg-background relative overflow-hidden"
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
+      {/* Background Pattern (very light, no impact on content) */}
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/20 to-transparent" />
       </div>
 
@@ -151,18 +151,26 @@ export function About() {
               transition={{ duration: 0.5, delay: 0.7 }}
               className="flex flex-wrap gap-4"
             >
-              <Button asChild variant="default" size="lg" className="group cursor-pointer">
-                <Link to="/quote">
-                  Get a Quote
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="group cursor-pointer">
-                <Link to="/contact">
-                  Contact Us
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </Button>
+              <Link to="/quote">
+                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  <Button variant="hero" size="xl" className="group">
+                    <span className="flex items-center gap-2">
+                      Get a Quote
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                    </span>
+                  </Button>
+                </motion.div>
+              </Link>
+              <Link to="/contact">
+                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  <Button variant="hero-outline" size="xl" className="group">
+                    <span className="flex items-center gap-2">
+                      Contact Us
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                    </span>
+                  </Button>
+                </motion.div>
+              </Link>
             </motion.div>
           </motion.div>
         </div>

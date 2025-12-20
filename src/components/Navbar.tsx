@@ -16,22 +16,23 @@ import zawhitelogo from "@/assets/ZAWhite.png";
 
 const navItems = [
   { name: "HOME", href: "/" },
-  { 
-    name: "ABOUT US", 
+  {
+    name: "ABOUT US",
     href: "/about",
-    subItems: [
-      { name: "Our Team", href: "/about#team" }
-    ]
+    subItems: [{ name: "Our Team", href: "/about#team" }],
   },
   { name: "SERVICES", href: "/services" },
-  { 
-    name: "PORTFOLIO", 
+  {
+    name: "PORTFOLIO",
     href: "/portfolio",
     subItems: [
-      { name: "Residential", href: "/portfolio?category=Residential" },
+      { name: "Apartments", href: "/portfolio?category=Apartments" },
+      { name: "Commercial", href: "/portfolio?category=Commercial" },
       { name: "Hospitality", href: "/portfolio?category=Hospitality" },
-      { name: "Institutional", href: "/portfolio?category=Institutional" }
-    ]
+      { name: "Interiors", href: "/portfolio?category=Interiors" },
+      { name: "Institutional", href: "/portfolio?category=Institutional" },
+      { name: "Residential", href: "/portfolio?category=Residential" },
+    ],
   },
   { name: "QUOTE", href: "/quote" },
   { name: "CONTACT US", href: "/contact" },
@@ -76,7 +77,10 @@ export function Navbar() {
     setIsOpen(false);
     if (href.includes("#")) {
       const [path, hash] = href.split("#");
-      if (location.pathname === path || (path === "" && location.pathname === "/about")) {
+      if (
+        location.pathname === path ||
+        (path === "" && location.pathname === "/about")
+      ) {
         // Same page, just scroll
         const element = document.getElementById(hash);
         if (element) {
@@ -113,7 +117,10 @@ export function Navbar() {
         <div className="container mx-auto px-4 md:px-6">
           <nav className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
-            <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+            <Link
+              to="/"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
               <motion.div
                 className="flex items-center gap-2 group"
                 whileHover={{ scale: 1.02 }}
@@ -153,7 +160,9 @@ export function Navbar() {
                     {item.name}
                     {item.subItems && (
                       <motion.span
-                        animate={{ rotate: hoveredItem === item.name ? 180 : 0 }}
+                        animate={{
+                          rotate: hoveredItem === item.name ? 180 : 0,
+                        }}
                         transition={{ duration: 0.2 }}
                       >
                         <ChevronDown className="w-3 h-3" />
@@ -162,9 +171,12 @@ export function Navbar() {
                     <motion.span
                       className="absolute bottom-0 left-1/2 h-0.5 bg-primary"
                       initial={{ width: 0, x: "-50%" }}
-                      animate={{ 
-                        width: isActive(item.href) || hoveredItem === item.name ? "80%" : 0,
-                        x: "-50%"
+                      animate={{
+                        width:
+                          isActive(item.href) || hoveredItem === item.name
+                            ? "80%"
+                            : 0,
+                        x: "-50%",
                       }}
                       transition={{ duration: 0.3 }}
                     />

@@ -1,0 +1,647 @@
+[
+  {
+    "title": "Raja's Paradise",
+    "location": "Padur, Chennai",
+    "category": "Hospitality",
+    "year": "2018",
+    "area": "45,000 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642208/1_5_-_Photo_oq8wz3.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642208/1_3_-_Photo_fdzaer.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642208/1_4_-_Photo_w0nqur.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642208/1_2_-_Photo_hm2okp.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642177/1_7_-_Photo_dzctbz.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642177/1_8_-_Photo_kwasle.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642177/1_6_-_Photo_ve7qfy.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642208/1_5_-_Photo_oq8wz3.jpg",
+    "description": "A contemporary hotel design featuring modern amenities and elegant interiors."
+  },
+  {
+    "title": "Carlo Shelter Home",
+    "location": "Akkarai, Chennai",
+    "category": "Hospitality",
+    "year": "2019",
+    "area": "32,000 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642209/2_1_-_Photo_ktrfdq.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642209/2_2_-_Photo_er9u7v.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642209/2_1_-_Photo_ktrfdq.jpg",
+    "description": "Boutique hotel with sophisticated architecture and premium facilities."
+  },
+  {
+    "title": "Chrysalis High School",
+    "location": "Mahindra World City, Chennai",
+    "category": "Institutional",
+    "year": "2022",
+    "area": "85,000 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642107/MAIN-CHRYSALIS_MWC__4-Photo-1024x576_bxmfct.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642107/CHRYSALIS_MWC__1-Photo-1024x576_fxb3dr.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642107/CHRYSALIS_MWC__2-Photo-1024x576_txdhrp.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642107/CHRYSALIS_MWC__3-Photo-1024x576_uu52ua.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642106/CHRYSALIS_MWC__7-Photo-1024x576_cq05ig.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642106/CHRYSALIS_MWC__6-Photo-1024x576_mmecxu.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642106/CHRYSALIS_MWC__9-Photo-1024x576_qjt2lg.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642107/MAIN-CHRYSALIS_MWC__4-Photo-1024x576_bxmfct.jpg",
+    "description": "State-of-the-art CBSE school with modern educational facilities."
+  },
+
+  {
+    "title": "Sholaa Lake View Resort",
+    "location": "Karur",
+    "category": "Hospitality",
+    "year": "2021",
+    "area": "7,500 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642173/MAIN-1_1_-_Photo_d0ercs.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642174/1_2_-_Photo_v8g4qt.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642174/1_2_-_Photo_v8g4qt.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642172/1_4_-_Photo_kwnjsf.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642172/1_7_-_Photo_nsu50v.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642173/MAIN-1_1_-_Photo_d0ercs.jpg",
+    "description": "Luxury contemporary home with clean lines and premium finishes."
+  },
+  {
+    "title": "KV Apartments",
+    "location": "Karur",
+    "category": "Apartments",
+    "year": "2021",
+    "area": "7,500 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642020/1_2_-_Photo_wa2vav.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642022/2_4_-_Photo_mvhnx0.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642022/2_3_-_Photo_serrnx.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642020/1_2_-_Photo_wa2vav.jpg",
+    "description": "Luxury contemporary home with clean lines and premium finishes."
+  },
+  {
+    "title": "Kannapan Apartments",
+    "location": "Karur",
+    "category": "Apartments",
+    "year": "2021",
+    "area": "7,500 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642023/1_1_-_Photo_dmvwp9.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642023/1_2_-_Photo_odspvf.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642023/1_1_-_Photo_dmvwp9.jpg",
+    "description": "Luxury contemporary home with clean lines and premium finishes."
+  },
+  {
+    "title": "Iksel Homes",
+    "location": "Karur",
+    "category": "Apartments",
+    "year": "2021",
+    "area": "7,500 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642019/MAIN_dd3kzd.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642039/1_3_-_Photo_t8pavb.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642018/1_4_-_Photo_v5ot7l.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642018/1_4_-_Photo_v5ot7l.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642015/1_5_-_Photo_r8kk2i.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642014/1_enbzmx.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642019/MAIN_dd3kzd.jpg",
+    "description": "Luxury contemporary home with clean lines and premium finishes."
+  },
+  {
+    "title": "Ramesh Apartments",
+    "location": "Karur",
+    "category": "Apartments",
+    "year": "2021",
+    "area": "7,500 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642019/w_lcxz94.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642019/w_lcxz94.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642019/w_lcxz94.jpg",
+    "description": "Luxury contemporary home with clean lines and premium finishes."
+  },
+  {
+    "title": "Raja Montessory",
+    "location": "Karur",
+    "category": "Institutional",
+    "year": "2021",
+    "area": "7,500 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642154/1_3_-_Photo_firzhf.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642155/1_2_-_Photo_phtmsz.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642156/1_1_-_Photo_zlznlt.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642154/1_3_-_Photo_firzhf.jpg",
+    "description": "Luxury contemporary home with clean lines and premium finishes."
+  },
+  {
+    "title": "Smart Modern School",
+    "location": "Karur",
+    "category": "Institutional",
+    "year": "2021",
+    "area": "7,500 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642153/2_12_-_Photo_ss3u7n.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642155/1_5_-_Photo_tc1jt6.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642147/1_31_-_Photo_32_-_Photo_sseljt.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642145/1_31_-_Photo_33_-_Photo_hi28e6.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642143/1_31_-_Photo_39_-_Photo_ngqkj2.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642143/1_4_-_Photo_tr8uub.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642139/1_31_-_Photo_38_-_Photo_smbnhz.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642133/1_1_-_Photo_ukkcbk.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642133/1_2_-_Photo_vsn4gr.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642153/2_12_-_Photo_ss3u7n.jpg",
+    "description": "Luxury contemporary home with clean lines and premium finishes."
+  },
+  {
+    "title": "St. Dominics School",
+    "location": "Karur",
+    "category": "Institutional",
+    "year": "2021",
+    "area": "7,500 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642112/1_1_-_Photo_uae5pt.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642110/2_3_-_Photo_lve1hp.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642111/1_2_-_Photo_jaq5kf.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642110/2_3_-_Photo_lve1hp.jpg",
+    "description": "Luxury contemporary home with clean lines and premium finishes."
+  },
+  {
+    "title": "The Instituite of Mathematics and Science",
+    "location": "Karur",
+    "category": "Institutional",
+    "year": "2021",
+    "area": "7,500 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642159/IMG20240705105555_acxnk0.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642169/IMG20240705111153_x4axjz.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642168/IMG20240705110753_kllhr9.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642168/IMG20240705105358_gshfiz.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642166/IMG20240705111216_vdllwz.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642162/IMG20240705110437_w8sv3p.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642161/IMG20240705105623_myrrpm.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642159/IMG20240705111241_ekkzmk.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642159/IMG20240705105555_acxnk0.jpg",
+    "description": "Luxury contemporary home with clean lines and premium finishes."
+  },
+  {
+    "title": "Aishwarya Karthik",
+    "location": "Karur",
+    "category": "Interiors",
+    "year": "2021",
+    "area": "7,500 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642104/LIVING_ROOM_V8_hkzrpw.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642086/LIVING_ROOM_V3_vhkizw.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642086/LIVING_ROOM_V1_dp2zqf.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642085/LIVING_ROOM_V2_jbccva.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642085/LIVING_ROOM_V4_mbsx4a.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642083/LIVING_ROOM_V5_sulhph.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642083/LIVING_ROOM_V7_g05sfi.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642082/LIVING_ROOM_V6_mes8ke.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642082/LIVING_ROOM_V9_dc0ycm.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642080/LIVING_ROOM_V10_msvi0v.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642104/LIVING_ROOM_V8_hkzrpw.jpg",
+    "description": "Luxury contemporary home with clean lines and premium finishes."
+  },
+  {
+    "title": "Joe Residence",
+    "location": "Karur",
+    "category": "Interiors",
+    "year": "2021",
+    "area": "7,500 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642087/1_jxy0o2.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642087/2_di0lg8.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642090/1_2_-_Photo_dfhe2r.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642090/1_1_-_Photo_w2rnil.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642089/1_3_-_Photo_cthnvo.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642092/K_9_-_Photo_vlp1hk.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642092/2_2_-_Photo_eogqkc.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642094/K_5_-_Photo_qnxqtj.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642095/3_meyfam.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642095/K_8_-_Photo_z7t04s.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642087/1_jxy0o2.jpg",
+    "description": "Luxury contemporary home with clean lines and premium finishes."
+  },
+  {
+    "title": "Murugesh Babu Residence",
+    "location": "Karur",
+    "category": "Interiors",
+    "year": "2021",
+    "area": "7,500 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642087/MAIN-1_1_-_Photo_spmnak.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642080/1_3_-_Photo_tfkbrr.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642076/1_5_-_Photo_ylocdl.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642075/1_7_-_Photo_qzhyus.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642075/1_6_-_Photo_kaywqo.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642073/5_1_-_Photo_licqxo.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642073/1_9_-_Photo_tsr42u.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642073/1_8_-_Photo_tjf2nz.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642071/5_2_-_Photo_mqewon.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642070/5_3_-_Photo_scao5g.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642087/MAIN-1_1_-_Photo_spmnak.jpg",
+    "description": "Luxury contemporary home with clean lines and premium finishes."
+  },
+  {
+    "title": "Ramakrishnan Residence",
+    "location": "Karur",
+    "category": "Interiors",
+    "year": "2021",
+    "area": "7,500 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642061/MAIN-1_2_-_Photo_wv1urc.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642067/1_4_-_Photo_qnqg6w.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642061/1_5_-_Photo_quwkba.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642068/1_1_-_Photo_e9pret.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642068/1_3_-_Photo_qd3imr.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642068/1_6_-_Photo_htdt26.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642068/1_sawdwl.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642080/2_cs2tj8.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642070/3_vmwqyh.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642061/MAIN-1_2_-_Photo_wv1urc.jpg",
+    "description": "Luxury contemporary home with clean lines and premium finishes."
+  },
+  {
+    "title": "Saravanan Residence",
+    "location": "Karur",
+    "category": "Interiors",
+    "year": "2021",
+    "area": "7,500 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642102/LIVING_3_cskisq.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642103/LIVING_x9cvhk.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642102/DINING_2_z0t4rz.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642104/ART_PIECE_t1bpms.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642103/LIVING_2_je2s0x.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642106/ENTRY_PORCH_dfsiqt.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642104/LIVING_rop0sg.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642102/LIVING_3_cskisq.jpg",
+    "description": "Luxury contemporary home with clean lines and premium finishes."
+  },
+  {
+    "title": "Siva Residence",
+    "location": "Karur",
+    "category": "Interiors",
+    "year": "2021",
+    "area": "7,500 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642098/HOME_THEATRE_OPT_1_1_-_Photo_uokilv.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642097/COMPOUND_WALL_1_kpzlkv.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642115/MASTER_BEDROOM_4_jp2kkl.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642102/SON_BEDROOM_1_lrkbss.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642101/SON_BEDROOM_2_mppa5r.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642100/SON_BEDROOM_3_mwztgs.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642100/MASTER_BEDROOM_2_sumg5d.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642100/MASTER_BEDROOM_1_za1dwp.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642098/HOME_THEATRE_OPT_1_1_-_Photo_uokilv.jpg",
+    "description": "Luxury contemporary home with clean lines and premium finishes."
+  },
+  {
+    "title": "Fastrack GYM",
+    "location": "Irumbulichery Island, Chengalpattu",
+    "category": "Commercial",
+    "year": "2021",
+    "area": "9,800 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642068/1_1_-_Photo_xuvccj.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642047/1_3_-_Photo_ivhhah.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642048/1_dbiqvr.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642068/1_1_-_Photo_xuvccj.jpg",
+    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+  },
+  {
+    "title": "Guindy Multimodal Hub",
+    "location": "Irumbulichery Island, Chengalpattu",
+    "category": "Commercial",
+    "year": "2021",
+    "area": "9,800 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642052/1_3_-_Photo_nycecm.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642051/1_2_-_Photo_sefcym.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642051/1_1_-_Photo_hpjoeu.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642052/1_3_-_Photo_nycecm.jpg",
+    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+  },
+  {
+    "title": "Korcomptenz",
+    "location": "Irumbulichery Island, Chengalpattu",
+    "category": "Commercial",
+    "year": "2021",
+    "area": "9,800 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642054/1_2_-_Photo_zfyuad.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642056/1_1_-_Photo_sddf7f.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642053/1_3_-_Photo_gfppfe.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642054/1_5_-_Photo_p01yav.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642054/1_2_-_Photo_zfyuad.jpg",
+    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+  },
+  {
+    "title": "Legendary Network",
+    "location": "Irumbulichery Island, Chengalpattu",
+    "category": "Commercial",
+    "year": "2021",
+    "area": "9,800 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642045/1_5_-_Photo_ryuxyc.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642066/1_3_-_Photo_otcl7z.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642048/1_2_-_Photo_lemzcf.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642048/1_1_-_Photo_i48mqk.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642045/1_6_-_Photo_ekhy1u.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642045/1_5_-_Photo_ryuxyc.jpg",
+    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+  },
+  {
+    "title": "Vasiyam Homes",
+    "location": "Irumbulichery Island, Chengalpattu",
+    "category": "Commercial",
+    "year": "2021",
+    "area": "9,800 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642032/MAIN-1_1_vihwcn.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642032/2_dfcwry.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642034/3_kdv4ol.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642034/2_1_mibxsd.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642038/1_2_-_Photo_odqdmj.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642041/1_3_-_Photo_i8kyvy.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642032/MAIN-1_1_vihwcn.jpg",
+    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+  },
+  {
+    "title": "Meghavan Complex",
+    "location": "Irumbulichery Island, Chengalpattu",
+    "category": "Commercial",
+    "year": "2021",
+    "area": "9,800 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642044/1_1_-_Photo_tcpaah.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642045/1_2_-_Photo_ptbmye.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642044/1_1_-_Photo_tcpaah.jpg",
+    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+  },
+  {
+    "title": "Rayam Sea Food Market",
+    "location": "Irumbulichery Island, Chengalpattu",
+    "category": "Commercial",
+    "year": "2021",
+    "area": "9,800 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642056/1_3_-_Photo_wpgtnr.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642058/1_5_-_Photo_cilkfe.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642058/1_4_-_Photo_e3yj6c.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642060/1_1_-_Photo_qrai4t.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642056/1_3_-_Photo_wpgtnr.jpg",
+    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+  },
+  {
+    "title": "French Style Farm House",
+    "location": "Irumbulichery Island, Chengalpattu",
+    "category": "Residential",
+    "year": "2021",
+    "area": "9,800 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642271/NAME_BOARD_2_lkjlji.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642271/VIEW_FROM_FARM_y0muwp.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642270/GATE_ybtxar.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642270/ELEVATION_bzi49z.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642272/NAME_BOARD_ok3yoj.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642272/ENTRY_POINT_dcmd6n.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642271/VIEW_FROM_FARM_y0muwp.jpg",
+    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+  },
+  {
+    "title": "Clement",
+    "location": "Irumbulichery Island, Chengalpattu",
+    "category": "Residential",
+    "year": "2021",
+    "area": "9,800 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642267/1_2_-_Photo_kg1tvo.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642268/1_1_-_Photo_n1krh2.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642267/1_2_-_Photo_kg1tvo.jpg",
+    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+  },
+  {
+    "title": "Ganesan Residence",
+    "location": "Irumbulichery Island, Chengalpattu",
+    "category": "Residential",
+    "year": "2021",
+    "area": "9,800 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642267/1_2_-_Photo_kg1tvo.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642267/1_1_-_Photo_fsgpqz.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642266/1_2_-_Photo_vish8s.jpg",
+    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+  },
+  {
+    "title": "Gavaskar",
+    "location": "Irumbulichery Island, Chengalpattu",
+    "category": "Residential",
+    "year": "2021",
+    "area": "9,800 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642269/1_3_-_Photo_uvrmkp.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642269/1_2_-_Photo_sscctq.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642268/1_4_-_Photo_vtj7eo.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642270/1_1_-_Photo_q0rpzj.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642269/1_3_-_Photo_uvrmkp.jpg",
+    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+  },
+  {
+    "title": "George Amalan Residence",
+    "location": "Irumbulichery Island, Chengalpattu",
+    "category": "Residential",
+    "year": "2021",
+    "area": "9,800 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642265/1_2_-_Photo_uaf2w4.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642264/1_3_-_Photo_lqyale.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642266/1_1_-_Photo_bqzhbr.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642265/1_2_-_Photo_uaf2w4.jpg",
+    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+  },
+  {
+    "title": "Kovilpatti ",
+    "location": "Irumbulichery Island, Chengalpattu",
+    "category": "Residential",
+    "year": "2021",
+    "area": "9,800 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642261/1_sbmwrm.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642261/2_e0muzm.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642261/1_sbmwrm.jpg",
+    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+  },
+  {
+    "title": "Ajith Residence",
+    "location": "Irumbulichery Island, Chengalpattu",
+    "category": "Residential",
+    "year": "2021",
+    "area": "9,800 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642255/AERIAL_VIEW_zqksxk.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642255/WATCH_TOWER_hdg7hq.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642253/MAIN-AERIAL_VIEW_o6cvgt.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642255/AERIAL_VIEW_zqksxk.jpg",
+    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+  },
+  {
+    "title": "Karur Villa ",
+    "location": "Irumbulichery Island, Chengalpattu",
+    "category": "Residential",
+    "year": "2021",
+    "area": "9,800 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642244/DJI_0320_fop5vi.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642244/IMG_4688_c4jdnt.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642243/IMG_4682_fidopj.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642242/DJI_0343_bahfe8.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642243/DJI_0338_sorq3r.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642232/IMG_4741_qzbtly.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642232/IMG_4871_zs24ke.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642231/IMG_4929_vorqvs.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642230/IMG_4926_ymjtkc.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642229/IMG_4704_1_qw4bk2.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642229/IMG_4950_ert8ld.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642228/IMG_4931_za53el.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642226/IMG_4873_1_iptdhx.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642227/IMG_4848_1_wfjui9.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642222/IMG_4932_1_dpo6ox.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642222/IMG_4954_1_goh2t9.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642218/IMG_4984_1_aw407n.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642218/IMG_4978_1_cxojng.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642217/IMG_4977_qfmclu.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642217/IMG_4967_1_nor8wa.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642217/20230317_174820_iprwm7.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642244/DJI_0320_fop5vi.jpg",
+    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+  },
+  {
+    "title": "Prabhakaran Residence",
+    "location": "Irumbulichery Island, Chengalpattu",
+    "category": "Residential",
+    "year": "2021",
+    "area": "9,800 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642251/MAIN-1_2_-_Photo_fiy9iy.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642252/1_1_-_Photo_g8uvd6.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642251/MAIN-1_2_-_Photo_fiy9iy.jpg",
+    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+  },
+  {
+    "title": "Sree Chaitanya Vishnu Homes",
+    "location": "Irumbulichery Island, Chengalpattu",
+    "category": "Residential",
+    "year": "2021",
+    "area": "9,800 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642244/MAIN-2_15_-_Photo_zzoajx.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642245/2_17_-_Photo_dynraf.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642246/2_16_-_Photo_ryqbax.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642246/1_5_-_Photo_ffhuev.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642248/1_2_-_Photo_zipvaw.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642248/1_3_-_Photo_ojru6d.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642250/2_14_-_Photo_fnpttq.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642250/2_12_-_Photo_ul0wun.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642244/MAIN-2_15_-_Photo_zzoajx.jpg",
+    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+  },
+  {
+    "title": "Mark Residence",
+    "location": "Irumbulichery Island, Chengalpattu",
+    "category": "Residential",
+    "year": "2021",
+    "area": "9,800 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642265/1_1_-_Photo_p39dei.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642263/1_2_-_Photo_qksjal.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642265/1_1_-_Photo_p39dei.jpg",
+    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+  },
+  {
+    "title": "Naveen Residence",
+    "location": "Irumbulichery Island, Chengalpattu",
+    "category": "Residential",
+    "year": "2021",
+    "area": "9,800 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642261/1_1_-_Photo_trjxy6.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642262/1_2_-_Photo_jeplkh.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642263/1_3_-_Photo_robx7c.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642261/1_1_-_Photo_trjxy6.jpg",
+    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+  },
+  {
+    "title": "Ramakrishnan Residence",
+    "location": "Irumbulichery Island, Chengalpattu",
+    "category": "Residential",
+    "year": "2021",
+    "area": "9,800 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642258/1_2_-_Photo_vzqb3j.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642278/1_5_-_Photo_yzlrq4.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642259/1_1_-_Photo_uxet04.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642258/1_2_-_Photo_vzqb3j.jpg",
+    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+  },
+  {
+    "title": "Subramaniyam Residence",
+    "location": "Irumbulichery Island, Chengalpattu",
+    "category": "Residential",
+    "year": "2021",
+    "area": "9,800 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642258/1_1_-_Photo_tcyqo0.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642258/1_2_-_Photo_dktemy.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642257/1_3_-_Photo_ll0oq6.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642258/1_1_-_Photo_tcyqo0.jpg",
+    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+  },
+  {
+    "title": "Suresh Residence",
+    "location": "Irumbulichery Island, Chengalpattu",
+    "category": "Residential",
+    "year": "2021",
+    "area": "9,800 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642255/1_2_-_Photo_swyvjg.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642256/1_1_-_Photo_zacwyy.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642255/1_2_-_Photo_swyvjg.jpg",
+    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+  }
+]

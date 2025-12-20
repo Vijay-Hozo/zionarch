@@ -1,47 +1,126 @@
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { ArrowRight } from "lucide-react";
+import { useRef, useState, useEffect } from "react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const showcaseImages = [
   {
-    image: "https://zionarch.com/wp-content/uploads/2018/08/Days-Hotel-1.jpg",
-    category: "Hospitality",
-  },
-  {
-    image: "https://zionarch.com/wp-content/uploads/2021/08/FEATURE-IMAGE.png",
+    image:
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642244/DJI_0320_fop5vi.jpg",
     category: "Residential",
   },
   {
-    image: "https://zionarch.com/wp-content/uploads/2022/09/FEATURE-IMAGE-1.jpg",
+    image:
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642019/MAIN_dd3kzd.jpg",
+    category: "Apartments",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642153/2_12_-_Photo_ss3u7n.jpg",
     category: "Institutional",
   },
   {
-    image: "https://zionarch.com/wp-content/uploads/2021/08/feature-image-8-scaled.jpg",
+    image:
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642032/MAIN-1_1_vihwcn.jpg",
     category: "Commercial",
   },
   {
-    image: "https://zionarch.com/wp-content/uploads/2021/08/feature-image-8-scaled.jpg",
+    image:
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642061/MAIN-1_2_-_Photo_wv1urc.jpg",
+    category: "Interiors",
+  },
+
+  {
+    image:
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642209/2_1_-_Photo_ktrfdq.jpg",
+    category: "Hospitality",
+  },
+  {
+    image:
+      "https://zionarch.com/wp-content/uploads/2021/08/feature-image-8-scaled.jpg",
     category: "Commercial",
   },
   {
-    image: "https://zionarch.com/wp-content/uploads/2021/08/feature-image-8-scaled.jpg",
-    category: "Commercial",
-  },
-  {
-    image: "https://zionarch.com/wp-content/uploads/2021/08/feature-image-8-scaled.jpg",
-    category: "Commercial",
-  },
-  {
-    image: "https://zionarch.com/wp-content/uploads/2021/08/feature-image-8-scaled.jpg",
-    category: "Commercial",
+    image:
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642271/NAME_BOARD_2_lkjlji.jpg",
+    category: "Residential",
   },
 ];
 
 export function PortfolioPreview() {
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoScrolling, setIsAutoScrolling] = useState(true);
+
+  // Function to navigate to a specific card
+  const goToCard = (index: number) => {
+    setCurrentIndex(index);
+    setIsAutoScrolling(false);
+
+    // Reset auto-scroll after a delay
+    setTimeout(() => {
+      setIsAutoScrolling(true);
+    }, 8000); // Wait 8 seconds before resuming auto-scroll
+  };
+
+  // Function to navigate to next card
+  const nextCard = () => {
+    goToCard((currentIndex + 1) % showcaseImages.length);
+  };
+
+  // Function to navigate to previous card
+  const prevCard = () => {
+    goToCard(
+      (currentIndex - 1 + showcaseImages.length) % showcaseImages.length
+    );
+  };
+
+  // Auto-scroll effect
+  useEffect(() => {
+    let interval: NodeJS.Timeout;
+
+    if (isAutoScrolling) {
+      interval = setInterval(() => {
+        setCurrentIndex((prev) => (prev + 1) % showcaseImages.length);
+      }, 5000);
+    }
+
+    return () => clearInterval(interval);
+  }, [isAutoScrolling]);
+
+  // Scroll to current card
+  useEffect(() => {
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      const cards = container.querySelectorAll("[data-card]");
+
+      if (cards.length > 0) {
+        const card = cards[currentIndex] as HTMLElement;
+        const containerWidth = container.clientWidth;
+        const cardWidth = card.offsetWidth;
+        const cardLeft = card.offsetLeft;
+        const cardCenter = cardLeft + cardWidth / 2;
+        const scrollLeft = cardCenter - containerWidth / 2;
+
+        container.scrollTo({
+          left: scrollLeft,
+          behavior: "smooth",
+        });
+      }
+    }
+  }, [currentIndex]);
+
+  // Calculate opacity for cards based on their position relative to currentIndex
+  const getCardOpacity = (index: number) => {
+    const distance = Math.abs(index - currentIndex);
+
+    if (distance === 0) return 1; // Current card - full opacity
+    if (distance === 1) return 0.5; // Adjacent cards - 50% opacity
+    return 0.3; // Other cards - 30% opacity
+  };
 
   return (
     <section
@@ -87,47 +166,100 @@ export function PortfolioPreview() {
           />
         </motion.div>
 
-        {/* Image Grid */}
-        <div className="mb-12 overflow-x-auto lg:overflow-visible scrollbar-hide snap-x snap-mandatory lg:snap-none scroll-smooth">
-          <div className="flex lg:grid gap-4 md:gap-6 lg:grid-cols-4 pb-4 lg:pb-0">
-            {showcaseImages.map((item, index) => (
-              <Link 
-                key={`${item.category}-${index}`}
-                to={`/portfolio?category=${item.category}`}
-                className="flex-shrink-0 w-[85vw] sm:w-[70vw] lg:w-auto snap-center snap-always lg:snap-align-none"
-              >
-                <motion.div
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.1 + index * 0.05 }}
-                  whileHover={{ scale: 1.03, y: -8 }}
-                  className="relative group cursor-pointer overflow-hidden rounded-xl aspect-[3/4] h-full"
-                >
-                <motion.img
-                  src={item.image}
-                  alt={item.category}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/40 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
-                
-                {/* Hover Content */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 transition-all duration-300">
-                  <div className="space-y-2">
-                    <span className="text-background font-display font-semibold text-sm md:text-lg block">
-                      {item.category}
-                    </span>
-                    <p className="text-background/80 font-body text-xs md:text-sm opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300">
-                      Click to explore more about our work
-                    </p>
-                  </div>
-                </div>
+        {/* Navigation Arrows - Mobile Only */}
+        <div className="relative">
+          {/* Previous Button */}
+          <button
+            onClick={prevCard}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-8 z-10 bg-background/80 backdrop-blur-sm p-2 rounded-full shadow-lg border border-primary/20 hover:bg-primary/10 transition-all duration-300 lg:hidden"
+            aria-label="Previous project"
+          >
+            <ChevronLeft className="w-6 h-6 text-primary" />
+          </button>
 
-                {/* Animated Border */}
-                <div className="absolute bottom-0 left-0 w-0 h-1 bg-primary group-hover:w-full transition-all duration-500" />
-              </motion.div>
-            </Link>
-            ))}
+          {/* Next Button */}
+          <button
+            onClick={nextCard}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-8 z-10 bg-background/80 backdrop-blur-sm p-2 rounded-full shadow-lg border border-primary/20 hover:bg-primary/10 transition-all duration-300 lg:hidden"
+            aria-label="Next project"
+          >
+            <ChevronRight className="w-6 h-6 text-primary" />
+          </button>
+
+          {/* Image Grid */}
+          <div
+            className="mb-12 overflow-x-auto lg:overflow-visible scrollbar-hide scroll-smooth"
+            ref={scrollContainerRef}
+          >
+            <div className="flex lg:grid lg:grid-cols-4 gap-4 md:gap-6 pb-4 lg:pb-0 px-4 md:px-0">
+              {showcaseImages.map((item, index) => (
+                <div
+                  key={`${item.category}-${index}`}
+                  data-card
+                  className="flex-shrink-0 w-[85vw] sm:w-[70vw] md:w-[50vw] lg:w-auto cursor-pointer"
+                  onClick={() => goToCard(index)}
+                >
+                  <motion.div
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={isInView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ duration: 0.6, delay: 0.1 + index * 0.05 }}
+                    whileHover={{
+                      scale: 1.03,
+                      y: -4,
+                    }}
+                    className="relative group overflow-hidden rounded-xl aspect-[3/4] h-full transition-all duration-500 ease-out"
+                    style={{
+                      opacity: window.innerWidth >= 1024 ? 1 : getCardOpacity(index),
+                      transform:
+                        window.innerWidth >= 1024 || index === currentIndex ? "scale(1)" : "scale(0.95)",
+                    }}
+                  >
+                    <Link
+                      to={`/portfolio?category=${item.category}`}
+                      className="block h-full"
+                    >
+                      <motion.img
+                        src={item.image}
+                        alt={item.category}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/40 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
+
+                      {/* Hover Content */}
+                      <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 transition-all duration-300">
+                        <div className="space-y-2">
+                          <span className="text-background font-display font-semibold text-sm md:text-lg block">
+                            {item.category}
+                          </span>
+                          <p className="text-background/80 font-body text-xs md:text-sm opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300">
+                            Click to explore more about our work
+                          </p>
+                        </div>
+                      </div>
+                      {/* Animated Border */}
+                      <div className="absolute bottom-0 left-0 w-0 h-1 bg-primary group-hover:w-full transition-all duration-500" />
+                    </Link>
+                  </motion.div>
+                </div>
+              ))}
+            </div>
           </div>
+        </div>
+
+        {/* Navigation Dots - Mobile Only */}
+        <div className="flex lg:hidden justify-center items-center gap-2 mb-8">
+          {showcaseImages.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToCard(index)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                index === currentIndex
+                  ? "bg-primary w-8"
+                  : "bg-primary/30 hover:bg-primary/50"
+              }`}
+              aria-label={`Go to project ${index + 1}`}
+            />
+          ))}
         </div>
 
         {/* CTA Button */}

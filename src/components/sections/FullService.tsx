@@ -2,6 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Check, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const features = [
   "We offer a comprehensive range of architectural services as full-service architects",
@@ -26,6 +27,13 @@ export function FullService() {
       />
 
       <div className="container mx-auto px-6">
+        {/* Mobile Title */}
+        <span className="text-primary font-body text-sm tracking-[0.2em] uppercase mb-4 block lg:hidden">
+          Complete Solutions
+        </span>
+        <h2 className="text-4xl lg:text-5xl font-display font-bold mb-6 leading-tight lg:hidden">
+          Full Service <span className="text-primary">Architects</span>
+        </h2>
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Image Side */}
           <motion.div
@@ -53,9 +61,9 @@ export function FullService() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.6, delay: 0.8 }}
-                className="absolute -bottom-8 -left-8 bg-foreground text-background p-8 rounded-2xl shadow-2xl max-w-xs"
+                className="absolute -bottom-8 -left-8 bg-foreground text-background p-4 rounded-2xl shadow-2xl max-w-xs"
               >
-                <div className="text-5xl font-display font-bold text-primary mb-2">One-Stop</div>
+                <div className="text-3xl font-display font-bold text-primary ">One-Stop</div>
                 <div className="text-xl font-display">Solution for All Your Needs</div>
               </motion.div>
             </div>
@@ -66,12 +74,12 @@ export function FullService() {
             initial={{ opacity: 0, x: 60 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="order-1 lg:order-2"
+            className="order-3 lg:order-2"
           >
-            <span className="text-primary font-body text-sm tracking-[0.2em] uppercase mb-4 block">
+            <span className="text-primary font-body text-sm tracking-[0.2em] uppercase mb-4 hidden lg:block">
               Complete Solutions
             </span>
-            <h2 className="text-4xl lg:text-5xl font-display font-bold mb-6 leading-tight">
+            <h2 className="text-4xl lg:text-5xl font-display font-bold mb-6 leading-tight hidden lg:block">
               Full Service <span className="text-primary">Architects</span>
             </h2>
             <p className="text-muted-foreground font-body text-lg mb-8">
@@ -98,13 +106,18 @@ export function FullService() {
             </ul>
 
             <div className="flex flex-wrap gap-4">
-              <Button variant="default" size="lg" className="group">
-                Get to Know Us
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              <Link to="/portfolio">
+                <Button variant="default" size="lg" className="group">
+                  Explore Portfolio
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+
+              <Link to="/quote">
               <Button variant="outline" size="lg">
                 Get a Quote
               </Button>
+              </Link>
             </div>
           </motion.div>
         </div>

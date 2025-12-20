@@ -1,5 +1,12 @@
 import { motion } from "framer-motion";
-import { Facebook, Instagram, Linkedin, Twitter, ArrowUp, ArrowRight } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  Twitter,
+  ArrowUp,
+  ArrowRight,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -7,8 +14,7 @@ const footerLinks = {
   company: [
     { name: "About Us", href: "/about" },
     { name: "Our Team", href: "/about#team" },
-    { name: "Careers", href: "#" },
-    { name: "News", href: "#" },
+    { name: "Careers", href: "/careers" },
   ],
   services: [
     { name: "Architecture", href: "/services" },
@@ -16,12 +22,18 @@ const footerLinks = {
     { name: "Engineering", href: "/services" },
     { name: "Design & Build", href: "/services" },
   ],
-  projects: [
-    { name: "Residential", href: "/portfolio" },
-    { name: "Commercial", href: "/portfolio" },
-    { name: "Hospitality", href: "/portfolio" },
-    { name: "Institutional", href: "/portfolio" },
-  ],
+  projects: {
+    name: "PORTFOLIO",
+    href: "/portfolio",
+    subItems: [
+      { name: "Apartments", href: "/portfolio?category=Apartments" },
+      { name: "Commercial", href: "/portfolio?category=Commercial" },
+      { name: "Hospitality", href: "/portfolio?category=Hospitality" },
+      { name: "Interiors", href: "/portfolio?category=Interiors" },
+      { name: "Institutional", href: "/portfolio?category=Institutional" },
+      { name: "Residential", href: "/portfolio?category=Residential" },
+    ],
+  },
 };
 
 const socialLinks = [
@@ -61,7 +73,8 @@ export function Footer() {
                 </span>
               </Link>
               <p className="text-background/60 font-body text-sm mb-4 md:mb-6">
-                Bridges between inspirations and aspirations. Creating spaces that inspire life.
+                Bridges between inspirations and aspirations. Creating spaces
+                that inspire life.
               </p>
               <div className="flex gap-3">
                 {socialLinks.map((social) => (
@@ -83,7 +96,9 @@ export function Footer() {
 
             {/* Links */}
             <div>
-              <h4 className="font-display font-semibold text-background mb-3 md:mb-4 text-sm md:text-base">Company</h4>
+              <h4 className="font-display font-semibold text-background mb-3 md:mb-4 text-sm md:text-base">
+                Company
+              </h4>
               <ul className="space-y-2 md:space-y-3">
                 {footerLinks.company.map((link) => (
                   <li key={link.name}>
@@ -99,7 +114,9 @@ export function Footer() {
             </div>
 
             <div>
-              <h4 className="font-display font-semibold text-background mb-3 md:mb-4 text-sm md:text-base">Services</h4>
+              <h4 className="font-display font-semibold text-background mb-3 md:mb-4 text-sm md:text-base">
+                Services
+              </h4>
               <ul className="space-y-2 md:space-y-3">
                 {footerLinks.services.map((link) => (
                   <li key={link.name}>
@@ -115,9 +132,11 @@ export function Footer() {
             </div>
 
             <div>
-              <h4 className="font-display font-semibold text-background mb-3 md:mb-4 text-sm md:text-base">Projects</h4>
+              <h4 className="font-display font-semibold text-background mb-3 md:mb-4 text-sm md:text-base">
+                Projects
+              </h4>
               <ul className="space-y-2 md:space-y-3">
-                {footerLinks.projects.map((link) => (
+                {footerLinks.projects.subItems.map((link) => (
                   <li key={link.name}>
                     <Link
                       to={link.href}
@@ -132,15 +151,22 @@ export function Footer() {
           </div>
 
           {/* Bottom Bar */}
-          <div className="pt-6 md:pt-8 border-t border-background/10 flex flex-col md:flex-row items-center justify-between gap-4">
+          {/* <div className="pt-6 md:pt-8 border-t border-background/10 flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-background/40 font-body text-xs md:text-sm text-center md:text-left">
-              © {new Date().getFullYear()} ZIONARCH Architects. All rights reserved.
+              © {new Date().getFullYear()} ZIONARCH Architects. All rights
+              reserved.
             </p>
             <div className="flex items-center gap-4 md:gap-6">
-              <a href="#" className="text-background/40 hover:text-background font-body text-xs md:text-sm transition-colors">
+              <a
+                href="#"
+                className="text-background/40 hover:text-background font-body text-xs md:text-sm transition-colors"
+              >
                 Privacy Policy
               </a>
-              <a href="#" className="text-background/40 hover:text-background font-body text-xs md:text-sm transition-colors">
+              <a
+                href="#"
+                className="text-background/40 hover:text-background font-body text-xs md:text-sm transition-colors"
+              >
                 Terms of Service
               </a>
               <motion.button
@@ -152,7 +178,7 @@ export function Footer() {
                 <ArrowUp className="w-4 h-4" />
               </motion.button>
             </div>
-          </div>
+          </div> */}
         </div>
       </footer>
     </>

@@ -2,12 +2,11 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export function AboutPreview() {
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
-  const navigate = useNavigate();
 
   return (
     <section
@@ -15,19 +14,19 @@ export function AboutPreview() {
       ref={containerRef}
       className="py-16 md:py-24 lg:py-32 bg-background relative overflow-hidden"
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
+      {/* Background Pattern (very light, no impact on content) */}
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/20 to-transparent" />
       </div>
 
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
-          {/* Image Side */}
+      {/* Content */}
+      <div className="container mx-auto px-4 relative">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -60 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative order-2 lg:order-1"
+            className="relative order-1 lg:order-1"
           >
             <div className="relative">
               <motion.div
@@ -53,12 +52,8 @@ export function AboutPreview() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="absolute -bottom-6 -right-4 md:-bottom-8 md:-right-8 bg-primary text-primary-foreground p-4 md:p-8 rounded-lg shadow-2xl"
               >
-                <div className="text-3xl md:text-5xl font-display font-bold">
-                  15+
-                </div>
-                <div className="text-xs md:text-sm font-body tracking-wide opacity-90">
-                  Years Experience
-                </div>
+                <div className="text-3xl md:text-5xl font-display font-bold">15+</div>
+                <div className="text-xs md:text-sm font-body tracking-wide opacity-90">Years Experience</div>
               </motion.div>
 
               {/* Decorative Line */}
@@ -76,13 +71,13 @@ export function AboutPreview() {
             initial={{ opacity: 0, x: 60 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="order-1 lg:order-2"
+            className="order-2 lg:order-2"
           >
             <motion.span
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-primary font-body text-sm tracking-[0.2em] uppercase mb-4 block"
+              className="text-primary font-body text-sm tracking-[0.2em] uppercase mb-4 block hidden lg:block"
             >
               About ZIONARCH
             </motion.span>
@@ -91,7 +86,7 @@ export function AboutPreview() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-6 leading-tight"
+              className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-6 leading-tight hidden lg:block"
             >
               Designing Spaces That
               <span className="text-primary block">Inspire Life</span>
@@ -121,42 +116,33 @@ export function AboutPreview() {
               philosophy to "Build Trust and Foster Long-Term Partnerships."
             </motion.p>
 
+            {/* CTAs */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.7 }}
               className="flex flex-wrap gap-4"
             >
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Button
-                  type="button"
-                  variant="default"
-                  size="lg"
-                  className="group w-full cursor-pointer"
-                  onClick={() => navigate("/about")}
-                >
-                  Read More
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </motion.div>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Button
-                  type="button"
-                  variant="outline"
-                  size="lg"
-                  className="group w-full cursor-pointer"
-                  onClick={() => navigate("/quote")}
-                >
-                  Get a Quote
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </motion.div>
+              <Link to="/about">
+                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  <Button variant="hero-outline" size="xl" className="group">
+                    <span className="flex items-center gap-2">
+                      Read More
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                    </span>
+                  </Button>
+                </motion.div>
+              </Link>
+              <Link to="/quote">
+                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  <Button variant="hero" size="xl" className="group">
+                    <span className="flex items-center gap-2">
+                      Get a Quote
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                    </span>
+                  </Button>
+                </motion.div>
+              </Link>
             </motion.div>
           </motion.div>
         </div>
