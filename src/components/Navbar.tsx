@@ -36,6 +36,7 @@ const navItems = [
   },
   { name: "QUOTE", href: "/quote" },
   { name: "CONTACT US", href: "/contact" },
+  { name: "CAREERS", href: "/careers" },
 ];
 
 export function Navbar() {

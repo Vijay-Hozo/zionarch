@@ -332,11 +332,7 @@ const CareersPage = () => {
                             <RadioGroup value={field.value} onValueChange={field.onChange} className="grid grid-cols-2 gap-3">
                               <div className="flex items-center gap-2">
                                 <RadioGroupItem value="onsite" />
-                                <span className="text-sm">On-site (Coimbatore)</span>
-                              </div>
-                              <div className="flex items-center gap-2">
-                                <RadioGroupItem value="remote" />
-                                <span className="text-sm">Remote</span>
+                                <span className="text-sm">On-site (Chennai)</span>
                               </div>
                             </RadioGroup>
                           </FormControl>

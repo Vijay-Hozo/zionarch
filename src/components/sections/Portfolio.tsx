@@ -243,10 +243,10 @@ export function Portfolio() {
                         View Full Project
                         <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </Button>
-                      {/* <div className="flex items-center gap-2 text-foreground/70">
+                      <div className="flex items-center gap-2 text-foreground/70">
                       <MapPin className="w-4 h-4" />
                       <span className="font-body">{currentProject?.location}</span>
-                    </div> */}
+                    </div>
                     </motion.div>
                   </motion.div>
 
@@ -389,9 +389,9 @@ export function Portfolio() {
                   <p className="text-foreground font-display font-semibold text-sm truncate">
                     {project.title}
                   </p>
-                  {/* <p className="text-foreground/70 text-xs truncate">
+                  <p className="text-foreground/70 text-xs truncate">
                     {project.location}
-                  </p> */}
+                  </p>
                 </motion.div>
 
                 {/* Index Number */}
@@ -417,80 +417,104 @@ export function Portfolio() {
         open={!!selectedProject}
         onOpenChange={() => setSelectedProject(null)}
       >
-        <DialogContent className="max-w-5xl p-0 overflow-hidden bg-card border-border">
+        <DialogContent className="max-w-4xl p-0 max-h-[95vh] flex flex-col bg-card border-border rounded-2xl overflow-hidden">
           {selectedProject && (
-            <div className="relative">
-              {/* Image Carousel */}
-              <div className="relative aspect-video bg-background">
-                <AnimatePresence mode="wait">
-                  <motion.img
-                    key={modalImageIndex}
-                    src={selectedProject.images[modalImageIndex]}
-                    alt={selectedProject.title}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="w-full h-full object-cover"
-                  />
-                </AnimatePresence>
+            <div className="relative flex flex-col h-full overflow-hidden">
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedProject(null)}
+                className="absolute top-4 right-4 z-50 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm border border-border flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 shadow-lg"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              {/* Image Carousel - Fixed */}
+              <div className="relative w-full bg-background flex-shrink-0 overflow-hidden">
+                <div className="relative w-full pb-[70%] md:pb-[50%]">
+                  <AnimatePresence mode="wait">
+                    <motion.img
+                      key={modalImageIndex}
+                      src={selectedProject.images[modalImageIndex]}
+                      alt={selectedProject.title}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  </AnimatePresence>
+                </div>
 
                 {/* Navigation */}
                 {selectedProject.images.length > 1 && (
                   <>
                     <button
                       onClick={prevModalImage}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground transition-all"
+                      className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-background/80 backdrop-blur-sm border border-border flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all shadow-lg"
                     >
-                      <ChevronLeft className="w-5 h-5" />
+                      <ChevronLeft className="w-6 h-6" />
                     </button>
                     <button
                       onClick={nextModalImage}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground transition-all"
+                      className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-background/80 backdrop-blur-sm border border-border flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all shadow-lg"
                     >
-                      <ChevronRight className="w-5 h-5" />
+                      <ChevronRight className="w-6 h-6" />
                     </button>
                   </>
                 )}
 
                 {/* Dots */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-                  {selectedProject.images.map((_, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setModalImageIndex(idx)}
-                      className={`w-2 h-2 rounded-full transition-all ${
-                        idx === modalImageIndex
-                          ? "bg-primary w-6"
-                          : "bg-background/60"
-                      }`}
-                    />
-                  ))}
-                </div>
+                {selectedProject.images.length > 1 && (
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 bg-background/40 backdrop-blur-sm px-4 py-2 rounded-full">
+                    {selectedProject.images.map((_, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setModalImageIndex(idx)}
+                        className={`transition-all ${
+                          idx === modalImageIndex
+                            ? "bg-primary w-8 h-2 rounded-full"
+                            : "bg-background/60 w-2 h-2 rounded-full hover:bg-background/80"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                )}
               </div>
 
-              {/* Project Info */}
-              <div className="p-6">
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="px-3 py-1 bg-primary/10 text-primary text-xs font-body tracking-wider uppercase rounded-full">
-                    {selectedProject.category}
-                  </span>
-                  {/* <span className="text-muted-foreground text-sm">{selectedProject.year}</span>
-                  <span className="text-muted-foreground text-sm">•</span>
-                  <span className="text-muted-foreground text-sm">
-                    {selectedProject.area}
-                  </span> */}
+              {/* Project Info - Scrollable */}
+              <div className="overflow-y-auto flex-1">
+                <div className="p-8">
+                  <div className="flex flex-wrap items-center gap-3 mb-6 pb-6 border-b border-border">
+                    <span className="px-4 py-2 bg-primary/10 border border-primary/20 text-primary text-xs font-body tracking-wider uppercase rounded-full hover:bg-primary/20 transition-colors">
+                      {selectedProject.category}
+                    </span>
+                    {selectedProject.year && (
+                      <span className="text-foreground/70 text-sm font-body">{selectedProject.year}</span>
+                    )}
+                    {selectedProject.area && (
+                      <>
+                        <span className="text-foreground/50">•</span>
+                        <span className="text-foreground/70 text-sm font-body">{selectedProject.area}</span>
+                      </>
+                    )}
+                  </div>
+
+                  <div className="mb-6">
+                    <h2 className="text-3xl lg:text-4xl font-display font-bold text-foreground mb-3">
+                      {selectedProject.title}
+                    </h2>
+                    <div className="flex items-center gap-2 text-foreground/70">
+                      <MapPin className="w-5 h-5 text-primary flex-shrink-0" />
+                      <span className="font-body text-base">{selectedProject.location}</span>
+                    </div>
+                  </div>
+
+                  <div className="prose prose-invert max-w-none">
+                    <p className="text-foreground/80 font-body leading-relaxed text-base whitespace-pre-wrap">
+                      {selectedProject.description}
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-display font-bold text-foreground mb-2">
-                  {selectedProject.title}
-                </h3>
-                {/* <div className="flex items-center gap-2 text-muted-foreground mb-4">
-                <MapPin className="w-4 h-4" />
-                <span className="font-body">{selectedProject.location}</span>
-              </div> */}
-                {/* <p className="text-muted-foreground font-body">
-                  {selectedProject.description}
-                </p> */}
               </div>
             </div>
           )}

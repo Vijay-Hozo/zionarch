@@ -21,7 +21,7 @@ const teamMembers = [
     name: "Rayan",
     role: "Senior Architect",
     image:
-      "https://zionarch.com/wp-content/uploads/2023/02/RAYAN-300x300.jpeg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1767011491/Seniorarchitect_csphsk.jpg",
   },
   {
     name: "Menaka",
@@ -133,7 +133,7 @@ export function Team() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="lg:w-2/5 group relative"
           >
-            <div className="relative overflow-hidden rounded-xl bg-card shadow-xl border border-primary/30 h-full min-h-[360px] sm:min-h-[480px] lg:min-h-[700px]">
+            <div className="relative overflow-hidden rounded-xl bg-card shadow-xl border border-primary/30 h-full min-h-[320px] sm:min-h-[400px] lg:min-h-[560px]">
               <div className="relative h-full">
                 <motion.img
                   src={teamMembers[0].image}
@@ -203,7 +203,7 @@ export function Team() {
                   className="group relative h-full min-h-[300px]"
                 >
                   <div className="relative overflow-hidden rounded-xl bg-card h-full">
-                    <div className="relative h-[400px]">
+                    <div className="relative h-[320px]">
                       <motion.img
                         src={member.image}
                         alt={member.name}

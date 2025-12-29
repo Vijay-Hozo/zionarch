@@ -1,10 +1,10 @@
 [
   {
     "title": "Raja's Paradise",
-    "location": "Padur, Chennai",
+    "location": "Rajakilpakkam",
     "category": "Hospitality",
-    "year": "2018",
-    "area": "45,000 sq.ft",
+    "year": "2025",
+    "area": "13,750 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642208/1_5_-_Photo_oq8wz3.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642208/1_3_-_Photo_fdzaer.jpg",
@@ -15,24 +15,43 @@
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642177/1_6_-_Photo_ve7qfy.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642208/1_5_-_Photo_oq8wz3.jpg",
-    "description": "A contemporary hotel design featuring modern amenities and elegant interiors."
+    "description": "Resort-style hospitality block arranged around a landscaped forecourt, with continuous balconies and vertical fins adding rhythm to the façade. Warm earthy tones, pergola elements and rooftop edge detailing give the building a contemporary tropical character that suits its lush surroundings. Generous driveway, layered planting and integrated seating create a comfortable arrival experience for guests and events."
+  },
+  {
+    "title": "Bambusa",
+    "location": "Kavlur",
+    "category": "Hospitality",
+    "year": "2024",
+    "area": "4.2 Hectare",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1766938949/MAIN-1_hddb5k.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1766938952/1_Photo_-_3_xnwy48.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1766938952/1_Photo_-_8_dh8twl.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1766938950/1_12_-_Photo_pwupg2.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1766938950/1_14_-_Photo_mmw9ey.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1766938950/1_13_-_Photo_xcl96e.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1766938950/1_16_-_Photo_o4ori3.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1766938950/1_15_-_Photo_vh158g.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1766938949/MAIN-1_hddb5k.jpg",
+    "description": "Resort-style hospitality block arranged around a landscaped forecourt, with continuous balconies and vertical fins adding rhythm to the façade. Warm earthy tones, pergola elements and rooftop edge detailing give the building a contemporary tropical character that suits its lush surroundings. Generous driveway, layered planting and integrated seating create a comfortable arrival experience for guests and events."
   },
   {
     "title": "Carlo Shelter Home",
-    "location": "Akkarai, Chennai",
+    "location": "Gummidippondi",
     "category": "Hospitality",
-    "year": "2019",
-    "area": "32,000 sq.ft",
+    "year": "2024",
+    "area": "6,000 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642209/2_1_-_Photo_ktrfdq.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642209/2_2_-_Photo_er9u7v.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642209/2_1_-_Photo_ktrfdq.jpg",
-    "description": "Boutique hotel with sophisticated architecture and premium facilities."
+    "description": "Shelter-style hospitality project designed as a single-storey linear block that offers safe, barrier-free access and clear visibility across all rooms. Calm neutral tones, deep entrance canopy and continuous landscape edge create a welcoming first impression while ensuring privacy and comfort for long-stay residents. Simple massing, shaded verandahs and ample openings support cross-ventilation, making the facility efficient to run and pleasant to inhabit."
   },
   {
     "title": "Chrysalis High School",
-    "location": "Mahindra World City, Chennai",
+    "location": "Bangalore",
     "category": "Institutional",
     "year": "2022",
     "area": "85,000 sq.ft",
@@ -51,9 +70,9 @@
 
   {
     "title": "Sholaa Lake View Resort",
-    "location": "Karur",
+    "location": "Vaalpaarai",
     "category": "Hospitality",
-    "year": "2021",
+    "year": "2024",
     "area": "7,500 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642173/MAIN-1_1_-_Photo_d0ercs.jpg",
@@ -63,41 +82,41 @@
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642172/1_7_-_Photo_nsu50v.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642173/MAIN-1_1_-_Photo_d0ercs.jpg",
-    "description": "Luxury contemporary home with clean lines and premium finishes."
+    "description": "Hilltop retreat nestled within a lush contour site, with verandahs and wraparound decks opening to panoramic valley views. Stone plinths, pitched roofs and timber railings blend the architecture with the landscape, giving the property a warm, rustic resort character. Layered outdoor spaces, from the arrival court to the firepit terrace, encourage guests to relax, gather and connect with nature across the day."
   },
   {
     "title": "KV Apartments",
-    "location": "Karur",
+    "location": "Irumbliyur",
     "category": "Apartments",
-    "year": "2021",
-    "area": "7,500 sq.ft",
+    "year": "2025",
+    "area": "9,900 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642020/1_2_-_Photo_wa2vav.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642022/2_4_-_Photo_mvhnx0.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642022/2_3_-_Photo_serrnx.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642020/1_2_-_Photo_wa2vav.jpg",
-    "description": "Luxury contemporary home with clean lines and premium finishes."
+    "description": "KV Apartments is a contemporary residential enclave featuring clean lines, deep balconies and a warm mix of stone, wood and neutral tones. The open corner terraces, sleek glass railings and vertical fins create a modern, elegant facade while providing ample light and ventilation to every unit. A bold entrance frame and rooftop pergola highlight the building's identity as K.V. Enclave, offering stylish apartment living in a well-planned, urban setting."
   },
   {
     "title": "Kannapan Apartments",
-    "location": "Karur",
+    "location": "Korattur",
     "category": "Apartments",
-    "year": "2021",
-    "area": "7,500 sq.ft",
+    "year": "2024",
+    "area": "8,000 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642023/1_1_-_Photo_dmvwp9.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642023/1_2_-_Photo_odspvf.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642023/1_1_-_Photo_dmvwp9.jpg",
-    "description": "Luxury contemporary home with clean lines and premium finishes."
+    "description": "This design is a compact, modern residence with clean geometry and a refined material palette of warm wood tones and crisp white frames. Layered balconies with glass railings and linear ceiling panels create depth, while the bold edge frame highlights the name Kannappan Enclave and gives the facade a strong identity. The design offers well-shaded outdoor spaces, ample natural light and a contemporary street presence suited for urban living."
   },
   {
     "title": "Iksel Homes",
-    "location": "Karur",
+    "location": "Madambakkam",
     "category": "Apartments",
-    "year": "2021",
-    "area": "7,500 sq.ft",
+    "year": "2025",
+    "area": "15,000 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642019/MAIN_dd3kzd.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642039/1_3_-_Photo_t8pavb.jpg",
@@ -107,41 +126,41 @@
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642014/1_enbzmx.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642019/MAIN_dd3kzd.jpg",
-    "description": "Luxury contemporary home with clean lines and premium finishes."
+    "description": "Iskel Home is a premium apartment block designed in a classic contemporary style with a uniform, elegant cream facade. Recessed balconies with decorative railings, framed windows and subtle vertical grooves add depth and rhythm to the long elevation. The gated entrance and continuous compound wall create a secure, well-defined edge, giving the community a dignified and cohesive street presence."
   },
   {
     "title": "Ramesh Apartments",
-    "location": "Karur",
+    "location": "Tambaram",
     "category": "Apartments",
-    "year": "2021",
-    "area": "7,500 sq.ft",
+    "year": "2025",
+    "area": "5,750 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642019/w_lcxz94.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642019/w_lcxz94.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642019/w_lcxz94.jpg",
-    "description": "Luxury contemporary home with clean lines and premium finishes."
+    "description": "A sleek, contemporary apartment block featuring a bold vertical frame, layered balconies with glass railings and full-height windows. Clean horizontal slabs and warm textured wall panels break the mass visually, enhancing light, views and outdoor spill-out spaces for each unit. The elevated entrance zone and semi-covered terrace level give the building a distinctive urban skyline presence."
   },
   {
     "title": "Raja Montessory",
-    "location": "Karur",
+    "location": "OMR",
     "category": "Institutional",
-    "year": "2021",
-    "area": "7,500 sq.ft",
+    "year": "2025",
+    "area": "3,000 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642154/1_3_-_Photo_firzhf.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642155/1_2_-_Photo_phtmsz.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642156/1_1_-_Photo_zlznlt.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642154/1_3_-_Photo_firzhf.jpg",
-    "description": "Luxury contemporary home with clean lines and premium finishes."
+    "description": "Playful kindergarten block that uses bold primary-coloured fins, deep window recesses and a stained-glass crown to create a lively, child-friendly identity from the street. Compact vertical massing, shaded edges and controlled openings ensure safety and climatic comfort while keeping classrooms well lit and visually engaging. Clear signage and a defined entrance podium make arrival intuitive for children and parents, reinforcing the school's strong urban presence."
   },
   {
     "title": "Smart Modern School",
-    "location": "Karur",
+    "location": "Tiruppur",
     "category": "Institutional",
-    "year": "2021",
-    "area": "7,500 sq.ft",
+    "year": "2023",
+    "area": "70,000 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642153/2_12_-_Photo_ss3u7n.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642155/1_5_-_Photo_tc1jt6.jpg",
@@ -154,28 +173,28 @@
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642133/1_2_-_Photo_vsn4gr.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642153/2_12_-_Photo_ss3u7n.jpg",
-    "description": "Luxury contemporary home with clean lines and premium finishes."
+    "description": "Double-height school lobby and smart amphitheatre designed as vibrant community hubs that celebrate the idea of \"Education Beyond Books.\" Colourful graphic walls, generous glazing and warm timber accents make the reception welcoming for students and parents while clearly guiding them to admissions and admin zones. The covered amphitheatre extends learning outdoors, with a bold geometric roof and flexible seating that support assemblies, performances and informal gatherings in all weather."
   },
   {
     "title": "St. Dominics School",
-    "location": "Karur",
+    "location": "Ramapuram",
     "category": "Institutional",
-    "year": "2021",
-    "area": "7,500 sq.ft",
+    "year": "2025",
+    "area": "Entrance Arch",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642112/1_1_-_Photo_uae5pt.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642110/2_3_-_Photo_lve1hp.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642111/1_2_-_Photo_jaq5kf.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642110/2_3_-_Photo_lve1hp.jpg",
-    "description": "Luxury contemporary home with clean lines and premium finishes."
+    "description": "Grand entrance archway for an Anglo‑Indian higher secondary school, blending classical proportions with finely detailed jali panels and night-time accent lighting. The illuminated name band, crest and central vehicular gate create a strong sense of identity and ceremony as students and visitors arrive on campus. Flanking columns, layered cornices and warm tonal contrast give the gateway a timeless, institutional character that frames views into the school beyond."
   },
   {
     "title": "The Instituite of Mathematics and Science",
-    "location": "Karur",
+    "location": "Taramani",
     "category": "Institutional",
-    "year": "2021",
-    "area": "7,500 sq.ft",
+    "year": "2024",
+    "area": "20,000 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642159/IMG20240705105555_acxnk0.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642169/IMG20240705111153_x4axjz.jpg",
@@ -187,14 +206,14 @@
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642159/IMG20240705111241_ekkzmk.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642159/IMG20240705105555_acxnk0.jpg",
-    "description": "Luxury contemporary home with clean lines and premium finishes."
+    "description": "Elegant multipurpose halls designed for formal gatherings, meetings and small events, finished in a warm neutral palette with timber ceiling bands and soft drapery. Flexible furniture layouts, integrated audiovisual points and continuous ambient lighting allow the rooms to transition easily between training sessions, conferences and family functions. Clean detailing, coordinated upholstery and subtle indoor greenery keep the ambience sophisticated while remaining comfortable for long hours of use."
   },
   {
     "title": "Aishwarya Karthik",
-    "location": "Karur",
+    "location": "Neelangarai",
     "category": "Interiors",
-    "year": "2021",
-    "area": "7,500 sq.ft",
+    "year": "2023",
+    "area": "3,500 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642104/LIVING_ROOM_V8_hkzrpw.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642086/LIVING_ROOM_V3_vhkizw.jpg",
@@ -208,14 +227,14 @@
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642080/LIVING_ROOM_V10_msvi0v.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642104/LIVING_ROOM_V8_hkzrpw.jpg",
-    "description": "Luxury contemporary home with clean lines and premium finishes."
+    "description": "Warm, contemporary living–dining hub that brings together traditional elements like the swing and carved timber screens with clean modern furniture. Central double-height feature wall, indoor water bowl and lush plants create a calm courtyard feel while visually anchoring the space. Soft neutral finishes, layered lighting and open planning support everyday family use as well as social gatherings."
   },
   {
     "title": "Joe Residence",
-    "location": "Karur",
+    "location": "Adhambakkam",
     "category": "Interiors",
-    "year": "2021",
-    "area": "7,500 sq.ft",
+    "year": "2024",
+    "area": "1,500 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642087/1_jxy0o2.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642087/2_di0lg8.jpg",
@@ -229,14 +248,14 @@
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642095/K_8_-_Photo_z7t04s.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642087/1_jxy0o2.jpg",
-    "description": "Luxury contemporary home with clean lines and premium finishes."
+    "description": "Sophisticated residential interior where the living, dining and bar zones flow seamlessly along a single open axis. Rich marble flooring, fluted wood panels and champagne-gold inlay on feature walls create a luxurious yet warm backdrop for everyday family life. Custom lighting, accent colours and sleek built-in storage keep the space clutter-free while highlighting key focal points from the TV wall to the dining niche."
   },
   {
     "title": "Murugesh Babu Residence",
-    "location": "Karur",
+    "location": "Kotturpuram",
     "category": "Interiors",
-    "year": "2021",
-    "area": "7,500 sq.ft",
+    "year": "2025",
+    "area": "1,400 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642087/MAIN-1_1_-_Photo_spmnak.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642080/1_3_-_Photo_tfkbrr.jpg",
@@ -250,14 +269,14 @@
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642070/5_3_-_Photo_scao5g.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642087/MAIN-1_1_-_Photo_spmnak.jpg",
-    "description": "Luxury contemporary home with clean lines and premium finishes."
+    "description": "The design features a cohesive contemporary interior where living, dining and kitchen spaces are visually connected yet functionally distinct. Warm wood tones, gold accents and cool greys run throughout the home, complemented by marble finishes and sleek built-ins for a polished, clutter-free look. Thoughtful lighting, custom partitions and comfortable furniture create a welcoming family environment that easily adapts from daily use to entertaining guests."
   },
   {
     "title": "Ramakrishnan Residence",
-    "location": "Karur",
+    "location": "Adhambakkam",
     "category": "Interiors",
-    "year": "2021",
-    "area": "7,500 sq.ft",
+    "year": "2024",
+    "area": "7,450 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642061/MAIN-1_2_-_Photo_wv1urc.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642067/1_4_-_Photo_qnqg6w.jpg",
@@ -270,14 +289,14 @@
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642070/3_vmwqyh.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642061/MAIN-1_2_-_Photo_wv1urc.jpg",
-    "description": "Luxury contemporary home with clean lines and premium finishes."
+    "description": "Terrace-level recreation zone that reinterprets a traditional courtyard with terracotta roofing, exposed rafters and patterned jaali walls for natural light and breeze. Comfortable lounge seating, bar counter and landscaped pockets create multiple corners for family gatherings, festivals and relaxed evenings. Central water-feature court with timber columns and decorative flooring anchors the space, giving the residence a resort-like, semi-open entertainment deck."
   },
   {
     "title": "Saravanan Residence",
     "location": "Karur",
     "category": "Interiors",
     "year": "2021",
-    "area": "7,500 sq.ft",
+    "area": "9,500 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642102/LIVING_3_cskisq.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642103/LIVING_x9cvhk.jpg",
@@ -288,14 +307,14 @@
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642104/LIVING_rop0sg.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642102/LIVING_3_cskisq.jpg",
-    "description": "Luxury contemporary home with clean lines and premium finishes."
+    "description": "Vibrant residential interior that layers warm wood furniture and detailing with fresh turquoise accents and patterned upholstery. Open planning links formal and family living areas, while exposed brick, traditional swing seating and rich textures add a cosy, heritage-inspired character. Carefully curated decor, ceiling treatments and soft lighting create an inviting home ideal for everyday living and intimate gatherings."
   },
   {
     "title": "Siva Residence",
-    "location": "Karur",
+    "location": "Madurai",
     "category": "Interiors",
-    "year": "2021",
-    "area": "7,500 sq.ft",
+    "year": "2023",
+    "area": "3,800 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642098/HOME_THEATRE_OPT_1_1_-_Photo_uokilv.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642097/COMPOUND_WALL_1_kpzlkv.jpg",
@@ -307,42 +326,42 @@
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642100/MASTER_BEDROOM_1_za1dwp.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642098/HOME_THEATRE_OPT_1_1_-_Photo_uokilv.jpg",
-    "description": "Luxury contemporary home with clean lines and premium finishes."
+    "description": "Siva Residence interiors combine a plush home-theatre lounge with calm, nature-inspired bedroom suites for a complete family retreat. The acoustically treated screening room uses layered lighting, deep seating and warm panelling to create an immersive cinema experience at home. Bedrooms balance rich wood, soft textiles and fresh greens or cool blues, offering personalised, restful spaces that still tie back to a unified contemporary design language."
   },
   {
     "title": "Fastrack GYM",
-    "location": "Irumbulichery Island, Chengalpattu",
+    "location": "Selaiyur",
     "category": "Commercial",
-    "year": "2021",
-    "area": "9,800 sq.ft",
+    "year": "2023",
+    "area": "1,200 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642068/1_1_-_Photo_xuvccj.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642047/1_3_-_Photo_ivhhah.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642048/1_dbiqvr.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642068/1_1_-_Photo_xuvccj.jpg",
-    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+    "description": "A calm, inviting wellness corner that blends warm wood finishes with lush green wall panels and soft indirect lighting. The central arched niche with a meditative silhouette in marble creates a strong focal point, setting a serene tone for the gym experience. Flanking planters, linear ceiling details and a reflective stone platform complete the space with a clean, premium and spa-like ambience."
   },
   {
     "title": "Guindy Multimodal Hub",
-    "location": "Irumbulichery Island, Chengalpattu",
+    "location": "Guindy",
     "category": "Commercial",
-    "year": "2021",
-    "area": "9,800 sq.ft",
+    "year": "2025",
+    "area": "4.4 hectare",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642052/1_3_-_Photo_nycecm.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642051/1_2_-_Photo_sefcym.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642051/1_1_-_Photo_hpjoeu.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642052/1_3_-_Photo_nycecm.jpg",
-    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+    "description": "An elevated, vibrant skywalk that uses a rhythmic rainbow roof to create a lively visual landmark within the streetscape. The lightweight truss canopy and perforated side panels offer shade, safety and natural ventilation for pedestrians while maintaining openness to surrounding views. Integrated with existing road networks and lush tree cover, the structure transforms everyday circulation into a colorful urban experience."
   },
   {
     "title": "Korcomptenz",
-    "location": "Irumbulichery Island, Chengalpattu",
+    "location": "Nungambakkam",
     "category": "Commercial",
-    "year": "2021",
-    "area": "9,800 sq.ft",
+    "year": "2024",
+    "area": "5,500 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642054/1_2_-_Photo_zfyuad.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642056/1_1_-_Photo_sddf7f.jpg",
@@ -350,14 +369,14 @@
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642054/1_5_-_Photo_p01yav.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642054/1_2_-_Photo_zfyuad.jpg",
-    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+    "description": "A bright, collaborative workspace planned with long open workstations, central circulation and integrated storage for an organized environment. Linear ceiling baffles, accent lighting and brand-coloured bands along the walls create a dynamic, energetic visual language. Glass partitions, indoor planters and clean grey–white finishes bring transparency and freshness, supporting focus as well as team interaction."
   },
   {
     "title": "Legendary Network",
-    "location": "Irumbulichery Island, Chengalpattu",
+    "location": "Arumbakkam",
     "category": "Commercial",
-    "year": "2021",
-    "area": "9,800 sq.ft",
+    "year": "2025",
+    "area": "2,700 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642045/1_5_-_Photo_ryuxyc.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642066/1_3_-_Photo_otcl7z.jpg",
@@ -366,14 +385,38 @@
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642045/1_6_-_Photo_ekhy1u.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642045/1_5_-_Photo_ryuxyc.jpg",
-    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+    "description": "An open, energetic office environment that combines linear workstations with framed glass partitions for transparency and acoustic comfort. Branded colour accents, warm wooden doors and polished flooring guide movement while reinforcing the company identity. Feature lighting, indoor greens and a sculptural lounge sofa soften the space, encouraging both focused work and informal collaboration."
+  },
+  {
+    "title": "Sathya Sai Consultancy",
+    "location": "Kotturpuram",
+    "category": "Commercial",
+    "year": "2024",
+    "area": "6,000 sq.ft",
+    "images": [
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1766938549/MAIN_lrwr20.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1766938558/8524A518-9C8D-42B2-8FB7-F181028960BD_edurj4.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1766938558/7BEE9016-CD1D-4B1E-96D6-93B3F0F11DB2_yl20lq.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1766938557/ADACE8E3-B133-4940-B9A4-6A5A2800B7CF_cvfivq.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1766938556/60B0FC0A-734F-49D3-9749-AD2AE7DFEECE_uob4br.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1766938556/85F6A55A-F779-4A6E-B7E5-B2584122335A_qxokul.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1766938556/0834D7EC-D674-40F0-B5C8-86732F9465F8_ngxupg.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1766938552/25139F3B-D0F2-43D3-BCFF-C88BC69C9E41_a7ojaa.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1766938552/4EFC1D6A-DD06-4C7D-9661-2B2087F10141_os4dgs.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1766938551/72245583-90B2-4FFE-8B16-802D59879A16_uxc4u7.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1766938551/4F71E2D5-3C47-481F-AE34-ADE147E67C80_s96fq2.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1766938550/B3F02B3D-A7AC-4640-B000-9060E6F654E1_vgboay.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1766938550/F6E8A1AD-28B3-4A8E-83E7-5D7ED75A6A03_bt5qkg.jpg"
+    ],
+    "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1766938549/MAIN_lrwr20.jpg",
+    "description": "An open, energetic office environment that combines linear workstations with framed glass partitions for transparency and acoustic comfort. Branded colour accents, warm wooden doors and polished flooring guide movement while reinforcing the company identity. Feature lighting, indoor greens and a sculptural lounge sofa soften the space, encouraging both focused work and informal collaboration."
   },
   {
     "title": "Vasiyam Homes",
-    "location": "Irumbulichery Island, Chengalpattu",
+    "location": "Medavakkam",
     "category": "Commercial",
-    "year": "2021",
-    "area": "9,800 sq.ft",
+    "year": "2025",
+    "area": "1,600 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642032/MAIN-1_1_vihwcn.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642032/2_dfcwry.jpg",
@@ -383,26 +426,26 @@
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642041/1_3_-_Photo_i8kyvy.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642032/MAIN-1_1_vihwcn.jpg",
-    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+    "description": "A refined, corporate interior that layers warm wood, soft greys and deep green upholstery to create a confident yet welcoming atmosphere. Cityscape wall art, sleek linear lighting and tailored furniture unify the reception, waiting and boardroom areas into one coherent visual language. Generous glazing, indoor plants and clean detailing bring light and freshness, supporting both client-facing interactions and focused discussions."
   },
   {
     "title": "Meghavan Complex",
-    "location": "Irumbulichery Island, Chengalpattu",
+    "location": "Selaiyur",
     "category": "Commercial",
-    "year": "2021",
-    "area": "9,800 sq.ft",
+    "year": "2025",
+    "area": "10,200 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642044/1_1_-_Photo_tcpaah.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642045/1_2_-_Photo_ptbmye.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642044/1_1_-_Photo_tcpaah.jpg",
-    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+    "description": "Bold, contemporary commercial block defined by clean glazing bands, sharp framing and a warm neutral palette. Projecting corner volume, continuous strip windows and a subtle diagonal accent line establish a strong corporate identity while maximising daylight inside. Clearly articulated entrance zone with prominent branding ensures high visibility and an inviting street presence for multiple businesses."
   },
   {
     "title": "Rayam Sea Food Market",
-    "location": "Irumbulichery Island, Chengalpattu",
+    "location": "OMR",
     "category": "Commercial",
-    "year": "2021",
+    "year": "2025",
     "area": "9,800 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642056/1_3_-_Photo_wpgtnr.jpg",
@@ -411,14 +454,14 @@
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642060/1_1_-_Photo_qrai4t.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642056/1_3_-_Photo_wpgtnr.jpg",
-    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+    "description": "Fresh, coastal retail space that pairs ocean-inspired graphics with clean display counters to highlight the seafood experience. Long visual axis, clear \"billing\" and \"delivery\" markers and organized shelving make circulation intuitive for both walk-in and takeaway customers. Warm flooring, focused track lighting and brand storytelling walls create an engaging market ambience that feels hygienic, contemporary and welcoming."
   },
   {
     "title": "French Style Farm House",
-    "location": "Irumbulichery Island, Chengalpattu",
+    "location": "Irumbulichery",
     "category": "Residential",
-    "year": "2021",
-    "area": "9,800 sq.ft",
+    "year": "2022",
+    "area": "8,000 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642271/NAME_BOARD_2_lkjlji.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642271/VIEW_FROM_FARM_y0muwp.jpg",
@@ -428,40 +471,40 @@
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642272/ENTRY_POINT_dcmd6n.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642271/VIEW_FROM_FARM_y0muwp.jpg",
-    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+    "description": "Located in the serene landscapes of Irumbulicheri, Zion Architects presents a French-style farmhouse that harmoniously blends colonial elegance with tropical functionality. The design features a striking mustard-yellow facade accented by crisp white moldings and classical balustrades to create a timeless aesthetic. A prominent gabled portico supported by majestic Tuscan columns serves as the home's focal point, offering a grand yet welcoming entrance. The residence is meticulously planned with expansive terraces and large windows to ensure every room is bathed in natural light while maximizing views of the surrounding greenery."
   },
   {
     "title": "Clement",
-    "location": "Irumbulichery Island, Chengalpattu",
+    "location": "Urapakkam",
     "category": "Residential",
-    "year": "2021",
-    "area": "9,800 sq.ft",
+    "year": "2025",
+    "area": "2,790 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642267/1_2_-_Photo_kg1tvo.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642268/1_1_-_Photo_n1krh2.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642267/1_2_-_Photo_kg1tvo.jpg",
-    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+    "description": "The project showcases a sophisticated play of textures and modern geometry. The design utilizes a refined palette of earth-toned stone cladding, wood-finish accents, and sleek grey finishes to create a timeless urban aesthetic. Strategically placed balconies with horizontal louvers provide both privacy and ventilation, while expansive glass elements invite natural light into the living spaces. The exterior is further enhanced by integrated greenery and warm recessed lighting, emphasizing the home's clean architectural lines at night. This residence stands as a testament to our focus on high-end functional design tailored for modern city living."
   },
   {
     "title": "Ganesan Residence",
-    "location": "Irumbulichery Island, Chengalpattu",
+    "location": "Medavakkam",
     "category": "Residential",
-    "year": "2021",
-    "area": "9,800 sq.ft",
+    "year": "2024",
+    "area": "2,800 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642267/1_2_-_Photo_kg1tvo.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642267/1_1_-_Photo_fsgpqz.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642266/1_2_-_Photo_vish8s.jpg",
-    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+    "description": "The design features a bold interplay of grey cantilevered volumes and warm wood-textured panels, creating a sophisticated façade that stands out in an urban setting. Glass-railed balconies and strategic openings are integrated to ensure ample natural light and ventilation across all levels. A minimalist compound wall and gated entry complement the structure's clean lines, reflecting a seamless blend of privacy and style."
   },
   {
     "title": "Gavaskar",
-    "location": "Irumbulichery Island, Chengalpattu",
+    "location": "Mugalivakkam",
     "category": "Residential",
-    "year": "2021",
-    "area": "9,800 sq.ft",
+    "year": "2025",
+    "area": "3,000 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642269/1_3_-_Photo_uvrmkp.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642269/1_2_-_Photo_sscctq.jpg",
@@ -469,55 +512,55 @@
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642270/1_1_-_Photo_q0rpzj.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642269/1_3_-_Photo_uvrmkp.jpg",
-    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+    "description": "Located in Mugalivakam, this contemporary villa is a masterclass in modern tropical design. The façade is defined by the extensive use of exposed brickwork and intricate jali patterns, which provide natural ventilation while creating a dynamic play of light and shadow throughout the day. Its multi-level structure features a series of staggered balconies and a spacious terrace garden, seamlessly connecting the indoor living areas with the outdoors. This project exemplifies the ability to balance privacy with an open, airy feel in a dense urban environment. It stands as a sophisticated residence that combines rustic textures with clean, architectural lines."
   },
   {
     "title": "George Amalan Residence",
-    "location": "Irumbulichery Island, Chengalpattu",
+    "location": "Surapet",
     "category": "Residential",
-    "year": "2021",
-    "area": "9,800 sq.ft",
+    "year": "2025",
+    "area": "2,130 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642265/1_2_-_Photo_uaf2w4.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642264/1_3_-_Photo_lqyale.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642266/1_1_-_Photo_bqzhbr.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642265/1_2_-_Photo_uaf2w4.jpg",
-    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+    "description": "Characterized by its strong architectural framing and stone-clad accents, this Surapet residence redefines suburban grandeur. The design utilizes \"box-in-box\" geometry to create deep-set balconies that provide natural shading and weather protection. A mixture of dark metallic pergolas and vertical timber louvers adds a layer of modern industrial chic to the otherwise warm residential aesthetic. The result is a highly personalized home that feels like a private gallery. This project is a testament to our ability to deliver a high-end, \"fortress-like\" privacy while maintaining an airy, light-filled interior for the modern family."
   },
   {
     "title": "Kovilpatti ",
-    "location": "Irumbulichery Island, Chengalpattu",
+    "location": "Kovilpatti",
     "category": "Residential",
-    "year": "2021",
-    "area": "9,800 sq.ft",
+    "year": "2024",
+    "area": "7,000 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642261/1_sbmwrm.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642261/2_e0muzm.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642261/1_sbmwrm.jpg",
-    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+    "description": "This contemporary multi-unit residential development showcases a sophisticated rhythmic composition of modular villas designed for cohesive urban living. The facade is defined by bold rectilinear frames and cantilevered slabs that create deep-set, shaded balconies with sleek glass balustrades. Intricate geometric jali screens are integrated into the vertical circulation blocks, providing a delicate play of light while maintaining passive ventilation. A rich material palette of slate-grey textures, warm wood-finish cladding, and crisp white masonry adds tactile depth and visual hierarchy to the entire row. This project emphasizes our commitment to high-density luxury, where individual privacy and communal aesthetic harmony are balanced through precise architectural detailing."
   },
   {
     "title": "Ajith Residence",
-    "location": "Irumbulichery Island, Chengalpattu",
+    "location": "Mahabalipuram",
     "category": "Residential",
-    "year": "2021",
-    "area": "9,800 sq.ft",
+    "year": "2024",
+    "area": "2,800 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642255/AERIAL_VIEW_zqksxk.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642255/WATCH_TOWER_hdg7hq.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642253/MAIN-AERIAL_VIEW_o6cvgt.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642255/AERIAL_VIEW_zqksxk.jpg",
-    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+    "description": "This residence is conceived as a refined composition of exposed brick masonry and pitched roof forms, expressing solidity, warmth, and timeless character. The design emphasizes clear massing, proportional symmetry, and articulated rooflines to create a strong architectural identity within its context. Carefully detailed openings, balconies, and brick patterns enhance depth and visual rhythm while ensuring natural light and ventilation. The project balances traditional material expression with contemporary planning to deliver a durable, elegant, and context-responsive home."
   },
   {
     "title": "Karur Villa ",
-    "location": "Irumbulichery Island, Chengalpattu",
+    "location": "Karur",
     "category": "Residential",
     "year": "2021",
-    "area": "9,800 sq.ft",
+    "area": "9,500 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642244/DJI_0320_fop5vi.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642244/IMG_4688_c4jdnt.jpg",
@@ -542,27 +585,27 @@
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642217/20230317_174820_iprwm7.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642244/DJI_0320_fop5vi.jpg",
-    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+    "description": "This villa is designed as a contemporary residential retreat, organized around open courts and water elements to enhance spatial flow and visual continuity. Clean horizontal planes, cantilevered volumes, and expansive glazing define the architectural language while fostering a strong indoor–outdoor relationship. The planning prioritizes privacy and openness through layered spaces, terraces, and landscaped zones. Material contrasts and precise detailing lend the project a calm, refined, and distinctly modern character."
   },
   {
     "title": "Prabhakaran Residence",
-    "location": "Irumbulichery Island, Chengalpattu",
+    "location": "Agaram",
     "category": "Residential",
-    "year": "2021",
-    "area": "9,800 sq.ft",
+    "year": "2025",
+    "area": "4,900 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642251/MAIN-1_2_-_Photo_fiy9iy.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642252/1_1_-_Photo_g8uvd6.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642251/MAIN-1_2_-_Photo_fiy9iy.jpg",
-    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+    "description": "This residence is envisioned as a contemporary urban home that expresses clarity in form and restraint in detailing. The façade composition balances strong vertical volumes with arched openings, creating a refined architectural rhythm. Layered balconies and recessed planes enhance spatial depth while improving shading and climatic responsiveness. A carefully curated palette of textures and neutral tones lends the structure a timeless yet modern character. Integrated landscape elements and terrace greens soften the built mass and strengthen the connection between indoor and outdoor spaces. The planning prioritizes natural light, cross ventilation, and privacy within a compact urban footprint. Overall, the project reflects a sensitive approach to contextual design while maintaining a strong architectural identity."
   },
   {
     "title": "Sree Chaitanya Vishnu Homes",
-    "location": "Irumbulichery Island, Chengalpattu",
+    "location": "Kanathur, ECR",
     "category": "Residential",
-    "year": "2021",
-    "area": "9,800 sq.ft",
+    "year": "2025",
+    "area": "10,000 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642244/MAIN-2_15_-_Photo_zzoajx.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642245/2_17_-_Photo_dynraf.jpg",
@@ -574,74 +617,74 @@
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642250/2_12_-_Photo_ul0wun.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642244/MAIN-2_15_-_Photo_zzoajx.jpg",
-    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+    "description": "This residential development is designed as a cohesive ensemble that combines classical proportions with contemporary construction practices. The elevation language is articulated through symmetrical composition, colonnaded balconies, and defined cornice lines, lending the structure a dignified street presence. Subtle façade detailing and controlled color tones reinforce visual harmony across individual units. Upper-level terraces are conceived as functional outdoor extensions, incorporating pergola structures and green buffers. The layout emphasizes efficient circulation, clear zoning, and comfortable living within a compact footprint. Attention to scale, fenestration, and lighting enhances both daytime articulation and nighttime character. The project reflects a balanced approach to aesthetics, functionality, and long-term residential value."
   },
   {
     "title": "Mark Residence",
-    "location": "Irumbulichery Island, Chengalpattu",
+    "location": "Nedungundram",
     "category": "Residential",
-    "year": "2021",
-    "area": "9,800 sq.ft",
+    "year": "2025",
+    "area": "2,100 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642265/1_1_-_Photo_p39dei.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642263/1_2_-_Photo_qksjal.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642265/1_1_-_Photo_p39dei.jpg",
-    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+    "description": "This private residence is designed with a contemporary architectural expression that emphasizes clean geometry and functional clarity. The elevation is structured through bold horizontal frames, cantilevered volumes, and carefully aligned planes that create a dynamic yet balanced façade. A restrained material palette combining stone textures, wood-finish cladding, and neutral surfaces adds warmth while maintaining visual discipline. Upper-level terraces and pergola elements are designed to regulate light and enhance outdoor usability. Fenestration is strategically placed to ensure privacy while allowing ample daylight and ventilation. The planning responds to the site context with efficient spatial organization and seamless indoor–outdoor connections. Overall, the project reflects a refined residential design approach rooted in modern living requirements."
   },
   {
     "title": "Naveen Residence",
-    "location": "Irumbulichery Island, Chengalpattu",
+    "location": "Madambakkam",
     "category": "Residential",
-    "year": "2021",
-    "area": "9,800 sq.ft",
+    "year": "2025",
+    "area": "2,500 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642261/1_1_-_Photo_trjxy6.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642262/1_2_-_Photo_jeplkh.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642263/1_3_-_Photo_robx7c.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642261/1_1_-_Photo_trjxy6.jpg",
-    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+    "description": "This multi-storey residence is envisioned as a refined urban response, defined by layered volumes and a strong material presence. The architectural composition employs recessed balconies and framed openings to establish depth and proportional balance. A combination of textured surfaces, warm-toned cladding, and neutral finishes lends the façade a composed yet distinctive character. Integrated planter zones and screened terraces contribute to environmental comfort and visual softness. The design emphasizes spatial efficiency, privacy control, and clear structural articulation across all levels. Openings are calibrated to optimize daylight penetration while maintaining a controlled external interface. The project demonstrates a contemporary residential approach aligned with contextual sensitivity and functional elegance."
   },
   {
     "title": "Ramakrishnan Residence",
-    "location": "Irumbulichery Island, Chengalpattu",
+    "location": "Adhambakkam",
     "category": "Residential",
-    "year": "2021",
-    "area": "9,800 sq.ft",
+    "year": "2024",
+    "area": "7,200 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642258/1_2_-_Photo_vzqb3j.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642278/1_5_-_Photo_yzlrq4.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642259/1_1_-_Photo_uxet04.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642258/1_2_-_Photo_vzqb3j.jpg",
-    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+    "description": "This multi-storey residence is envisioned as a refined urban response, defined by layered volumes and a strong material presence. The architectural composition employs recessed balconies and framed openings to establish depth and proportional balance. A combination of textured surfaces, warm-toned cladding, and neutral finishes lends the façade a composed yet distinctive character. Integrated planter zones and screened terraces contribute to environmental comfort and visual softness. The design emphasizes spatial efficiency, privacy control, and clear structural articulation across all levels. Openings are calibrated to optimize daylight penetration while maintaining a controlled external interface. The project demonstrates a contemporary residential approach aligned with contextual sensitivity and functional elegance."
   },
   {
     "title": "Subramaniyam Residence",
-    "location": "Irumbulichery Island, Chengalpattu",
+    "location": "Mappedu",
     "category": "Residential",
-    "year": "2021",
-    "area": "9,800 sq.ft",
+    "year": "2024",
+    "area": "2,900 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642258/1_1_-_Photo_tcyqo0.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642258/1_2_-_Photo_dktemy.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642257/1_3_-_Photo_ll0oq6.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642258/1_1_-_Photo_tcyqo0.jpg",
-    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+    "description": "a contemporary residential project designed with a strong emphasis on functionality, aesthetics, and contextual responsiveness. The design adopts a modern architectural language, articulated through clean lines, balanced massing, and a refined palette of natural materials. Strategic use of stone cladding, wood-finish elements, and textured surfaces adds depth and visual interest to the façade. Thoughtfully planned balconies, pergolas, and shaded openings enhance natural ventilation and daylight while addressing the local climate. The elevation composition ensures privacy, comfort, and a distinct identity within the urban streetscape."
   },
   {
     "title": "Suresh Residence",
-    "location": "Irumbulichery Island, Chengalpattu",
+    "location": "Porur",
     "category": "Residential",
-    "year": "2021",
-    "area": "9,800 sq.ft",
+    "year": "2024",
+    "area": "3,000 sq.ft",
     "images": [
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642255/1_2_-_Photo_swyvjg.jpg",
       "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642256/1_1_-_Photo_zacwyy.jpg"
     ],
     "image": "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642255/1_2_-_Photo_swyvjg.jpg",
-    "description": "Elegant French-inspired farmhouse with sprawling gardens."
+    "description": "A three-storey residence that showcases a refined interplay of clean lines, bold geometric volumes, and warm material palettes. The façade articulates cantilevered frames, horizontal bands, and recessed balconies to create depth, shade, and visual balance. A combination of textured finishes, wood-toned cladding, and large glazed openings enhances both thermal comfort and natural daylight penetration. The integrated car porch, corner fenestrations, and carefully proportioned voids optimise functionality on a compact urban plot. The rooftop terrace with pergola detailing extends the living experience outdoors, offering a private leisure deck within the city fabric. Thoughtful landscape pockets and a sleek boundary treatment complete the modern architectural expression of this residence."
   }
 ]
