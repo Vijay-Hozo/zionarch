@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/sections/Footer";
 import { motion, AnimatePresence } from "framer-motion";
@@ -120,46 +121,83 @@ const QuotePage = () => {
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    setIsSubmitting(false);
 
-    // Build WhatsApp message with the collected details
-    const summary = `Quote Request:\nProject Type: ${
-      formData.projectType || "-"
-    }\nName: ${formData.name || "-"}\nEmail: ${formData.email || "-"}\nPhone: ${
-      formData.phone || "-"
-    }\nLocation: ${formData.location || "-"}\nPlot Size: ${
-      formData.plotSize || "-"
-    }\nBudget: ${formData.budget || "-"}\nTimeline: ${
-      formData.timeline || "-"
-    }\nDescription: ${formData.description || "-"}`;
+    try {
+      // Call the backend API to send quote email
+      const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+      const response = await fetch(`${apiUrl}/api/quote`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          projectType: formData.projectType,
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          location: formData.location,
+          plotSize: formData.plotSize,
+          budget: formData.budget,
+          timeline: formData.timeline,
+          description: formData.description,
+        }),
+      });
 
-    const waUrl = `https://wa.me/918838725310?text=${encodeURIComponent(
-      summary
-    )}`;
+      const result = await response.json();
 
-    toast({
-      title: "Thank you!",
-      description: "We will reach out to you very soon.",
-    });
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to send quote email");
+      }
 
-    // Open WhatsApp with the message ready to send
-    window.open(waUrl, "_blank");
+      setIsSubmitting(false);
 
-    // Reset form
-    setFormData({
-      projectType: "",
-      name: "",
-      email: "",
-      phone: "",
-      location: "",
-      plotSize: "",
-      budget: "",
-      timeline: "",
-      description: "",
-    });
-    setCurrentStep(1);
+      toast({
+        title: "Quote Sent Successfully!",
+        description:
+          "We have received your quote request. Check your email for confirmation.",
+      });
+
+      // Optional: Also open WhatsApp with the summary for additional contact
+      const summary = `Quote Request:\nProject Type: ${
+        formData.projectType || "-"
+      }\nName: ${formData.name || "-"}\nEmail: ${formData.email || "-"}\nPhone: ${
+        formData.phone || "-"
+      }\nLocation: ${formData.location || "-"}\nPlot Size: ${
+        formData.plotSize || "-"
+      }\nBudget: ${formData.budget || "-"}\nTimeline: ${
+        formData.timeline || "-"
+      }\nDescription: ${formData.description || "-"}`;
+
+      const waUrl = `https://wa.me/918838725310?text=${encodeURIComponent(
+        summary
+      )}`;
+
+      // Optional: Uncomment to open WhatsApp automatically
+      // window.open(waUrl, "_blank");
+
+      // Reset form
+      setFormData({
+        projectType: "",
+        name: "",
+        email: "",
+        phone: "",
+        location: "",
+        plotSize: "",
+        budget: "",
+        timeline: "",
+        description: "",
+      });
+      setCurrentStep(1);
+    } catch (error: any) {
+      setIsSubmitting(false);
+      console.error("Error submitting quote:", error);
+      toast({
+        title: "Error",
+        description:
+          error.message || "Failed to send quote. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   const selectedProjectType = projectTypes.find(

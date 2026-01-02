@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react-hooks/rules-of-hooks */
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/sections/Footer";
@@ -12,6 +13,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from "@/components/ui/select";
+import { useToast } from "@/hooks/use-toast";
+import { useState } from "react";
 
 type InternshipForm = {
   fullName: string;
@@ -31,6 +34,8 @@ type InternshipForm = {
 };
 
 const CareersPage = () => {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const form = useForm<InternshipForm>({
     defaultValues: {
       fullName: "",
@@ -50,10 +55,46 @@ const CareersPage = () => {
     },
   });
 
-  const onSubmit = (values: InternshipForm) => {
-    const body = `Full Name: ${values.fullName}\nEmail: ${values.email}\nPhone: ${values.phone}\nCity: ${values.city}\nEducation: ${values.education}\nStart Date: ${values.startDate}\nDuration: ${values.duration}\nInterests: ${values.interests.join(", ")}\nSoftware: ${values.software}\nPortfolio: ${values.portfolio}\nResume: ${values.resume || "(not provided)"}\nMotivation: ${values.motivation}\nMode: ${values.mode}\nReferences: ${values.references || "(not provided)"}`;
-    const mailto = `mailto:hr@zionarch.com?subject=${encodeURIComponent("Internship Application")}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
+  const onSubmit = async (values: InternshipForm) => {
+    setIsSubmitting(true);
+
+    try {
+      // Call the backend API to send internship application email
+      const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+      const response = await fetch(`${apiUrl}/api/internship`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to submit application");
+      }
+
+      setIsSubmitting(false);
+
+      toast({
+        title: "Application Submitted!",
+        description:
+          "We have received your application. Check your email for confirmation.",
+      });
+
+      // Reset form
+      form.reset();
+    } catch (error: any) {
+      setIsSubmitting(false);
+      console.error("Error submitting application:", error);
+      toast({
+        title: "Error",
+        description:
+          error.message || "Failed to submit application. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -358,12 +399,35 @@ const CareersPage = () => {
 
                     {/* Actions */}
                     <div className="md:col-span-2 flex items-center gap-4">
-                      <Button type="submit" variant="default" size="lg" className="group">
-                        Submit via Email
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      <Button 
+                        type="submit" 
+                        variant="default" 
+                        size="lg" 
+                        className="group"
+                        disabled={isSubmitting}
+                      >
+                        {isSubmitting ? (
+                          <>
+                            <motion.div
+                              animate={{ rotate: 360 }}
+                              transition={{
+                                repeat: Infinity,
+                                duration: 1,
+                                ease: "linear",
+                              }}
+                              className="w-4 h-4 border-2 border-current border-t-transparent rounded-full"
+                            />
+                            Submitting...
+                          </>
+                        ) : (
+                          <>
+                            Submit Application
+                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                          </>
+                        )}
                       </Button>
                       <Link to="/contact">
-                        <Button type="button" variant="outline" size="lg">Submit via Contact Form</Button>
+                        <Button type="button" variant="outline" size="lg">Contact HR</Button>
                       </Link>
                     </div>
               </form>

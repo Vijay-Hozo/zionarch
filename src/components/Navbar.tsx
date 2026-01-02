@@ -36,7 +36,14 @@ const navItems = [
   },
   { name: "QUOTE", href: "/quote" },
   { name: "CONTACT US", href: "/contact" },
-  { name: "CAREERS", href: "/careers" },
+  {
+    name: "CAREERS",
+    href: "/careers",
+    subItems: [
+      { name: "Internship", href: "/internship" },
+      { name: "Work At ZIONARCH", href: "/work-at" },
+    ],
+  },
 ];
 
 export function Navbar() {
