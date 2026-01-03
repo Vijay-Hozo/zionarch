@@ -175,12 +175,13 @@ export const sendQuoteEmail = async (req, res) => {
     }
 
     // Check if environment variables are set
-    if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASSWORD || !process.env.BUSINESS_EMAIL) {
+    if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASSWORD || !process.env.BUSINESS_EMAIL || !process.env.SMTP_FROM) {
       console.error('Missing SMTP configuration:', {
         SMTP_HOST: !!process.env.SMTP_HOST,
         SMTP_USER: !!process.env.SMTP_USER,
         SMTP_PASSWORD: !!process.env.SMTP_PASSWORD,
         BUSINESS_EMAIL: !!process.env.BUSINESS_EMAIL,
+        SMTP_FROM: !!process.env.SMTP_FROM,
       });
       return res.status(500).json({
         success: false,
@@ -195,7 +196,7 @@ export const sendQuoteEmail = async (req, res) => {
 
     // Send email to business
     const businessEmailResult = await transporter.sendMail({
-      from: `"ZIONARCH Contact" <${process.env.SMTP_USER}>`,
+      from: `"ZIONARCH Contact" <${process.env.SMTP_FROM}>`,
       to: process.env.BUSINESS_EMAIL,
       subject: `New Quote Request from ${name} - ${projectType}`,
       html: generateBusinessEmailHTML({
@@ -215,7 +216,7 @@ export const sendQuoteEmail = async (req, res) => {
 
     // Send confirmation email to customer
     const customerEmailResult = await transporter.sendMail({
-      from: `"ZIONARCH" <${process.env.SMTP_USER}>`,
+      from: `"ZIONARCH" <${process.env.SMTP_FROM}>`,
       to: email,
       subject: 'Quote Request Confirmation - ZIONARCH',
       html: generateCustomerEmailHTML(name),

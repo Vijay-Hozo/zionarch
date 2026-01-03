@@ -61,6 +61,7 @@ app.listen(PORT, () => {
     host: process.env.SMTP_HOST || 'NOT SET',
     user: process.env.SMTP_USER || 'NOT SET',
     businessEmail: process.env.BUSINESS_EMAIL || 'NOT SET',
-    passwordSet: !!process.env.SMTP_PASSWORD
+    passwordSet: !!process.env.SMTP_PASSWORD,
+    from_email : process.env.SMTP_FROM 
   });
 });
