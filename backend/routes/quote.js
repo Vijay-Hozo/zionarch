@@ -5,10 +5,13 @@ let transporter = null;
 
 const getTransporter = () => {
   if (!transporter) {
+    const port = parseInt(process.env.SMTP_PORT || '587');
+    const isSecure = port === 465;
+    
     transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
-      port: parseInt(process.env.SMTP_PORT || '587'),
-      secure: false, // Use TLS, not SSL for port 587
+      port: port,
+      secure: isSecure, // true for 465, false for other ports
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASSWORD,
@@ -16,6 +19,9 @@ const getTransporter = () => {
       tls: {
         rejectUnauthorized: false, // Allow self-signed certificates
       },
+      connectionTimeout: 10000, // 10 seconds
+      greetingTimeout: 5000, // 5 seconds
+      socketTimeout: 10000, // 10 seconds
     });
   }
   return transporter;
