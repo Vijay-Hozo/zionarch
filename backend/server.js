@@ -44,8 +44,11 @@ app.use((req, res) => {
 // Error handler
 app.use((err, req, res, next) => {
   console.error('Error:', err);
+  console.error('Stack:', err.stack);
   res.status(500).json({ 
-    error: err.message || 'Internal server error',
+    error: process.env.NODE_ENV === 'production' 
+      ? 'Internal server error' 
+      : err.message || 'Internal server error',
     success: false 
   });
 });
@@ -54,4 +57,10 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
   console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
+  console.log('SMTP Configuration:', {
+    host: process.env.SMTP_HOST || 'NOT SET',
+    user: process.env.SMTP_USER || 'NOT SET',
+    businessEmail: process.env.BUSINESS_EMAIL || 'NOT SET',
+    passwordSet: !!process.env.SMTP_PASSWORD
+  });
 });

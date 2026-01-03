@@ -168,6 +168,20 @@ export const sendQuoteEmail = async (req, res) => {
       });
     }
 
+    // Check if environment variables are set
+    if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASSWORD || !process.env.BUSINESS_EMAIL) {
+      console.error('Missing SMTP configuration:', {
+        SMTP_HOST: !!process.env.SMTP_HOST,
+        SMTP_USER: !!process.env.SMTP_USER,
+        SMTP_PASSWORD: !!process.env.SMTP_PASSWORD,
+        BUSINESS_EMAIL: !!process.env.BUSINESS_EMAIL,
+      });
+      return res.status(500).json({
+        success: false,
+        error: 'Email service not configured. Please contact administrator.',
+      });
+    }
+
     console.log(`Processing quote request from: ${name} (${email})`);
 
     // Get transporter instance
