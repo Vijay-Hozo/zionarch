@@ -116,9 +116,9 @@ export function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-          isScrolled
-            ? "bg-background/70 backdrop-blur-xl shadow-lg border-b border-border/20"
+          "fixed top-0 left-0 right-0 z-[120] transition-all duration-500",
+          isScrolled || isOpen
+            ? "bg-background/80 backdrop-blur-xl shadow-lg border-b border-border/20"
             : "bg-transparent backdrop-blur-sm"
         )}
       >
@@ -283,7 +283,7 @@ export function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 lg:hidden"
+              className="fixed inset-0 bg-background/80 backdrop-blur-sm z-[120] lg:hidden"
               onClick={() => setIsOpen(false)}
             />
             <motion.div
@@ -291,7 +291,7 @@ export function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-background z-50 lg:hidden shadow-2xl"
+              className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-background z-[120] lg:hidden shadow-2xl"
             >
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between p-6 border-b border-border">
@@ -307,7 +307,7 @@ export function Navbar() {
                   </Button>
                 </div>
 
-                <nav className="flex-1 p-6">
+                <nav className="flex-1 p-6 overflow-y-auto">
                   <ul className="space-y-1">
                     {navItems.map((item, index) => (
                       <motion.li

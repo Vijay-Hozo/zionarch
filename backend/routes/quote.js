@@ -194,10 +194,11 @@ export const sendQuoteEmail = async (req, res) => {
     // Get transporter instance
     const transporter = getTransporter();
 
-    // Send email to business
+    // Send email to business (reply goes to the requester)
     const businessEmailResult = await transporter.sendMail({
       from: `"ZIONARCH Contact" <${process.env.SMTP_FROM}>`,
       to: process.env.BUSINESS_EMAIL,
+      replyTo: email,
       subject: `New Quote Request from ${name} - ${projectType}`,
       html: generateBusinessEmailHTML({
         projectType,
@@ -210,16 +211,35 @@ export const sendQuoteEmail = async (req, res) => {
         timeline,
         description,
       }),
+      text: [
+        `New Quote Request`,
+        `Project Type: ${projectType}`,
+        `Name: ${name}`,
+        `Email: ${email}`,
+        `Phone: ${phone}`,
+        `Location: ${location || 'Not provided'}`,
+        `Plot Size: ${plotSize || 'Not provided'}`,
+        `Budget: ${budget || 'Not provided'}`,
+        `Timeline: ${timeline || 'Not provided'}`,
+        `Description: ${description || 'No description provided'}`,
+      ].join('\n'),
     });
 
     console.log(`Business email sent: ${businessEmailResult.messageId}`);
 
-    // Send confirmation email to customer
+    // Send confirmation email to customer (reply goes to business inbox)
     const customerEmailResult = await transporter.sendMail({
       from: `"ZIONARCH" <${process.env.SMTP_FROM}>`,
       to: email,
+      replyTo: process.env.BUSINESS_EMAIL,
       subject: 'Quote Request Confirmation - ZIONARCH',
       html: generateCustomerEmailHTML(name),
+      text: [
+        `Hi ${name},`,
+        `We received your quote request and will contact you within 24-48 hours.`,
+        `Thanks,`,
+        `ZIONARCH`
+      ].join('\n'),
     });
 
     console.log(`Customer confirmation email sent: ${customerEmailResult.messageId}`);

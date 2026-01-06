@@ -5,10 +5,13 @@ let transporter = null;
 
 const getTransporter = () => {
   if (!transporter) {
+    const port = parseInt(process.env.SMTP_PORT || '587', 10);
+    const isSecure = port === 465;
+
     transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
-      port: parseInt(process.env.SMTP_PORT || '587'),
-      secure: false,
+      port,
+      secure: isSecure,
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASSWORD,
@@ -16,6 +19,9 @@ const getTransporter = () => {
       tls: {
         rejectUnauthorized: false,
       },
+      connectionTimeout: 10000,
+      greetingTimeout: 5000,
+      socketTimeout: 10000,
     });
   }
   return transporter;
@@ -166,14 +172,29 @@ export const sendWorkApplicationEmail = async (req, res) => {
       });
     }
 
+    if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASSWORD || !process.env.BUSINESS_EMAIL || !process.env.SMTP_FROM) {
+      console.error('Missing SMTP configuration for work application email:', {
+        SMTP_HOST: !!process.env.SMTP_HOST,
+        SMTP_USER: !!process.env.SMTP_USER,
+        SMTP_PASSWORD: !!process.env.SMTP_PASSWORD,
+        BUSINESS_EMAIL: !!process.env.BUSINESS_EMAIL,
+        SMTP_FROM: !!process.env.SMTP_FROM,
+      });
+      return res.status(500).json({
+        success: false,
+        error: 'Email service not configured. Please contact administrator.',
+      });
+    }
+
     console.log(`Processing work application from: ${fullName} (${email})`);
 
     const transporter = getTransporter();
 
     // Send email to HR
     const hrEmailResult = await transporter.sendMail({
-      from: `"ZIONARCH Careers" <${process.env.SMTP_USER}>`,
-      to: process.env.HR_EMAIL || 'hr@zionarch.com',
+      from: `"ZIONARCH Careers" <${process.env.SMTP_FROM}>`,
+      to: process.env.BUSINESS_EMAIL,
+      replyTo: email,
       subject: `New Work Application from ${fullName}`,
       html: generateWorkBusinessEmailHTML({
         fullName,
@@ -191,8 +212,9 @@ export const sendWorkApplicationEmail = async (req, res) => {
 
     // Send confirmation email to applicant
     const applicantEmailResult = await transporter.sendMail({
-      from: `"ZIONARCH" <${process.env.SMTP_USER}>`,
+      from: `"ZIONARCH" <${process.env.SMTP_FROM}>`,
       to: email,
+      replyTo: process.env.BUSINESS_EMAIL,
       subject: 'Work Application Received - ZIONARCH',
       html: generateWorkApplicantEmailHTML(fullName),
     });

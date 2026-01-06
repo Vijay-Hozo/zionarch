@@ -122,7 +122,7 @@ SMTP_PORT=587
 SMTP_USER=your-email@gmail.com
 SMTP_PASSWORD=your-app-password
 BUSINESS_EMAIL=vijay2304a@gmail.com
-HR_EMAIL=hr@zionarch.com
+BUSINESS_EMAIL=hr@zionarch.com
 FRONTEND_URL=http://localhost:8081
 ```
 
