@@ -251,7 +251,7 @@ export function Contact() {
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-4 lg:mt-10 w-full sm:w-auto ">
-                <Link to="/contact" className="w-full sm:w-auto">
+                <Link to="/quote" className="w-full sm:w-auto">
                   <Button
                     className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 w-full sm:w-auto"
                     size="lg"

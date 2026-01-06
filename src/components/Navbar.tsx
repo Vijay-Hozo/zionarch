@@ -38,7 +38,7 @@ const navItems = [
   { name: "CONTACT US", href: "/contact" },
   {
     name: "CAREERS",
-    href: "/careers",
+    href: "/internship",
     subItems: [
       { name: "Internship", href: "/internship" },
       { name: "Work At ZIONARCH", href: "/work-at" },
@@ -50,6 +50,7 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const [expandedMobileItem, setExpandedMobileItem] = useState<string | null>(null);
   const { scrollY } = useScroll();
   const location = useLocation();
   const navigate = useNavigate();
@@ -65,6 +66,7 @@ export function Navbar() {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
+      setExpandedMobileItem(null); // Reset expanded items when menu closes
     }
     return () => {
       document.body.style.overflow = "unset";
@@ -83,6 +85,7 @@ export function Navbar() {
 
   const handleNavClick = (href: string) => {
     setIsOpen(false);
+    setExpandedMobileItem(null);
     if (href.includes("#")) {
       const [path, hash] = href.split("#");
       if (
@@ -106,6 +109,16 @@ export function Navbar() {
       }
     } else {
       navigate(href);
+    }
+  };
+
+  const handleMobileItemClick = (item: typeof navItems[0]) => {
+    if (item.subItems) {
+      // Toggle expansion for items with subitems
+      setExpandedMobileItem(expandedMobileItem === item.name ? null : item.name);
+    } else {
+      // Navigate for items without subitems
+      handleNavClick(item.href);
     }
   };
 
@@ -237,7 +250,7 @@ export function Navbar() {
                   </svg>
                 </motion.a> */}
                 <motion.a
-                  href="https://facebook.com"
+                  href="https://www.facebook.com/ZionarchArchitects#"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, y: -2 }}
@@ -247,7 +260,7 @@ export function Navbar() {
                   <Facebook className="w-4 h-4" />
                 </motion.a>
                 <motion.a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/zionarch_architects/"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, y: -2 }}
@@ -317,29 +330,49 @@ export function Navbar() {
                         transition={{ delay: index * 0.1 }}
                       >
                         <button
-                          onClick={() => handleNavClick(item.href)}
+                          onClick={() => handleMobileItemClick(item)}
                           className={cn(
-                            "block w-full py-4 text-lg font-body font-medium hover:text-primary hover:pl-4 transition-all duration-300 border-b border-border/50 text-left",
+                            "flex items-center justify-between w-full py-4 text-lg font-body font-medium hover:text-primary hover:pl-4 transition-all duration-300 border-b border-border/50 text-left",
                             isActive(item.href)
                               ? "text-primary pl-4"
                               : "text-foreground/80"
                           )}
                         >
-                          {item.name}
+                          <span>{item.name}</span>
+                          {item.subItems && (
+                            <motion.span
+                              animate={{
+                                rotate: expandedMobileItem === item.name ? 180 : 0,
+                              }}
+                              transition={{ duration: 0.2 }}
+                            >
+                              <ChevronDown className="w-4 h-4" />
+                            </motion.span>
+                          )}
                         </button>
-                        {item.subItems && (
-                          <div className="pl-4">
-                            {item.subItems.map((subItem) => (
-                              <button
-                                key={subItem.name}
-                                onClick={() => handleNavClick(subItem.href)}
-                                className="block w-full py-3 text-base font-body text-foreground/60 hover:text-primary transition-colors text-left"
-                              >
-                                {subItem.name}
-                              </button>
-                            ))}
-                          </div>
-                        )}
+                        <AnimatePresence>
+                          {item.subItems && expandedMobileItem === item.name && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.3 }}
+                              className="overflow-hidden"
+                            >
+                              <div className="pl-4 space-y-1 pt-2 pb-3">
+                                {item.subItems.map((subItem) => (
+                                  <button
+                                    key={subItem.name}
+                                    onClick={() => handleNavClick(subItem.href)}
+                                    className="block w-full py-3 text-base font-body text-foreground/60 hover:text-primary hover:pl-2 transition-all duration-200 text-left"
+                                  >
+                                    {subItem.name}
+                                  </button>
+                                ))}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
                       </motion.li>
                     ))}
                   </ul>

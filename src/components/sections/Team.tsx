@@ -21,7 +21,7 @@ const teamMembers = [
     name: "Rayan",
     role: "Senior Architect",
     image:
-      "https://res.cloudinary.com/dfrlskgto/image/upload/v1767011491/Seniorarchitect_csphsk.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/c_crop,ar_3:4/v1767011491/Seniorarchitect_csphsk.jpg",
   },
   {
     name: "Menaka",
@@ -138,7 +138,7 @@ export function Team() {
                 <motion.img
                   src={teamMembers[0].image}
                   alt={teamMembers[0].name}
-                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover object-[center_40%] transition-transform duration-700 group-hover:scale-105"
                   whileHover={{ scale: 1.05 }}
                 />
                 <div className="absolute inset-0  duration-500" />
@@ -207,7 +207,7 @@ export function Team() {
                       <motion.img
                         src={member.image}
                         alt={member.name}
-                        className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
+                        className="w-full h-full object-cover object-[center_20%] transition-transform duration-700 group-hover:scale-110"
                         whileHover={{ scale: 1.05 }}
                       />
                       

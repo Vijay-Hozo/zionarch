@@ -14,7 +14,7 @@ const footerLinks = {
   company: [
     { name: "About Us", href: "/about" },
     { name: "Our Team", href: "/about#team" },
-    { name: "Careers", href: "/careers" },
+    { name: "Careers", href: "/internship" },
   ],
   services: [
     { name: "Architecture", href: "/services" },
@@ -37,10 +37,9 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
-  { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-  { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
-  { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+  { icon: Facebook, href: "https://www.facebook.com/ZionarchArchitects#", label: "Facebook" },
+  { icon: Instagram, href: "https://www.instagram.com/zionarch_architects/", label: "Instagram" },
+  { icon: Linkedin, href: "https://www.linkedin.com/company/zionarch_architects", label: "LinkedIn" },
 ];
 
 export function Footer() {
@@ -59,11 +58,11 @@ export function Footer() {
         </div>
 
         {/* Main Footer */}
-        <div className="container mx-auto px-4 md:px-6 pb-8 md:pb-12 max-w-7xl relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-12 mb-8 md:mb-12">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8 pb-8 md:pb-16 max-w-7xl relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-8 mb-8 md:mb-12">
             {/* Brand */}
-            <div className="col-span-2 lg:col-span-1">
-              <Link to="/" className="inline-block mb-4 md:mb-6">
+            <div className="lg:pr-4">
+              <Link to="/" className="inline-block mb-4 md:mb-5">
                 <span className="text-xl md:text-2xl font-display font-bold">
                   <span className="text-primary">ZION</span>
                   <span className="text-background">ARCH</span>
@@ -72,11 +71,49 @@ export function Footer() {
                   Architects
                 </span>
               </Link>
-              <p className="text-background/60 font-body text-sm mb-4 md:mb-6">
+              <p className="text-background/60 font-body text-sm mb-5 leading-relaxed">
                 Bridges between inspirations and aspirations. Creating spaces
                 that inspire life.
               </p>
-              <div className="flex gap-3">
+              
+              {/* Address */}
+              <div className="mb-5">
+                <h4 className="font-display font-semibold text-background mb-2 text-sm">
+                  Visit Us
+                </h4>
+                <address className="text-background/60 font-body text-xs leading-relaxed not-italic">
+                  No.1, 1st Floor, 2nd Main Road<br />
+                  Parasakthi Nagar, Camp Road<br />
+                  Selaiyur, East Tambaram<br />
+                  Chennai - 600073
+                </address>
+              </div>
+
+              {/* Contact */}
+              <div className="mb-5">
+                <h4 className="font-display font-semibold text-background mb-2 text-sm">
+                  Contact Us
+                </h4>
+                <div className="text-background/60 font-body text-xs space-y-1">
+                  <p>
+                    <a href="mailto:info@zionarch.com" className="hover:text-primary transition-colors">
+                      info@zionarch.com
+                    </a>
+                  </p>
+                  <p>
+                    <a href="tel:+914442865772" className="hover:text-primary transition-colors">
+                      +91 044 42865772
+                    </a>
+                  </p>
+                  <p>
+                    <a href="tel:+918695478788" className="hover:text-primary transition-colors">
+                      +91 86954 78788
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 mt-4">
                 {socialLinks.map((social) => (
                   <motion.a
                     key={social.label}
@@ -85,7 +122,7 @@ export function Footer() {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center text-background/60 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                    className="w-9 h-9 rounded-full bg-background/10 flex items-center justify-center text-background/60 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                     aria-label={social.label}
                   >
                     <social.icon className="w-4 h-4" />
@@ -96,15 +133,15 @@ export function Footer() {
 
             {/* Links */}
             <div>
-              <h4 className="font-display font-semibold text-background mb-3 md:mb-4 text-sm md:text-base">
+              <h4 className="font-display font-semibold text-background mb-4 text-base">
                 Company
               </h4>
-              <ul className="space-y-2 md:space-y-3">
+              <ul className="space-y-2.5">
                 {footerLinks.company.map((link) => (
                   <li key={link.name}>
                     <Link
                       to={link.href}
-                      className="text-background/60 hover:text-primary font-body text-xs md:text-sm transition-colors"
+                      className="text-background/60 hover:text-primary font-body text-sm transition-colors inline-block"
                     >
                       {link.name}
                     </Link>
@@ -114,15 +151,15 @@ export function Footer() {
             </div>
 
             <div>
-              <h4 className="font-display font-semibold text-background mb-3 md:mb-4 text-sm md:text-base">
+              <h4 className="font-display font-semibold text-background mb-4 text-base">
                 Services
               </h4>
-              <ul className="space-y-2 md:space-y-3">
+              <ul className="space-y-2.5">
                 {footerLinks.services.map((link) => (
                   <li key={link.name}>
                     <Link
                       to={link.href}
-                      className="text-background/60 hover:text-primary font-body text-xs md:text-sm transition-colors"
+                      className="text-background/60 hover:text-primary font-body text-sm transition-colors inline-block"
                     >
                       {link.name}
                     </Link>
@@ -132,15 +169,15 @@ export function Footer() {
             </div>
 
             <div>
-              <h4 className="font-display font-semibold text-background mb-3 md:mb-4 text-sm md:text-base">
+              <h4 className="font-display font-semibold text-background mb-4 text-base">
                 Projects
               </h4>
-              <ul className="space-y-2 md:space-y-3">
+              <ul className="space-y-2.5">
                 {footerLinks.projects.subItems.map((link) => (
                   <li key={link.name}>
                     <Link
                       to={link.href}
-                      className="text-background/60 hover:text-primary font-body text-xs md:text-sm transition-colors"
+                      className="text-background/60 hover:text-primary font-body text-sm transition-colors inline-block"
                     >
                       {link.name}
                     </Link>
@@ -148,38 +185,29 @@ export function Footer() {
                 ))}
               </ul>
             </div>
+
+            {/* Map Section - 5th Column on Desktop */}
+            <div className="md:col-span-2 lg:col-span-1">
+              <h4 className="font-display font-semibold text-background mb-4 text-base">
+                Find Us
+              </h4>
+              <div className="w-full h-[250px] lg:h-[280px] rounded-lg overflow-hidden border border-background/10">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.8!2d80.1452247!3d12.9191876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525ee1040e4d77%3A0x7ab1ae639024db6d!2sZionarch%20Architects!5e0!3m2!1sen!2sin!4v1704556800000"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Zionarch Architects Location"
+                />
+              </div>
+            </div>
+          </div>
           </div>
 
           {/* Bottom Bar */}
-          {/* <div className="pt-6 md:pt-8 border-t border-background/10 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-background/40 font-body text-xs md:text-sm text-center md:text-left">
-              © {new Date().getFullYear()} ZIONARCH Architects. All rights
-              reserved.
-            </p>
-            <div className="flex items-center gap-4 md:gap-6">
-              <a
-                href="#"
-                className="text-background/40 hover:text-background font-body text-xs md:text-sm transition-colors"
-              >
-                Privacy Policy
-              </a>
-              <a
-                href="#"
-                className="text-background/40 hover:text-background font-body text-xs md:text-sm transition-colors"
-              >
-                Terms of Service
-              </a>
-              <motion.button
-                onClick={scrollToTop}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground"
-              >
-                <ArrowUp className="w-4 h-4" />
-              </motion.button>
-            </div>
-          </div> */}
-        </div>
       </footer>
     </>
   );

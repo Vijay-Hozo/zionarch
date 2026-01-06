@@ -13,113 +13,143 @@ interface Message {
 
 const qaDatabase: { question: string; answer: string; keywords: string[] }[] = [
   {
-    question: "What services does ZIONARCH offer?",
-    answer: "ZIONARCH offers comprehensive architectural services including residential design, commercial projects, interior design, landscape architecture, renovation & restoration, and urban planning consultancy.",
-    keywords: ["services", "offer", "provide", "do"]
+    question: "What services does Zionarch Architects offer?",
+    answer: "ZionArch Architects provides comprehensive design solutions including:\n• Architectural Design - Conceptual design through detailed documentation\n• Commercial & Institutional Projects - Office buildings, corporate headquarters, educational facilities\n• Residential Design - Apartments, villas, farmhouses, residential complexes\n• Design and Built Services - Full-service architectural solutions\n• Interior Design - Full-scale interior planning and execution\n• Hospitality Design - Hotels, resorts, restaurants\n• Healthcare Facilities - Hospitals and medical centers\n• Industrial Buildings - Manufacturing and industrial spaces\n• Religious Structures - Temples, churches, worship spaces\n• 3D Visualization & Rendering - Pre-construction visual presentations\n• Engineering & Building Services - MEP coordination, structural consultation\n\nWith 26+ years of experience, we create designs that yield positive energy and promote prosperous lifestyles.",
+    keywords: ["services", "offer", "provide", "do", "what"]
   },
   {
-    question: "How much does an architectural project cost?",
-    answer: "Project costs vary based on scope, size, and complexity. Residential projects typically range from ₹50-150 per sq.ft for design fees. We provide detailed quotes after understanding your requirements in a free consultation.",
-    keywords: ["cost", "price", "charge", "fee", "expensive", "budget", "money"]
+    question: "Who is the principal architect at ZionArch?",
+    answer: "A.K. Pandian is the Principal Architect with 26 years of extensive experience in architectural and interior projects. He has worked with renowned organizations including Chitale Architects Chennai, Chandavarkar & Thacker Bangalore, IGCAR - Department of Atomic Energy Kalpakkam, and HKS India Chennai. His expertise spans corporate headquarters, office buildings, commercial complexes, hotels, hospitals, industrial buildings, and residential projects.",
+    keywords: ["principal", "architect", "pandian", "who", "founder", "owner", "team"]
   },
   {
-    question: "How long does a typical project take?",
-    answer: "Timeline depends on project complexity. A residential design takes 4-8 weeks, while construction can take 8-18 months. Commercial projects may take longer. We provide detailed timelines in our project proposal.",
-    keywords: ["time", "long", "duration", "timeline", "days", "months", "weeks"]
+    question: "When was ZionArch Architects established?",
+    answer: "ZionArch Architects was established in 2010 and has been delivering quality architectural and interior design solutions for over a decade. We've built a strong reputation for innovative design and consistent project quality.",
+    keywords: ["established", "founded", "when", "started", "history", "year"]
   },
   {
-    question: "Do you work on residential projects?",
-    answer: "Yes! Residential projects are our specialty. We design homes, villas, apartments, and housing complexes with a focus on functionality, aesthetics, and sustainability.",
-    keywords: ["residential", "home", "house", "villa", "apartment", "living"]
+    question: "What makes ZionArch different from other architecture firms?",
+    answer: "What sets ZionArch apart:\n• Holistic Design Philosophy - Creating designs that yield positive energy\n• Diverse Expertise - Team collaboration across multiple disciplines\n• Client-Centric Approach - Working closely to determine exactly which services you need\n• Consistent Quality - Superior project leadership and quality control\n• Smart Efficient Solutions - Recommending only services that make business sense\n• Proven Track Record - 26+ years of experience across all project types\n\nWe believe architecture involves not just layouts but creating spaces that enhance lifestyle and promote prosperity.",
+    keywords: ["different", "unique", "special", "why", "choose", "better", "best"]
   },
   {
-    question: "Do you handle commercial projects?",
-    answer: "Absolutely! We have extensive experience in commercial architecture including offices, retail spaces, restaurants, hotels, and mixed-use developments.",
-    keywords: ["commercial", "office", "shop", "retail", "business", "corporate"]
+    question: "Can ZionArch design residential projects?",
+    answer: "Absolutely! We have extensive experience in residential design including:\n• Individual Villas & Farmhouses - Traditional and contemporary styles\n• Residential Apartments - Multi-unit complexes with efficient space planning\n• Residential Complexes - Large-scale developments with amenities\n• Custom Residences - Tailored designs reflecting your lifestyle\n\nWe focus on creating homes that combine functionality, aesthetics, and positive energy. Our projects showcase traditional, contemporary, and fusion architectural styles.",
+    keywords: ["residential", "home", "house", "villa", "apartment", "farmhouse", "living"]
   },
   {
-    question: "What is your design process?",
-    answer: "Our process includes: 1) Initial consultation 2) Site analysis 3) Concept development 4) Design development 5) Documentation 6) Construction support. We keep you involved at every stage.",
-    keywords: ["process", "steps", "how", "work", "approach", "method"]
+    question: "Does ZionArch handle commercial and corporate projects?",
+    answer: "Yes, we specialize in commercial design including:\n• Corporate Headquarters - Modern office spaces with professional aesthetics\n• Office Buildings - Contemporary workspaces optimized for productivity\n• Commercial Complexes - Mixed-use developments with retail and office spaces\n• Retail Spaces - Customer-centric commercial environments\n• Business Centers - Professional facilities for growing enterprises\n\nOur commercial projects emphasize efficiency, brand representation, and modern design standards.",
+    keywords: ["commercial", "office", "corporate", "business", "retail", "shop", "headquarters"]
   },
   {
-    question: "Do you provide interior design services?",
-    answer: "Yes, we offer complete interior design services including space planning, furniture selection, material specification, lighting design, and décor styling to complement our architectural work.",
-    keywords: ["interior", "inside", "furniture", "decor", "decoration"]
+    question: "Can you design hotels and hospitality spaces?",
+    answer: "Yes! Hospitality design is one of our core specializations:\n• Hotel & Resort Design - Complete hospitality facilities with guest comfort as priority\n• Restaurant & Cafe Spaces - Ambiance-focused dining environments\n• Banquet & Event Halls - Multi-functional spaces for celebrations\n• Hospitality Interiors - Guest rooms, common areas, service zones\n\nWe understand the unique requirements of hospitality spaces and design for guest experience and operational efficiency.",
+    keywords: ["hospitality", "hotel", "resort", "restaurant", "cafe", "banquet"]
   },
   {
-    question: "Can you help with renovation projects?",
-    answer: "Yes! We specialize in renovation and restoration projects. Whether it's modernizing an old structure or restoring heritage buildings, we bring new life while respecting the original character.",
-    keywords: ["renovation", "remodel", "restore", "old", "existing", "modify"]
+    question: "Do you work on healthcare facility projects?",
+    answer: "Yes, we have experience designing healthcare facilities including:\n• Hospital Design - Complete medical facility planning with modern standards\n• Clinics & Medical Centers - Patient-focused healthcare spaces\n• Medical Laboratories - Specialized functional spaces\n• Healthcare Interiors - Patient rooms, operation theaters, consultation areas\n\nOur healthcare designs prioritize patient safety, hygiene, and efficient workflow.",
+    keywords: ["healthcare", "hospital", "medical", "clinic", "health"]
   },
   {
-    question: "Do you offer sustainable/green design?",
-    answer: "Sustainability is core to our practice. We incorporate passive design strategies, energy-efficient systems, sustainable materials, rainwater harvesting, and solar integration in our projects.",
-    keywords: ["sustainable", "green", "eco", "environment", "energy", "solar"]
+    question: "Can ZionArch design educational and institutional buildings?",
+    answer: "Absolutely! We specialize in institutional architecture including:\n• School & College Buildings - Learning environments with modern facilities\n• University Facilities - Multi-building campus planning\n• Training Centers - Professional development spaces\n• Library & Resource Centers - Knowledge-focused facilities\n• Administrative Buildings - Government and institutional offices\n\nWe create educational spaces that inspire learning and facilitate knowledge exchange.",
+    keywords: ["educational", "institutional", "school", "college", "university", "campus"]
   },
   {
-    question: "What locations do you serve?",
-    answer: "We primarily serve clients across India, with projects in Chennai, Bangalore, Mumbai, Delhi, and other major cities. We also take on international projects for the right opportunities.",
-    keywords: ["location", "where", "area", "city", "serve", "work"]
+    question: "Do you handle industrial building projects?",
+    answer: "Yes, we design industrial facilities including:\n• Manufacturing Plants - Optimized production spaces\n• Industrial Warehouses - Efficient storage and logistics facilities\n• Factory Buildings - Functional industrial structures\n• Industrial Complexes - Large-scale manufacturing developments\n\nOur industrial designs focus on operational efficiency, safety standards, and workflow optimization.",
+    keywords: ["industrial", "factory", "manufacturing", "warehouse", "plant"]
   },
   {
-    question: "How do I start a project with you?",
-    answer: "Starting is easy! Click the 'Get Quote' button or contact us via WhatsApp/email. We'll schedule a free consultation to understand your vision, site, and budget before providing a proposal.",
-    keywords: ["start", "begin", "initiate", "first", "contact", "reach"]
+    question: "What is the typical design process at ZionArch?",
+    answer: "Our comprehensive design process:\n1. Initial Consultation - Understanding your vision, requirements, and budget\n2. Site Analysis & Planning - Evaluating site conditions and constraints\n3. Conceptual Design - Initial design concepts and spatial planning\n4. Design Development - Refining the chosen concept with details\n5. Detailed Documentation - Complete construction drawings and specifications\n6. Engineering Coordination - MEP integration\n7. Construction Support - Site supervision and quality control during execution\n8. Project Completion - Final handover and client satisfaction",
+    keywords: ["process", "steps", "how", "work", "approach", "method", "procedure"]
   },
   {
-    question: "Do you help with building permits?",
-    answer: "Yes, we handle all documentation required for building permits and approvals. Our team is well-versed with local building codes and regulations to ensure smooth approval processes.",
-    keywords: ["permit", "approval", "license", "legal", "regulation", "code"]
+    question: "How do you approach the initial project consultation?",
+    answer: "Our consultation process is thorough and client-focused:\n• Detailed Briefing - Understanding your goals, lifestyle, and preferences\n• Needs Assessment - Identifying functional requirements and priorities\n• Budget Discussion - Understanding your investment capacity\n• Site Evaluation - Analyzing location, orientation, and constraints\n• Timeline Planning - Establishing realistic project schedules\n• Service Recommendation - Suggesting only services that make sense for your project\n• Visual References - Discussing design preferences, styles, and inspirations\n\nThis thorough understanding is crucial for successful design outcomes.",
+    keywords: ["consultation", "meeting", "discuss", "initial", "first"]
   },
   {
-    question: "What is Vastu Shastra compliance?",
-    answer: "We can incorporate Vastu Shastra principles in our designs if requested. We balance traditional Vastu guidelines with modern architectural requirements to create harmonious spaces.",
-    keywords: ["vastu", "direction", "traditional", "indian"]
-  },
-  {
-    question: "Do you provide 3D visualizations?",
-    answer: "Yes! We provide detailed 3D renderings, virtual walkthroughs, and animations to help you visualize your project before construction begins. It's included in our design package.",
+    question: "Do you provide 3D visualization and rendering?",
+    answer: "Yes! 3D visualization is an integral part of our service offering:\n• Photorealistic Renderings - High-quality visual representations\n• Pre-construction Visualization - See how your space will look before construction\n• Interior Renderings - Detailed interior design visualization\n• Exterior Perspectives - Multiple angles of building facades\n• Landscape Integration - Outdoor spaces in context\n\nOur visualizations help you make informed decisions and communicate the design vision clearly.",
     keywords: ["3d", "render", "visualization", "visual", "image", "picture", "view"]
   },
   {
-    question: "What is your payment structure?",
-    answer: "We typically work with milestone-based payments: 20% on signing, 30% on design approval, 30% on documentation, and 20% on completion. We're flexible and can discuss terms.",
-    keywords: ["payment", "pay", "installment", "advance", "deposit"]
+    question: "What is your approach to interior design?",
+    answer: "Our interior design philosophy encompasses:\n• Functional Spaces - Efficient layouts optimized for daily use\n• Aesthetic Excellence - Beautiful, cohesive design that reflects your taste\n• Material Selection - Quality materials balancing aesthetics and durability\n• Color & Lighting - Strategic use to create atmosphere\n• Positive Energy - Design principles that create uplifting, prosperous environments\n• Budget Optimization - Maximum impact within financial constraints\n• Sustainability - Eco-friendly materials and practices\n\nWe integrate interior design from the architectural planning stage for seamless results.",
+    keywords: ["interior", "inside", "furniture", "decor", "decoration", "fit"]
   },
   {
-    question: "Do you supervise construction?",
-    answer: "Yes, we offer construction supervision services. Our architects conduct regular site visits to ensure the design is executed correctly and quality standards are maintained.",
-    keywords: ["supervise", "construction", "build", "site", "visit", "monitor"]
+    question: "Can you help with renovation and remodeling projects?",
+    answer: "Yes, we work on renovation and remodeling including:\n• Space Reconfiguration - Redesigning existing layouts for better function\n• Aesthetic Upgrades - Modernizing dated spaces\n• Structural Modifications - Safe alterations to existing structures\n• System Upgrades - Electrical, plumbing, HVAC improvements\n• Historic Preservation - Respectful updates to heritage structures\n• Phase-by-Phase Execution - Minimal disruption during renovation\n\nWe respect the existing structure while creating improved, modern spaces.",
+    keywords: ["renovation", "remodel", "restore", "old", "existing", "modify", "upgrade"]
   },
   {
-    question: "Can I see your previous projects?",
-    answer: "Absolutely! Visit our Portfolio section to see our completed projects. We have diverse work across residential, commercial, and institutional categories showcasing our design philosophy.",
-    keywords: ["portfolio", "previous", "past", "example", "project", "work", "show"]
+    question: "What factors affect the cost of an architectural project?",
+    answer: "Project cost is determined by multiple factors:\n\nDesign Scope: Project size and complexity, number of floors, specialized requirements\n\nMaterials & Finishes: Quality levels chosen, material availability, finishing details\n\nLocation & Site: Land costs, site conditions, infrastructure connectivity\n\nServices Required: Design complexity, visualization needs, engineering coordination\n\nTimeline: Project duration, phasing requirements, seasonal considerations\n\nWe recommend a detailed cost estimate after understanding your full requirements and constraints.",
+    keywords: ["cost", "price", "charge", "fee", "expensive", "budget", "money", "affordable"]
   },
   {
-    question: "What makes ZIONARCH different?",
-    answer: "Our unique approach combines innovative design with practical functionality. We prioritize client collaboration, sustainable practices, and attention to detail that transforms spaces into experiences.",
-    keywords: ["different", "unique", "special", "why", "choose"]
+    question: "How long does an architectural project typically take?",
+    answer: "Project timeline varies based on client response and requirements. Each project is unique with different complexities, approval processes, and construction phases. During our initial consultation, we'll provide a realistic timeline specific to your project type, scope, and location. Generally, design phases take a few weeks to months, while construction can extend based on project scale.",
+    keywords: ["time", "long", "duration", "timeline", "days", "months", "weeks", "fast"]
   },
   {
-    question: "Do you work with specific contractors?",
-    answer: "We have a network of trusted contractors we can recommend, but we're happy to work with your preferred contractors. We ensure quality through our supervision services regardless.",
-    keywords: ["contractor", "builder", "construct", "vendor"]
+    question: "Do you provide building approval services?",
+    answer: "Yes! We provide comprehensive building approval services. Our team handles all documentation required for building permits and municipal approvals. We're well-versed with local building codes and regulations to ensure smooth approval processes. This includes preparing submission drawings, coordinating with authorities, and managing the approval workflow.",
+    keywords: ["approval", "permit", "permission", "license", "legal", "regulation", "code"]
+  },
+  {
+    question: "Do you provide construction supervision and project management?",
+    answer: "Yes! We offer comprehensive construction support:\n• Site Supervision - Regular on-site quality monitoring\n• Progress Tracking - Timeline adherence and schedule management\n• Quality Control - Ensuring construction matches design specifications\n• Material Inspection - Verifying quality of materials used\n• Problem Resolution - Quick decision-making on site issues\n• Communication Bridge - Regular updates to client on progress\n• Final Inspection - Detailed handover and defect identification\n\nOur supervision ensures your project is executed as designed with consistent quality.",
+    keywords: ["supervision", "construction", "build", "site", "visit", "monitor", "management"]
+  },
+  {
+    question: "Can you design spaces that blend traditional and contemporary styles?",
+    answer: "Absolutely! Fusion design is one of our strengths:\n\nTraditional Elements: Respects cultural heritage, incorporates local traditions, uses traditional materials and craftsmanship\n\nContemporary Elements: Modern functionality, current design aesthetics, efficient building systems, sustainable practices\n\nThe Fusion Approach: We create spaces that honor cultural roots while providing modern comfort. This creates designs that are timeless, locally relevant yet globally sophisticated, culturally respectful yet contemporary.\n\nPerfect for clients wanting authenticity with modern living standards.",
+    keywords: ["traditional", "contemporary", "fusion", "modern", "blend", "mix", "style"]
+  },
+  {
+    question: "Where is ZionArch Architects located?",
+    answer: "ZionArch Architects is based in Chennai, Tamil Nadu:\n\nAddress:\nNo. 1, 1st Floor, 2nd Main Road\nParasakthi Nagar, Camp Road, Selaiyur\nEast Tambaram, Chennai - 600073\n\nContact Information:\n• Phone: +91 44 4286 5772\n• Mobile: +91 86954 78788\n• Email: office@zionarch.com\n\nWe're conveniently located and welcome visits for consultations.",
+    keywords: ["location", "where", "address", "office", "chennai", "find"]
+  },
+  {
+    question: "Does ZionArch work on projects outside Chennai?",
+    answer: "Yes! We work on projects beyond Chennai:\n\nService Areas: Throughout Tamil Nadu, neighboring states (Andhra Pradesh, Telangana, Karnataka), Pan-India projects, selective international projects\n\nProject Delivery:\n• Initial Virtual Consultation - Video meetings for project briefing\n• Site Visit & Assessment - Our team visits for site evaluation\n• Remote Coordination - Consistent communication and updates\n• Digital Submissions - Plans, drawings, renderings digitally\n• Regular Site Supervision - Periodic on-site visits\n• Quality Assurance - Consistent standards across all locations\n\nGeographic location is no barrier to working with us.",
+    keywords: ["outside", "other", "location", "pan", "india", "travel", "distant"]
+  },
+  {
+    question: "How can I get started with ZionArch for my project?",
+    answer: "Getting started is simple:\n\n1. Initial Contact: Call +91 44 4286 5772, Email office@zionarch.com, or fill out our website inquiry form\n\n2. Schedule Consultation: We arrange a convenient time for discussion\n\n3. Project Discussion: Share your vision, requirements, and budget\n\n4. Fee Quote & Proposal: We prepare a detailed project proposal with scope, timeline, and fees\n\n5. Agreement & Begin Design: Execute design agreement and commence with detailed briefing\n\nWe make the process transparent and straightforward from the first conversation.",
+    keywords: ["start", "begin", "initiate", "first", "contact", "reach", "hire"]
+  },
+  {
+    question: "What information do I need to provide for a project quote?",
+    answer: "To prepare an accurate quote, please provide:\n\nProject Basics: Project type, location, total built-up area, number of units/floors\n\nYour Requirements: Functional needs, design preferences, must-have features, special requirements\n\nPractical Details: Budget range, desired timeline, land ownership/approvals status, existing structures\n\nAdditional Information: Number of people to accommodate, lifestyle/business details, growth plans, sustainability goals\n\nDon't worry if you don't have all details—we'll guide you through the discovery process during consultation.",
+    keywords: ["quote", "information", "need", "provide", "details", "requirement"]
+  },
+  {
+    question: "How much input will I have in the design process?",
+    answer: "Client collaboration is central to our process:\n\nYour Involvement:\n• Conceptual Phase - Multiple design concepts for your selection\n• Feedback Loops - Regular design reviews with your input\n• Modification Requests - Easy incorporation of preferences\n• Major Decisions - You decide on materials, finishes, specifications\n• Progress Updates - Transparent communication at every stage\n• Final Approvals - Your sign-off before documentation\n\nOur Role: Advising on feasibility, recommending efficient solutions, ensuring design integrity and compliance, providing professional expertise, managing technical details\n\nIt's a true partnership where your vision and our expertise combine for the best results.",
+    keywords: ["input", "involvement", "participate", "decision", "collaborate", "say"]
   },
   {
     question: "How can I contact ZIONARCH?",
-    answer: "You can reach us via WhatsApp at +91 8838725310, email at vijay@propzing.com, or use the contact form on our website. We typically respond within 24 hours!",
+    answer: "You can reach us through multiple channels:\n\n• Phone: +91 44 4286 5772\n• Mobile/WhatsApp: +91 86954 78788\n• Email: office@zionarch.com\n• Website: Visit our contact page for inquiry form\n• Visit: No. 1, 1st Floor, 2nd Main Road, Parasakthi Nagar, Camp Road, Selaiyur, East Tambaram, Chennai - 600073\n\nWe typically respond within 24 hours!",
     keywords: ["contact", "reach", "call", "phone", "email", "whatsapp", "touch"]
   }
 ];
 
 const quickQuestions = [
-  "What services do you offer?",
-  "How much does it cost?",
-  "How long does a project take?",
-  "Do you offer interior design?",
-  "How do I start a project?"
+  "What services does Zionarch offer?",
+  "Who is the principal architect?",
+  "Can you design residential projects?",
+  "Do you provide 3D visualization?",
+  "How can I get started?"
 ];
 
 const findAnswer = (input: string): string => {
@@ -147,7 +177,7 @@ const findAnswer = (input: string): string => {
   }
   
   // Default response
-  return "Thank you for your question! For detailed information, please contact us via WhatsApp at +91 8838725310 or use the contact form. Our team will be happy to assist you!";
+  return "Thank you for your question! For detailed information about this topic, please contact us:\n\n• Phone: +91 44 4286 5772\n• Mobile/WhatsApp: +91 86954 78788\n• Email: office@zionarch.com\n\nOur team will be happy to assist you with personalized guidance!";
 };
 
 const Chatbot = () => {
@@ -253,7 +283,7 @@ const Chatbot = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-44 right-6 z-50 w-[350px] max-w-[calc(100vw-48px)] h-[500px] max-h-[70vh] bg-background border border-border rounded-2xl shadow-2xl flex flex-col overflow-hidden"
+            className="fixed bottom-24 right-6 z-50 w-[380px] max-w-[calc(100vw-48px)] h-[600px] max-h-[80vh] bg-background border border-border rounded-2xl shadow-2xl flex flex-col overflow-hidden"
           >
             {/* Header */}
             <div className="bg-primary text-primary-foreground p-4 flex items-center gap-3">

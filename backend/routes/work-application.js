@@ -28,6 +28,34 @@ const getTransporter = () => {
 };
 
 /**
+ * Generate plain text email for business (work application)
+ */
+const generateWorkBusinessEmailText = (formData) => {
+  return `
+New work application received.
+
+Personal Information:
+- Name: ${formData.fullName}
+- Email: ${formData.email}
+
+Education & Experience:
+- Institution: ${formData.institution}
+- Year of Graduation: ${formData.yearOfGraduation}
+
+Additional Qualifications:
+${formData.additionalQualifications}
+
+Previous Work Experience:
+${formData.previousWorkExperience}
+
+Portfolio: ${formData.portfolioLink}
+${formData.otherAttachments ? `\nOther Attachments:\n${formData.otherAttachments}` : ''}
+
+Submitted on: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}
+  `.trim();
+};
+
+/**
  * Generate HTML email for business (work application)
  */
 const generateWorkBusinessEmailHTML = (formData) => {
@@ -104,12 +132,33 @@ const generateWorkBusinessEmailHTML = (formData) => {
         </div>
         ` : ''}
 
-        <div style="margin-top: 40px; padding-top: 20px; border-top: 2px solid #e0e0e0;">
-          <p style="color: #999; font-size: 12px; margin: 0;">This work application was submitted from the ZIONARCH website on ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</p>
+        <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #e0e0e0;">
+          <p style="color: #999; font-size: 12px; margin: 0;">This is an automated notification from ZIONARCH.</p>
         </div>
       </div>
     </div>
   `;
+};
+
+/**
+ * Generate plain text confirmation email for applicant
+ */
+const generateWorkApplicantEmailText = (name) => {
+  return `
+Dear ${name},
+
+Thank you for applying for a position at ZIONARCH! We have received your application and our HR team will review it shortly.
+
+What happens next?
+Our HR team will carefully review your application and reach out to you within 5-7 business days to discuss next steps. We appreciate your interest in joining the ZIONARCH team!
+
+If you have any questions in the meantime, feel free to contact us at hr@zionarch.com
+
+Best regards,
+ZIONARCH Team
+Architecture & Design
+Building spaces that inspire life
+  `.trim();
 };
 
 /**
@@ -192,10 +241,20 @@ export const sendWorkApplicationEmail = async (req, res) => {
 
     // Send email to HR
     const hrEmailResult = await transporter.sendMail({
-      from: `"ZIONARCH Careers" <${process.env.SMTP_FROM}>`,
+      from: `"ZIONARCH" <${process.env.SMTP_FROM}>`,
       to: process.env.BUSINESS_EMAIL,
       replyTo: email,
-      subject: `New Work Application from ${fullName}`,
+      subject: 'New work application received',
+      text: generateWorkBusinessEmailText({
+        fullName,
+        email,
+        institution,
+        yearOfGraduation,
+        additionalQualifications,
+        previousWorkExperience,
+        portfolioLink,
+        otherAttachments,
+      }),
       html: generateWorkBusinessEmailHTML({
         fullName,
         email,
@@ -206,6 +265,10 @@ export const sendWorkApplicationEmail = async (req, res) => {
         portfolioLink,
         otherAttachments,
       }),
+      headers: {
+        'X-Category': 'notifications',
+        'X-Priority': '1',
+      },
     });
 
     console.log(`HR email sent: ${hrEmailResult.messageId}`);
@@ -216,7 +279,11 @@ export const sendWorkApplicationEmail = async (req, res) => {
       to: email,
       replyTo: process.env.BUSINESS_EMAIL,
       subject: 'Work Application Received - ZIONARCH',
+      text: generateWorkApplicantEmailText(fullName),
       html: generateWorkApplicantEmailHTML(fullName),
+      headers: {
+        'X-Category': 'transactional',
+      },
     });
 
     console.log(`Applicant confirmation email sent: ${applicantEmailResult.messageId}`);

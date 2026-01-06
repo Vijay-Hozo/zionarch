@@ -228,7 +228,7 @@ export const sendInternshipEmail = async (req, res) => {
     // Send email to HR
     const hrEmailResult = await transporter.sendMail({
       from: `"ZIONARCH Internship" <${process.env.SMTP_USER}>`,
-      to: process.env.BUSINESS_EMAIL || 'vijay2304a@gmail.com',
+      to: process.env.BUSINESS_EMAIL || 'office@zionarch.com',
       subject: `New Internship Application from ${fullName}`,
       html: generateInternshipBusinessEmailHTML({
         fullName,

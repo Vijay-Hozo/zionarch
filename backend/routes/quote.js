@@ -106,8 +106,8 @@ const generateBusinessEmailHTML = (quoteData) => {
           </div>
         </div>
 
-        <div style="margin-top: 40px; padding-top: 20px; border-top: 2px solid #e0e0e0;">
-          <p style="color: #999; font-size: 12px; margin: 0;">This quote request was submitted from the ZIONARCH website on ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</p>
+        <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #e0e0e0;">
+          <p style="color: #999; font-size: 12px; margin: 0;">This is an automated notification from ZIONARCH.</p>
         </div>
       </div>
     </div>
@@ -196,10 +196,29 @@ export const sendQuoteEmail = async (req, res) => {
 
     // Send email to business (reply goes to the requester)
     const businessEmailResult = await transporter.sendMail({
-      from: `"ZIONARCH Contact" <${process.env.SMTP_FROM}>`,
+      from: `"ZIONARCH" <${process.env.SMTP_FROM}>`,
       to: process.env.BUSINESS_EMAIL,
       replyTo: email,
-      subject: `New Quote Request from ${name} - ${projectType}`,
+      subject: 'New quote request received',
+      text: `New quote request received.
+
+Project Type: ${projectType}
+
+Contact Information:
+- Name: ${name}
+- Email: ${email}
+- Phone: ${phone}
+- Location: ${location || 'Not provided'}
+
+Project Details:
+- Plot Size: ${plotSize || 'Not provided'}
+- Budget: ${budget || 'Not provided'}
+- Timeline: ${timeline || 'Not provided'}
+
+Description:
+${description || 'No description provided'}
+
+Submitted on: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}`,
       html: generateBusinessEmailHTML({
         projectType,
         name,
@@ -211,18 +230,10 @@ export const sendQuoteEmail = async (req, res) => {
         timeline,
         description,
       }),
-      text: [
-        `New Quote Request`,
-        `Project Type: ${projectType}`,
-        `Name: ${name}`,
-        `Email: ${email}`,
-        `Phone: ${phone}`,
-        `Location: ${location || 'Not provided'}`,
-        `Plot Size: ${plotSize || 'Not provided'}`,
-        `Budget: ${budget || 'Not provided'}`,
-        `Timeline: ${timeline || 'Not provided'}`,
-        `Description: ${description || 'No description provided'}`,
-      ].join('\n'),
+      headers: {
+        'X-Category': 'notifications',
+        'X-Priority': '1',
+      },
     });
 
     console.log(`Business email sent: ${businessEmailResult.messageId}`);
@@ -233,13 +244,22 @@ export const sendQuoteEmail = async (req, res) => {
       to: email,
       replyTo: process.env.BUSINESS_EMAIL,
       subject: 'Quote Request Confirmation - ZIONARCH',
+      text: `Dear ${name},
+
+Thank you for submitting your quote request! We have received your inquiry and our team will review your project details shortly.
+
+What happens next?
+Our team will review your requirements and contact you within 24-48 hours to discuss your project in detail and provide you with a personalized quote.
+
+If you have any urgent questions, feel free to reach out to us via WhatsApp or email.
+
+Best regards,
+ZIONARCH Team
+Architecture & Design`,
       html: generateCustomerEmailHTML(name),
-      text: [
-        `Hi ${name},`,
-        `We received your quote request and will contact you within 24-48 hours.`,
-        `Thanks,`,
-        `ZIONARCH`
-      ].join('\n'),
+      headers: {
+        'X-Category': 'transactional',
+      },
     });
 
     console.log(`Customer confirmation email sent: ${customerEmailResult.messageId}`);

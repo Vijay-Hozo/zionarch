@@ -28,6 +28,31 @@ const getTransporter = () => {
 };
 
 /**
+ * Generate plain text email for business (internship application)
+ */
+const generateInternshipBusinessEmailText = (formData) => {
+  return `
+New internship application received.
+
+Personal Information:
+- Name: ${formData.fullName}
+- Email: ${formData.email}
+- Institution: ${formData.institution}
+
+Internship Details:
+- Batch: ${formData.internshipBatch}
+- Start Date: ${formData.startDate}
+- Duration: ${formData.internshipDuration} days
+
+Portfolio: ${formData.portfolioUrl}
+${formData.previousInternships ? `\nPrevious Internship Experience:\n${formData.previousInternships}` : ''}
+${formData.otherAttachments ? `\nOther Attachments:\n${formData.otherAttachments}` : ''}
+
+Submitted on: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}
+  `.trim();
+};
+
+/**
  * Generate HTML email for business (internship application)
  */
 const generateInternshipBusinessEmailHTML = (formData) => {
@@ -111,12 +136,33 @@ const generateInternshipBusinessEmailHTML = (formData) => {
         </div>
         ` : ''}
 
-        <div style="margin-top: 40px; padding-top: 20px; border-top: 2px solid #e0e0e0;">
-          <p style="color: #999; font-size: 12px; margin: 0;">This internship application was submitted from the ZIONARCH website on ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</p>
+        <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #e0e0e0;">
+          <p style="color: #999; font-size: 12px; margin: 0;">This is an automated notification from ZIONARCH.</p>
         </div>
       </div>
     </div>
   `;
+};
+
+/**
+ * Generate plain text confirmation email for applicant
+ */
+const generateInternshipApplicantEmailText = (name) => {
+  return `
+Dear ${name},
+
+Thank you for applying for an internship at ZIONARCH! We have received your application and our HR team will review it shortly.
+
+What happens next?
+Our HR team will carefully review your application and reach out to you within 5-7 business days to discuss next steps. We appreciate your interest in joining the ZIONARCH internship program!
+
+If you have any questions in the meantime, feel free to contact us at hr@zionarch.com
+
+Best regards,
+ZIONARCH Team
+Architecture & Design
+Building spaces that inspire life
+  `.trim();
 };
 
 /**
@@ -199,10 +245,21 @@ export const sendInternshipApplicationEmail = async (req, res) => {
 
     // Send email to business inbox
     const hrEmailResult = await transporter.sendMail({
-      from: `"ZIONARCH Internship" <${process.env.SMTP_FROM}>`,
+      from: `"ZIONARCH" <${process.env.SMTP_FROM}>`,
       to: process.env.BUSINESS_EMAIL,
       replyTo: email,
-      subject: `New Internship Application from ${fullName}`,
+      subject: 'New internship application received',
+      text: generateInternshipBusinessEmailText({
+        fullName,
+        email,
+        institution,
+        portfolioUrl,
+        otherAttachments,
+        previousInternships,
+        internshipBatch,
+        startDate,
+        internshipDuration,
+      }),
       html: generateInternshipBusinessEmailHTML({
         fullName,
         email,
@@ -214,6 +271,10 @@ export const sendInternshipApplicationEmail = async (req, res) => {
         startDate,
         internshipDuration,
       }),
+      headers: {
+        'X-Category': 'notifications',
+        'X-Priority': '1',
+      },
     });
 
     console.log(`HR email sent: ${hrEmailResult.messageId}`);
@@ -224,7 +285,11 @@ export const sendInternshipApplicationEmail = async (req, res) => {
       to: email,
       replyTo: process.env.BUSINESS_EMAIL,
       subject: 'Internship Application Received - ZIONARCH',
+      text: generateInternshipApplicantEmailText(fullName),
       html: generateInternshipApplicantEmailHTML(fullName),
+      headers: {
+        'X-Category': 'transactional',
+      },
     });
 
     console.log(`Applicant confirmation email sent: ${applicantEmailResult.messageId}`);

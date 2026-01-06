@@ -168,7 +168,7 @@ const QuotePage = () => {
         formData.timeline || "-"
       }\nDescription: ${formData.description || "-"}`;
 
-      const waUrl = `https://wa.me/918838725310?text=${encodeURIComponent(
+      const waUrl = `https://wa.me/918695478788?text=${encodeURIComponent(
         summary
       )}`;
 
