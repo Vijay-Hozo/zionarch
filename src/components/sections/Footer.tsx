@@ -96,8 +96,8 @@ export function Footer() {
                 </h4>
                 <div className="text-background/60 font-body text-xs space-y-1">
                   <p>
-                    <a href="mailto:info@zionarch.com" className="hover:text-primary transition-colors">
-                      info@zionarch.com
+                    <a href="mailto:office@zionarch.com" className="hover:text-primary transition-colors">
+                      office@zionarch.com
                     </a>
                   </p>
                   <p>

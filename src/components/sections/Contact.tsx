@@ -12,9 +12,10 @@ const contactInfo = [
     icon: MapPin,
     title: "Visit Us",
     details: [
-      "New No.13, Old No.16, II Floor,",
-      "Venkateswara Nagar Main Road,",
-      "Adyar, Chennai - 600020",
+      "No.1, 1st Floor, 2nd Main Road",
+      "Parasakthi Nagar, Camp Road",
+      "Selaiyur, East Tambaram",
+      "Chennai - 600073",
     ],
     href: "https://maps.app.goo.gl/KN5hcrFpNa9hV7yt5?g_st=aw",
     type: "link",
@@ -22,15 +23,15 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Call Us",
-    details: ["+91 44 2446 5454", "+91 98400 65454"],
+    details: ["+91 44 2446 5454", "+91 86954 78788"],
     href: "tel:+914424465454",
     type: "link",
   },
   {
     icon: Mail,
     title: "Email Us",
-    details: ["info@zionarch.com", "design@zionarch.com"],
-    href: "mailto:info@zionarch.com",
+    details: ["office@zionarch.com", "design@zionarch.com"],
+    href: "mailto:office@zionarch.com",
     type: "link",
   },
   {
@@ -98,7 +99,9 @@ export function Contact() {
                     <a
                       href={item.href}
                       target={item.icon === MapPin ? "_blank" : undefined}
-                      rel={item.icon === MapPin ? "noopener noreferrer" : undefined}
+                      rel={
+                        item.icon === MapPin ? "noopener noreferrer" : undefined
+                      }
                       className="flex items-start gap-4 cursor-pointer"
                     >
                       <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
@@ -260,7 +263,11 @@ export function Contact() {
                   </Button>
                 </Link>
                 <Link to="/contact" className="w-full sm:w-auto">
-                  <Button size="lg" variant="hero-outline" className="w-full sm:w-auto">
+                  <Button
+                    size="lg"
+                    variant="hero-outline"
+                    className="w-full sm:w-auto"
+                  >
                     Contact Us
                   </Button>
                 </Link>

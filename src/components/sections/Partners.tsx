@@ -2,22 +2,58 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 const partners = [
-  { name: "Days Hotel", logo: "https://zionarch.com/wp-content/uploads/2018/08/c19.png" },
-  { name: "Endee Villas", logo: "https://zionarch.com/wp-content/uploads/2018/08/c23.png" },
-  { name: "Client 3", logo: "https://zionarch.com/wp-content/uploads/2018/08/c18.png" },
-  { name: "Kauvery Hospital", logo: "https://zionarch.com/wp-content/uploads/2019/10/kauvery-logo.jpg" },
-  { name: "Hotel Ramakrishna", logo: "https://zionarch.com/wp-content/uploads/2021/08/HTL-RAMAKRISHNA.jpg" },
-  { name: "Crossway Resort", logo: "https://zionarch.com/wp-content/uploads/2021/08/logo-crossway-resort-LOGO.png" },
-  { name: "Skyland Builders", logo: "https://zionarch.com/wp-content/uploads/2020/02/SDFSDFADFF.png" },
-  { name: "Infant Builders", logo: "https://zionarch.com/wp-content/uploads/2020/02/INFANT-BUILDERS.png" },
-  { name: "TalentEase", logo: "https://zionarch.com/wp-content/uploads/2020/02/1010102505050.png" },
-  { name: "Client 10", logo: "https://zionarch.com/wp-content/uploads/2018/08/c1.png" },
-  { name: "Client 11", logo: "https://zionarch.com/wp-content/uploads/2018/08/c2.png" },
-  { name: "Client 12", logo: "https://zionarch.com/wp-content/uploads/2018/08/c3.png" },
-  { name: "Client 13", logo: "https://zionarch.com/wp-content/uploads/2018/08/c4.png" },
-  { name: "Client 14", logo: "https://zionarch.com/wp-content/uploads/2018/08/c5.png" },
-  { name: "Client 15", logo: "https://zionarch.com/wp-content/uploads/2018/08/c6.png" },
-  { name: "Client 16", logo: "https://zionarch.com/wp-content/uploads/2018/08/c10.png" },
+  {
+    name: "St.Dominic's",
+    logo: "https://res.cloudinary.com/dfrlskgto/image/upload/v1767802127/ST.DOMINICS_e1qvhe.jpg",
+  },
+  {
+    name: "Grace International School",
+    logo: "https://res.cloudinary.com/dfrlskgto/image/upload/v1767802126/GRACE_INTERNATIONAL_SCHOOL_fxsrop.jpg",
+  },
+  {
+    name: "Korcomptenz",
+    logo: "https://res.cloudinary.com/dfrlskgto/image/upload/v1767802125/KORCOMPOTENZ_ku0seu.png",
+  },
+  {
+    name: "Phonics Power",
+    logo: "https://res.cloudinary.com/dfrlskgto/image/upload/v1767802125/PHONICS_g0tpdj.png",
+  },
+  {
+    name: "The Palomar",
+    logo: "https://res.cloudinary.com/dfrlskgto/image/upload/v1767802125/PALOMAR_du835u.png",
+  },
+  {
+    name: "Vasiyam Homes",
+    logo: "https://res.cloudinary.com/dfrlskgto/image/upload/v1767802125/VASIYAM_cnaigd.jpg",
+  },
+  {
+    name: "Sathya Sai Consultancy",
+    logo: "https://res.cloudinary.com/dfrlskgto/image/upload/v1767802124/SATHYA_SAI_CONSULTANCY_ar9uzs.gif",
+  },
+  {
+    name: "Legendary Network",
+    logo: "https://res.cloudinary.com/dfrlskgto/image/upload/v1767802124/LEGENDARY_NETWORKS_sdcy9z.png",
+  },
+  {
+    name: "Fast Track",
+    logo: "https://res.cloudinary.com/dfrlskgto/image/upload/v1767802123/FASTRACJ_GYM_lkj0bh.webp",
+  },
+  {
+    name: "Tamil Nadu Science Forum",
+    logo: "https://res.cloudinary.com/dfrlskgto/image/upload/v1767802123/TAMIL_NADU_SCIENCE_FORUM_wrdysp.jpg",
+  },
+  {
+    name: "Kairavi Montessory",
+    logo: "https://res.cloudinary.com/dfrlskgto/image/upload/v1767802122/KAIRAVI_MONTESORI_kfubfs.avif",
+  },
+  {
+    name: "Endee Properties",
+    logo: "https://res.cloudinary.com/dfrlskgto/image/upload/v1767802122/ENDEE_PROPERTIES_ktikel.png",
+  },
+  {
+    name: "Rayans Sea Food Market",
+    logo: "https://res.cloudinary.com/dfrlskgto/image/upload/v1767802122/RAYAN_SEA_FOOD_MARKET_uvzixl.jpg",
+  },
 ];
 
 export function Partners() {
@@ -29,13 +65,19 @@ export function Partners() {
   const secondRow = partners.slice(8, 16);
 
   return (
-    <section ref={containerRef} className="py-24 lg:py-32 bg-card relative overflow-hidden">
+    <section
+      ref={containerRef}
+      className="theme-light py-24 lg:py-32 bg-card relative overflow-hidden"
+    >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)`,
-          backgroundSize: '40px 40px'
-        }} />
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)`,
+            backgroundSize: "40px 40px",
+          }}
+        />
       </div>
 
       <div className="container mx-auto px-6 relative">
@@ -46,7 +88,7 @@ export function Partners() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <motion.span 
+          <motion.span
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -58,9 +100,10 @@ export function Partners() {
             Our <span className="text-primary">Clients</span>
           </h2>
           <p className="text-muted-foreground font-body max-w-2xl mx-auto">
-            We've had the privilege of working with leading organizations across various industries
+            We've had the privilege of working with leading organizations across
+            various industries
           </p>
-          <motion.div 
+          <motion.div
             initial={{ scaleX: 0 }}
             animate={isInView ? { scaleX: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -74,7 +117,7 @@ export function Partners() {
           <div className="relative overflow-hidden">
             <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-card to-transparent z-10" />
             <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-card to-transparent z-10" />
-            
+
             <motion.div
               animate={{ x: [0, -1920] }}
               transition={{
@@ -87,19 +130,24 @@ export function Partners() {
               }}
               className="flex gap-8"
             >
-              {[...firstRow, ...firstRow, ...firstRow, ...firstRow].map((partner, index) => (
-                <motion.div
-                  key={`row1-${index}`}
-                  whileHover={{ scale: 1.05 }}
-                  className="flex-shrink-0 w-48 h-24 bg-background rounded-xl border border-border flex items-center justify-center p-4 group hover:border-primary/50 transition-all duration-300"
-                >
-                  <img
-                    src={partner.logo}
-                    alt={partner.name}
-                    className="max-w-full max-h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500 opacity-60 group-hover:opacity-100"
-                  />
-                </motion.div>
-              ))}
+              {[...firstRow, ...firstRow, ...firstRow, ...firstRow].map(
+                (partner, index) => (
+                  <motion.div
+                    key={`row1-${index}`}
+                    whileHover={{ scale: 1.05 }}
+                    className="group relative overflow-hidden flex-shrink-0 w-48 h-24 bg-background rounded-xl border border-border flex items-center justify-center p-4 hover:border-primary/50 transition-all duration-300"
+                  >
+                    <img
+                      src={partner.logo}
+                      alt={partner.name}
+                      className="max-w-full max-h-full object-contain transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-foreground/80 text-background flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span className="font-body text-sm">{partner.name}</span>
+                    </div>
+                  </motion.div>
+                )
+              )}
             </motion.div>
           </div>
 
@@ -107,7 +155,7 @@ export function Partners() {
           <div className="relative overflow-hidden">
             <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-card to-transparent z-10" />
             <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-card to-transparent z-10" />
-            
+
             <motion.div
               animate={{ x: [-1920, 0] }}
               transition={{
@@ -120,19 +168,24 @@ export function Partners() {
               }}
               className="flex gap-8"
             >
-              {[...secondRow, ...secondRow, ...secondRow, ...secondRow].map((partner, index) => (
-                <motion.div
-                  key={`row2-${index}`}
-                  whileHover={{ scale: 1.05 }}
-                  className="flex-shrink-0 w-48 h-24 bg-background rounded-xl border border-border flex items-center justify-center p-4 group hover:border-primary/50 transition-all duration-300"
-                >
-                  <img
-                    src={partner.logo}
-                    alt={partner.name}
-                    className="max-w-full max-h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500 opacity-60 group-hover:opacity-100"
-                  />
-                </motion.div>
-              ))}
+              {[...secondRow, ...secondRow, ...secondRow, ...secondRow].map(
+                (partner, index) => (
+                  <motion.div
+                    key={`row2-${index}`}
+                    whileHover={{ scale: 1.05 }}
+                    className="group relative overflow-hidden flex-shrink-0 w-48 h-24 bg-background rounded-xl border border-border flex items-center justify-center p-4 hover:border-primary/50 transition-all duration-300"
+                  >
+                    <img
+                      src={partner.logo}
+                      alt={partner.name}
+                      className="max-w-full max-h-full object-contain transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-foreground/80 text-background flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span className="font-body text-sm">{partner.name}</span>
+                    </div>
+                  </motion.div>
+                )
+              )}
             </motion.div>
           </div>
         </div>

@@ -21,7 +21,7 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <ThemeProvider defaultTheme="dark" storageKey="zionarch-ui-theme">
+    <ThemeProvider defaultTheme="light" storageKey="zionarch-ui-theme">
       <TooltipProvider>
         <Toaster />
         <Sonner />
