@@ -11,14 +11,14 @@ const services = [
   {
     title: "Engineering",
     description: "Material Procurement, Schedule Optimization, Site Progress Report, Labour Management, Quality Assurance and Quality Control, Post Occupancy Support.",
-    image: "https://zionarch.com/wp-content/uploads/2021/08/construction-mgt.jpg",
+    image: "https://res.cloudinary.com/dfrlskgto/image/upload/v1767892401/construction_qmnb2j.jpg",
     size: "medium", // Takes 1 column, taller
   },
   
   {
     title: "Design & Build",
     description: "Bill of Quantity, Composite Quotations, Material Specifications, Finishes Schedule, Execution Schedule, Shop Drawings, Site Measurements.",
-    image: "https://zionarch.com/wp-content/uploads/2021/08/20201222_115032.jpg",
+    image: "https://res.cloudinary.com/dfrlskgto/image/upload/v1767892395/Design_build_uemgkr.jpg",
     size: "small", // Takes 1 column
   },
   {

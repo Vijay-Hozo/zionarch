@@ -49,7 +49,7 @@ const showcaseImages = [
   },
   {
     image:
-      "https://zionarch.com/wp-content/uploads/2021/08/feature-image-8-scaled.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642032/MAIN-1_1_vihwcn.jpg",
     category: "Commercial",
   },
   {

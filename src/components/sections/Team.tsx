@@ -9,7 +9,7 @@ const teamMembers = [
     previousCompany: "Formerly at XYZ Architects",
     isHead: true,
     image:
-      "https://zionarch.com/wp-content/uploads/2018/08/A.KARUNAKARA-PANDIAN-PRINCIPAL-ARCHITECT-.jpg",
+      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642016/A.KARUNAKARA-PANDIAN-PRINCIPAL-ARCHITECT-_keeuom.jpg",
   },
    {
     name: "Prem Raj",

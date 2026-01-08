@@ -182,7 +182,7 @@ export function Testimonials() {
                 >
                   {/* Avatar */}
                   <div className="relative shrink-0">
-                    <motion.div
+                    {/* <motion.div
                       initial={{ scale: 0.8, opacity: 0, rotate: -10 }}
                       animate={{ scale: 1, opacity: 1, rotate: 0 }}
                       transition={{ delay: 0.3, duration: 0.5, type: "spring" }}
@@ -193,7 +193,7 @@ export function Testimonials() {
                         alt={testimonials[currentIndex].name}
                         className="w-full h-full object-cover"
                       />
-                    </motion.div>
+                    </motion.div> */}
                     <motion.div
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
