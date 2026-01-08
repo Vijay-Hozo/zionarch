@@ -15,6 +15,17 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import projects from "@/lib/Projects.json";
 
+// Optimize Cloudinary images with transformations
+const optimizeCloudinaryUrl = (url: string, width: number = 1200) => {
+  if (!url.includes('cloudinary.com')) return url;
+  
+  const parts = url.split('/upload/');
+  if (parts.length === 2) {
+    return `${parts[0]}/upload/f_auto,q_auto:good,w_${width},c_limit,dpr_auto/${parts[1]}`;
+  }
+  return url;
+};
+
 const categories = [
   "All",
   "Apartments",
@@ -206,12 +217,13 @@ export function Portfolio() {
                     className="relative overflow-hidden rounded-2xl"
                   >
                     <motion.img
-                      src={currentProject?.image}
+                      src={optimizeCloudinaryUrl(currentProject?.image, 1200)}
                       alt={currentProject?.title}
                       className="w-full h-[500px] lg:h-[600px] object-cover"
                       initial={{ scale: 1.2 }}
                       animate={{ scale: 1 }}
                       transition={{ duration: 1.2, ease: "easeOut" }}
+                      loading="eager"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-60" />
 
@@ -360,9 +372,10 @@ export function Portfolio() {
                 }`}
               >
                 <img
-                  src={project.image}
+                  src={optimizeCloudinaryUrl(project.image, 600)}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading={index < 4 ? "eager" : "lazy"}
                 />
                 <div
                   className={`absolute inset-0 transition-all duration-500 ${
@@ -434,13 +447,14 @@ export function Portfolio() {
                   <AnimatePresence mode="wait">
                     <motion.img
                       key={modalImageIndex}
-                      src={selectedProject.images[modalImageIndex]}
+                      src={optimizeCloudinaryUrl(selectedProject.images[modalImageIndex], 1400)}
                       alt={selectedProject.title}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.3 }}
                       className="absolute inset-0 w-full h-full object-cover"
+                      loading="eager"
                     />
                   </AnimatePresence>
                 </div>

@@ -4,6 +4,17 @@ import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
+// Optimize Cloudinary images with transformations
+const optimizeCloudinaryUrl = (url: string, width: number = 800) => {
+  if (!url.includes('cloudinary.com')) return url;
+  
+  const parts = url.split('/upload/');
+  if (parts.length === 2) {
+    return `${parts[0]}/upload/f_auto,q_auto:good,w_${width},c_limit,dpr_auto/${parts[1]}`;
+  }
+  return url;
+};
+
 const showcaseImages = [
   {
     image:
@@ -113,6 +124,16 @@ export function PortfolioPreview() {
     }
   }, [currentIndex]);
 
+  // Preload current and next images
+  useEffect(() => {
+    const currentImg = new Image();
+    currentImg.src = optimizeCloudinaryUrl(showcaseImages[currentIndex].image, 800);
+    
+    const nextIndex = (currentIndex + 1) % showcaseImages.length;
+    const nextImg = new Image();
+    nextImg.src = optimizeCloudinaryUrl(showcaseImages[nextIndex].image, 800);
+  }, [currentIndex]);
+
   // Calculate opacity for cards based on their position relative to currentIndex
   const getCardOpacity = (index: number) => {
     const distance = Math.abs(index - currentIndex);
@@ -219,9 +240,10 @@ export function PortfolioPreview() {
                       className="block h-full"
                     >
                       <motion.img
-                        src={item.image}
+                        src={optimizeCloudinaryUrl(item.image, 800)}
                         alt={item.category}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading={index < 3 ? "eager" : "lazy"}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/40 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
 

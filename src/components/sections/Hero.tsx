@@ -4,6 +4,18 @@ import { Button } from "@/components/ui/button";
 import { ChevronDown, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
+// Optimize Cloudinary images with transformations
+const optimizeCloudinaryUrl = (url: string, width: number = 1920) => {
+  if (!url.includes('cloudinary.com')) return url;
+  
+  // Insert transformations before the version number
+  const parts = url.split('/upload/');
+  if (parts.length === 2) {
+    return `${parts[0]}/upload/f_auto,q_auto:good,w_${width},c_limit,dpr_auto/${parts[1]}`;
+  }
+  return url;
+};
+
 const slides = [
   {
     title: "MURUGESH BABU RESIDENCE",
@@ -47,6 +59,12 @@ export function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.1]);
 
+  // Preload first image for faster initial display
+  useEffect(() => {
+    const img = new Image();
+    img.src = optimizeCloudinaryUrl(slides[0].image);
+  }, []);
+
   // Auto-slide
   useEffect(() => {
     const timer = setInterval(() => {
@@ -54,6 +72,13 @@ export function Hero() {
     }, 6000);
     return () => clearInterval(timer);
   }, []);
+
+  // Preload next image when slide changes
+  useEffect(() => {
+    const nextIndex = (currentSlide + 1) % slides.length;
+    const img = new Image();
+    img.src = optimizeCloudinaryUrl(slides[nextIndex].image);
+  }, [currentSlide]);
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
@@ -125,7 +150,7 @@ export function Hero() {
         >
           <motion.div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${slides[currentSlide].image})` }}
+            style={{ backgroundImage: `url(${optimizeCloudinaryUrl(slides[currentSlide].image, 1920)})` }}
             animate={{ scale: [1, 1.08] }}
             transition={{ duration: 6, ease: "linear" }}
           />

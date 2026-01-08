@@ -180,7 +180,7 @@ export function Team() {
                     </p>
                     <div className="text-background/70 font-body text-base md:text-lg">
                       <p className="mb-1">{teamMembers[0].designation}</p>
-                      <p>{teamMembers[0].previousCompany}</p>
+                      {/* <p>{teamMembers[0].previousCompany}</p> */}
                     </div>
                   </motion.div>
                 </div>
