@@ -115,7 +115,7 @@ export function FullService() {
 
               <Link to="/quote">
               <Button variant="outline" size="lg">
-                Get a Quote
+                For Enquiry
               </Button>
               </Link>
             </div>

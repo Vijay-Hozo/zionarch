@@ -258,7 +258,7 @@ export function Hero() {
           <Link to="/quote">
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Button variant="hero" size="xl" >
-                Get a Quote
+                For Enquiry
               </Button>
             </motion.div>
           </Link>

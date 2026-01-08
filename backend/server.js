@@ -5,6 +5,7 @@ import { sendQuoteEmail } from './routes/quote.js';
 import { sendInternshipEmail } from './routes/internship.js';
 import { sendWorkApplicationEmail } from './routes/work-application.js';
 import { sendInternshipApplicationEmail } from './routes/internship-application.js';
+import { sendContactEmail } from './routes/contact.js';
 
 dotenv.config();
 
@@ -36,7 +37,8 @@ app.post('/api/work-application', sendWorkApplicationEmail);
 // Internship application endpoint (new)
 app.post('/api/internship-application', sendInternshipApplicationEmail);
 
-// 404 handler
+// Contact form endpoint
+app.post('/api/contact', sendContactEmail);
 app.use((req, res) => {
   res.status(404).json({ error: 'Route not found' });
 });

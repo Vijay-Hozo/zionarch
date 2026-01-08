@@ -47,16 +47,42 @@ export function Contact() {
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission delay
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const formData = new FormData(e.currentTarget);
+      const data = {
+        name: formData.get('name') as string,
+        email: formData.get('email') as string,
+        phone: formData.get('phone') as string,
+        message: formData.get('message') as string,
+      };
 
-    toast.success("Message received! We'll get back to you soon.");
-    (e.target as HTMLFormElement).reset();
-    setIsSubmitting(false);
+      const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+      const response = await fetch(`${apiUrl}/api/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        toast.success('Message received! We\'ll get back to you soon.');
+        (e.target as HTMLFormElement).reset();
+      } else {
+        toast.error(result.error || 'Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast.error('Failed to send message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -147,7 +173,7 @@ export function Contact() {
           </motion.div>
 
           {/* Right Side - Form */}
-          {/* <motion.div
+          <motion.div
             initial={{ opacity: 0, x: 60 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -178,25 +204,15 @@ export function Contact() {
                 </div>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <label className="block text-sm font-body font-medium mb-2">Phone Number</label>
-                  <Input 
-                    type="tel" 
-                    name="phone"
-                    placeholder="+91 98400 00000" 
-                    className="bg-background"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-body font-medium mb-2">Project Type</label>
-                  <Input 
-                    type="text" 
-                    name="projectType"
-                    placeholder="Residential / Commercial" 
-                    className="bg-background"
-                  />
-                </div>
+              <div className="mb-6">
+                <label className="block text-sm font-body font-medium mb-2">Phone Number</label>
+                <Input 
+                  type="tel" 
+                  name="phone"
+                  placeholder="+91 98400 00000" 
+                  required
+                  className="bg-background"
+                />
               </div>
 
               <div className="mb-6">
@@ -235,7 +251,7 @@ export function Contact() {
                 )}
               </Button>
             </form>
-          </motion.div> */}
+          </motion.div>
 
           <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-50 mb-0 ">
             <motion.div
@@ -259,7 +275,7 @@ export function Contact() {
                     className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 w-full sm:w-auto"
                     size="lg"
                   >
-                    Get a Quote
+                    For Enquiry
                   </Button>
                 </Link>
                 <Link to="/contact" className="w-full sm:w-auto">

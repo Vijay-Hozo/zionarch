@@ -155,7 +155,7 @@ export function About() {
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                   <Button variant="hero" size="xl" className="group">
                     <span className="flex items-center gap-2">
-                      Get a Quote
+                      For Enquiry
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                     </span>
                   </Button>
