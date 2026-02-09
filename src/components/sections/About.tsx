@@ -36,7 +36,7 @@ export function About() {
                 className="overflow-hidden rounded-lg"
               >
                 <video
-                  src="https://res.cloudinary.com/dfrlskgto/video/upload/v1765883924/ABOUT_US_wmclnl.mp4"
+                  src="https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/ABOUT%20US.mp4"
                   className="w-full h-[500px] object-cover"
                   autoPlay
                   loop

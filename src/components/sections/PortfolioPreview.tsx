@@ -4,57 +4,52 @@ import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
-// Optimize Cloudinary images with transformations
+// Optimize images (Supabase URLs don't need Cloudinary transformations)
 const optimizeCloudinaryUrl = (url: string, width: number = 800) => {
-  if (!url.includes('cloudinary.com')) return url;
-  
-  const parts = url.split('/upload/');
-  if (parts.length === 2) {
-    return `${parts[0]}/upload/f_auto,q_auto:good,w_${width},c_limit,dpr_auto/${parts[1]}`;
-  }
+  // Supabase handles optimization automatically, just return the URL
   return url;
 };
 
 const showcaseImages = [
   {
     image:
-      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642244/DJI_0320_fop5vi.jpg",
+      "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/RESIDENTIAL/SURESH%20RESIDENCE/1_2%20-%20Photo.jpg",
     category: "Residential",
   },
   {
     image:
-      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642019/MAIN_dd3kzd.jpg",
+      "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/APARTMENTS/MAIN-IKSEL%20HOMES/MAIN.jpg",
     category: "Apartments",
   },
   {
     image:
-      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642153/2_12_-_Photo_ss3u7n.jpg",
+      "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/INSTITUTIONAL/SMART%20MODERN%20SCHOOL/2_12%20-%20Photo.jpg",
     category: "Institutional",
   },
   {
     image:
-      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642032/MAIN-1_1_vihwcn.jpg",
+      "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/COMMERCIAL/MAIN-SATHYA%20SAI%20CONSULTANCY/MAIN.jpeg",
     category: "Commercial",
   },
   {
     image:
-      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642061/MAIN-1_2_-_Photo_wv1urc.jpg",
+      "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/INTERIORS/MAIN-MURUGESH%20BABU%20RESIDENCE/MAIN-1_1%20-%20Photo.jpg",
     category: "Interiors",
   },
 
   {
     image:
-      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642209/2_1_-_Photo_ktrfdq.jpg",
+      "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/HOSPITALITY/CARLO%20SHELTER%20HOME/2_1%20-%20Photo.jpg",
     category: "Hospitality",
   },
   {
     image:
-      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642032/MAIN-1_1_vihwcn.jpg",
+      "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/COMMERCIAL/MAIN-VASIYAM%20HOMES/MAIN-1%20(1).jpg",
     category: "Commercial",
   },
   {
     image:
-      "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642271/NAME_BOARD_2_lkjlji.jpg",
+      "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/RESIDENTIAL/MAIN%20KARUR%20VILLA/MAINDJI_0408%20(2).jpg",
     category: "Residential",
   },
 ];

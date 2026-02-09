@@ -50,7 +50,7 @@ export function FullService() {
                 className="overflow-hidden rounded-2xl"
               >
                 <img
-                  src="https://res.cloudinary.com/dfrlskgto/image/upload/v1765882491/ONE_STOP_SOLUTION_dekecr.jpg"
+                  src="https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/ONE%20STOP%20SOLUTION.jpg"
                   alt="Full Service Architecture"
                   className="w-full object-cover"
                 />

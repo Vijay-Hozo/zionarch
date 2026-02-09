@@ -5,17 +5,17 @@ const videos = [
   {
     id: 1,
     title: "AJITH BEACH HOUSE",
-    src: "https://res.cloudinary.com/dfrlskgto/video/upload/v1765903449/AJITH_BEACH_HOUSE_hrjqvw.mp4",
+    src: "https://res.cloudinary.com/dxbxd1sry/video/upload/v1770618103/AJITH_BEACH_HOUSE_xmird9.mp4",
   },
   {
     id: 2,
     title: "KARUR VILLA",
-    src: "https://res.cloudinary.com/dfrlskgto/video/upload/v1765907159/KARUR_VILLA_yifx0t.mp4",
+    src: "https://res.cloudinary.com/dxbxd1sry/video/upload/v1770618003/KARUR_VILLA_owaoqn.mp4",
   },
   {
     id: 3,
     title: "HOTEL PALOMAR",
-    src: "https://res.cloudinary.com/dfrlskgto/video/upload/v1765904702/HOTEL_PALOMAR_sfepeo.mp4",
+    src: "https://res.cloudinary.com/dxbxd1sry/video/upload/v1770618162/HOTEL_PALOMAR_ebwqxa.mp4",
   },
 ];
 

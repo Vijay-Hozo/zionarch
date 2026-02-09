@@ -19,31 +19,31 @@ const optimizeCloudinaryUrl = (url: string, width: number = 1920) => {
 const slides = [
   {
     title: "MURUGESH BABU RESIDENCE",
-    image: "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642087/MAIN-1_1_-_Photo_spmnak.jpg",
+    image: "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/INTERIORS/MAIN-MURUGESH%20BABU%20RESIDENCE/MAIN-1_1%20-%20Photo.jpg",
   },
   {
     title: "SHOLAA LAKE VIEW RESORT",
-    image: "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642173/MAIN-1_1_-_Photo_d0ercs.jpg",
+    image: "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/HOSPITALITY/MAIN-SHOLAA%20LAKE%20VIEW%20RESORT/MAIN-1_1%20-%20Photo.jpg",
   },
   {
     title: "VASIYAM HOMES",
-    image: "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642032/MAIN-1_1_vihwcn.jpg",
+    image: "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/COMMERCIAL/MAIN-VASIYAM%20HOMES/3.jpg",
   },
   {
     title: "RAMAKRISHNAN RESIDENCE",
-    image: "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642061/MAIN-1_2_-_Photo_wv1urc.jpg",
+    image: "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/INTERIORS/MAIN-RAMAKRISHNAN%20RESIDENCE/MAIN-1_2%20-%20Photo.jpg",
   },
   {
     title: "AJITH RESIDENCE",
-    image: "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642253/MAIN-AERIAL_VIEW_o6cvgt.jpg",
+    image: "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/RESIDENTIAL/MAIN-AJITH%20RESIDENCE/MAIN-AERIAL_VIEW.JPG",
   },
   {
     title: "PRABHAKARAN RESIDENCE",
-    image: "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642251/MAIN-1_2_-_Photo_fiy9iy.jpg",
+    image: "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/RESIDENTIAL/MAIN-PRABHAKARAN%20RESIDENCE/MAIN-1_2%20-%20Photo.jpg",
   },
   {
     title: "SREE CHAITANYA VISHNU",
-    image: "https://res.cloudinary.com/dfrlskgto/image/upload/v1765642244/MAIN-2_15_-_Photo_zzoajx.jpg",
+    image: "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/RESIDENTIAL/MAIN-SREE%20CHAITANYA%20VISHNU%20HOMES/MAIN-2_15%20-%20Photo.jpg",
   },
 ];
 
