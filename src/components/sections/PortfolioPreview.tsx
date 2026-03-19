@@ -13,43 +13,43 @@ const optimizeCloudinaryUrl = (url: string, width: number = 800) => {
 const showcaseImages = [
   {
     image:
-      "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/RESIDENTIAL/SURESH%20RESIDENCE/1_2%20-%20Photo.jpg",
+      "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/RESIDENTIAL/SURESH%20RESIDENCE/1_2%20-%20Photo.jpg",
     category: "Residential",
   },
   {
     image:
-      "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/APARTMENTS/MAIN-IKSEL%20HOMES/MAIN.jpg",
+      "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/APARTMENTS/MAIN-IKSEL%20HOMES/MAIN.jpg",
     category: "Apartments",
   },
   {
     image:
-      "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/INSTITUTIONAL/SMART%20MODERN%20SCHOOL/2_12%20-%20Photo.jpg",
+      "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/INSTITUTIONAL/SMART%20MODERN%20SCHOOL/2_12%20-%20Photo.jpg",
     category: "Institutional",
   },
   {
     image:
-      "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/COMMERCIAL/MAIN-SATHYA%20SAI%20CONSULTANCY/MAIN.jpeg",
+      "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/COMMERCIAL/MAIN-SATHYA%20SAI%20CONSULTANCY/MAIN.jpeg",
     category: "Commercial",
   },
   {
     image:
-      "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/INTERIORS/MAIN-MURUGESH%20BABU%20RESIDENCE/MAIN-1_1%20-%20Photo.jpg",
+      "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/INTERIORS/MAIN-MURUGESH%20BABU%20RESIDENCE/MAIN-1_1%20-%20Photo.jpg",
     category: "Interiors",
   },
 
   {
     image:
-      "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/HOSPITALITY/CARLO%20SHELTER%20HOME/2_1%20-%20Photo.jpg",
+      "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/HOSPITALITY/CARLO%20SHELTER%20HOME/2_1%20-%20Photo.jpg",
     category: "Hospitality",
   },
   {
     image:
-      "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/COMMERCIAL/MAIN-VASIYAM%20HOMES/MAIN-1%20(1).jpg",
+      "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/COMMERCIAL/MAIN-VASIYAM%20HOMES/MAIN-1%20(1).jpg",
     category: "Commercial",
   },
   {
     image:
-      "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/RESIDENTIAL/MAIN%20KARUR%20VILLA/MAINDJI_0408%20(2).jpg",
+      "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/RESIDENTIAL/MAIN%20KARUR%20VILLA/MAINDJI_0408%20(2).jpg",
     category: "Residential",
   },
 ];

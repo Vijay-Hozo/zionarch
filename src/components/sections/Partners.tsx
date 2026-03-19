@@ -4,55 +4,55 @@ import { useRef } from "react";
 const partners = [
   {
     name: "St.Dominic's",
-    logo: "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/OUR%20CLIENTS/ST.DOMINICS.jpg",
+    logo: "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/OUR%20CLIENTS/ST.DOMINICS.jpg",
   },
   {
     name: "Grace International School",
-    logo: "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/OUR%20CLIENTS/GRACE%20INTERNATIONAL%20SCHOOL.jpg",
+    logo: "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/OUR%20CLIENTS/GRACE%20INTERNATIONAL%20SCHOOL.jpg",
   },
   {
     name: "Korcomptenz",
-    logo: "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/OUR%20CLIENTS/KORCOMPOTENZ.png",
+    logo: "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/OUR%20CLIENTS/KORCOMPOTENZ.png",
   },
   {
     name: "Phonics Power",
-    logo: "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/OUR%20CLIENTS/PHONICS.png",
+    logo: "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/OUR%20CLIENTS/PHONICS.png",
   },
   {
     name: "The Palomar",
-    logo: "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/OUR%20CLIENTS/PALOMAR.png",
+    logo: "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/OUR%20CLIENTS/PALOMAR.png",
   },
   {
     name: "Vasiyam Homes",
-    logo: "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/OUR%20CLIENTS/VASIYAM.jpeg",
+    logo: "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/OUR%20CLIENTS/VASIYAM.jpeg",
   },
   {
     name: "Sathya Sai Consultancy",
-    logo: "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/OUR%20CLIENTS/SATHYA%20SAI%20CONSULTANCY.gif",
+    logo: "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/OUR%20CLIENTS/SATHYA%20SAI%20CONSULTANCY.gif",
   },
   {
     name: "Legendary Network",
-    logo: "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/OUR%20CLIENTS/LEGENDARY%20NETWORKS.png",
+    logo: "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/OUR%20CLIENTS/LEGENDARY%20NETWORKS.png",
   },
   {
     name: "Fast Track",
-    logo: "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/OUR%20CLIENTS/FASTRACJ%20GYM.webp",
+    logo: "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/OUR%20CLIENTS/FASTRACJ%20GYM.webp",
   },
   {
     name: "Tamil Nadu Science Forum",
-    logo: "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/OUR%20CLIENTS/TAMIL%20NADU%20SCIENCE%20FORUM.jpg",
+    logo: "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/OUR%20CLIENTS/TAMIL%20NADU%20SCIENCE%20FORUM.jpg",
   },
   {
     name: "Kairavi Montessory",
-    logo: "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/OUR%20CLIENTS/KAIRAVI%20MONTESORI.avif",
+    logo: "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/OUR%20CLIENTS/KAIRAVI%20MONTESORI.avif",
   },
   {
     name: "Endee Properties",
-    logo: "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/OUR%20CLIENTS/ENDEE%20PROPERTIES.png",
+    logo: "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/OUR%20CLIENTS/ENDEE%20PROPERTIES.png",
   },
   {
     name: "Rayans Sea Food Market",
-    logo: "https://jzkelxbvpnjqndddpinb.supabase.co/storage/v1/object/public/media/OUR%20CLIENTS/RAYAN%20SEA%20FOOD%20MARKET.jpg",
+    logo: "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/OUR%20CLIENTS/RAYAN%20SEA%20FOOD%20MARKET.jpg",
   },
 ];
 

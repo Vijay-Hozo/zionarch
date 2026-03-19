@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const ROOT_FOLDER = "1cKKrDsUA_h6KpuF61HIIPgiy-nmz_fuz";
+const BUCKET_NAME = "zionarch";
 
 const supabase = createClient(
   process.env.SUPABASE_URL,
@@ -16,7 +17,7 @@ const API_KEY = process.env.GOOGLE_API_KEY;
 // check if file exists in Supabase
 async function fileExists(path) {
   const { data } = await supabase.storage
-    .from("media")
+    .from(BUCKET_NAME)
     .list(path.split("/").slice(0, -1).join("/"), {
       search: path.split("/").pop(),
     });
@@ -53,7 +54,7 @@ async function uploadFile(file, path) {
   console.log("⬆ Upload:", fullPath);
 
   const { error } = await supabase.storage
-    .from("media")
+    .from(BUCKET_NAME)
     .upload(fullPath, buffer, {
       contentType: file.mimeType,
     });
