@@ -19,31 +19,31 @@ const optimizeCloudinaryUrl = (url: string, width: number = 1920) => {
 const slides = [
   {
     title: "MURUGESH BABU RESIDENCE",
-    image: "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/INTERIORS/MAIN-MURUGESH%20BABU%20RESIDENCE/MAIN-1_1%20-%20Photo.jpg",
+    image: "/drive-images/INTERIORS/MAIN-MURUGESH BABU RESIDENCE/MAIN-1_1 - Photo.jpg",
   },
   {
     title: "SHOLAA LAKE VIEW RESORT",
-    image: "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/HOSPITALITY/MAIN-SHOLAA%20LAKE%20VIEW%20RESORT/MAIN-1_1%20-%20Photo.jpg",
+    image: "/drive-images/HOSPITALITY/MAIN-SHOLAA LAKE VIEW RESORT/MAIN-1_1 - Photo.jpg",
   },
   {
     title: "VASIYAM HOMES",
-    image: "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/COMMERCIAL/MAIN-VASIYAM%20HOMES/3.jpg",
+    image: "/drive-images/COMMERCIAL/MAIN-VASIYAM HOMES/3.jpg",
   },
   {
     title: "RAMAKRISHNAN RESIDENCE",
-    image: "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/INTERIORS/MAIN-RAMAKRISHNAN%20RESIDENCE/MAIN-1_2%20-%20Photo.jpg",
+    image: "/drive-images/INTERIORS/MAIN-RAMAKRISHNAN RESIDENCE/MAIN-1_2 - Photo.jpg",
   },
   {
     title: "AJITH RESIDENCE",
-    image: "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/RESIDENTIAL/MAIN-AJITH%20RESIDENCE/MAIN-AERIAL_VIEW.JPG",
+    image: "/drive-images/RESIDENTIAL/MAIN-AJITH RESIDENCE/MAIN-AERIAL_VIEW.JPG",
   },
   {
     title: "PRABHAKARAN RESIDENCE",
-    image: "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/RESIDENTIAL/MAIN-PRABHAKARAN%20RESIDENCE/MAIN-1_2%20-%20Photo.jpg",
+    image: "/drive-images/RESIDENTIAL/MAIN-PRABHAKARAN RESIDENCE/MAIN-1_2 - Photo.jpg",
   },
   {
     title: "SREE CHAITANYA VISHNU",
-    image: "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/RESIDENTIAL/MAIN-SREE%20CHAITANYA%20VISHNU%20HOMES/MAIN-2_15%20-%20Photo.jpg",
+    image: "/drive-images/RESIDENTIAL/MAIN-SREE CHAITANYA VISHNU HOMES/MAIN-2_15 - Photo.jpg",
   },
 ];
 

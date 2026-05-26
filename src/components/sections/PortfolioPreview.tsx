@@ -12,44 +12,43 @@ const optimizeCloudinaryUrl = (url: string, width: number = 800) => {
 
 const showcaseImages = [
   {
-    image:
-      "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/RESIDENTIAL/SURESH%20RESIDENCE/1_2%20-%20Photo.jpg",
+    image: "/drive-images/RESIDENTIAL/SURESH RESIDENCE/1_2 - Photo.jpg",
     category: "Residential",
   },
   {
     image:
-      "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/APARTMENTS/MAIN-IKSEL%20HOMES/MAIN.jpg",
+      "/drive-images/APARTMENTS/MAIN-IKSEL HOMES/MAIN.jpg",
     category: "Apartments",
   },
   {
     image:
-      "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/INSTITUTIONAL/SMART%20MODERN%20SCHOOL/2_12%20-%20Photo.jpg",
+      "/drive-images/INSTITUTIONAL/SMART MODERN SCHOOL/2_12 - Photo.jpg",
     category: "Institutional",
   },
   {
     image:
-      "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/COMMERCIAL/MAIN-SATHYA%20SAI%20CONSULTANCY/MAIN.jpeg",
+      "/drive-images/COMMERCIAL/MAIN-SATHYA SAI CONSULTANCY/MAIN.jpeg",
     category: "Commercial",
   },
   {
     image:
-      "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/INTERIORS/MAIN-MURUGESH%20BABU%20RESIDENCE/MAIN-1_1%20-%20Photo.jpg",
+      "/drive-images/INTERIORS/MAIN-MURUGESH BABU RESIDENCE/MAIN-1_1 - Photo.jpg",
     category: "Interiors",
   },
 
   {
     image:
-      "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/HOSPITALITY/CARLO%20SHELTER%20HOME/2_1%20-%20Photo.jpg",
+      "/drive-images/HOSPITALITY/CARLO SHELTER HOME/2_1 - Photo.jpg",
     category: "Hospitality",
   },
   {
     image:
-      "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/COMMERCIAL/MAIN-VASIYAM%20HOMES/MAIN-1%20(1).jpg",
+      "/drive-images/COMMERCIAL/MAIN-VASIYAM HOMES/MAIN-1 (1).jpg",
     category: "Commercial",
   },
   {
     image:
-      "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/RESIDENTIAL/MAIN%20KARUR%20VILLA/MAINDJI_0408%20(2).jpg",
+      "/drive-images/RESIDENTIAL/MAIN KARUR VILLA/MAINDJI_0408 (2).jpg",
     category: "Residential",
   },
 ];
@@ -86,7 +85,7 @@ export function PortfolioPreview() {
 
   // Auto-scroll effect
   useEffect(() => {
-    let interval: NodeJS.Timeout;
+    let interval: ReturnType<typeof setInterval>;
 
     if (isAutoScrolling) {
       interval = setInterval(() => {
