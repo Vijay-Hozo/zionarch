@@ -9,31 +9,31 @@ const teamMembers = [
     previousCompany: "Formerly at XYZ Architects",
     isHead: true,
     image:
-      "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/TEAM%20MEMBERS/A.KARUNAKARA-PANDIAN-PRINCIPAL-ARCHITECT-.jpg",
+      "/drive-images/TEAM%20MEMBERS/A.KARUNAKARA-PANDIAN-PRINCIPAL-ARCHITECT-.jpg",
   },
    {
     name: "Prem Raj",
     role: "Admin",
     image:
-      "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/Admin.jpg",
+      "https://res.cloudinary.com/dxbxd1sry/image/upload/v1779867071/Admin_zkp1ul.jpg",
   },
    {
     name: "Rayan",
     role: "Senior Architect",
     image:
-      "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/Seniorarchitect.jpg",
+      "https://res.cloudinary.com/dxbxd1sry/image/upload/v1779867074/Seniorarchitect_ze8mbq.jpg",
   },
   {
     name: "Menaka",
     role: "Junior Architect",
     image:
-      "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/TEAM%20MEMBERS/MENAKA%20(JUNIOR%20ARCHITECT).jpg",
+      "/drive-images/TEAM%20MEMBERS/MENAKA%20(JUNIOR%20ARCHITECT).jpg",
   },
   {
     name: "Desingu",
     role: "Junior Architect",
     image:
-      "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/DESINGU%20%20(JUNIOR%20ARCHITECT).jpg",
+      "https://res.cloudinary.com/dxbxd1sry/image/upload/v1779867075/DESINGU_JUNIOR_ARCHITECT_akuiqj.jpg",
   },
  
 ];

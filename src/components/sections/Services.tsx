@@ -5,26 +5,26 @@ const services = [
   {
     title: "Architectural Design",
     description: "Feasibility Studies, Site Analysis, Space Planning, Massing, Building Approval Liaoning, Soil Testing, Site Surveying, Structural Design, HVAC design, MEP Design.",
-    image: "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/INSTITUTIONAL/MAIN-CHRYSALIS%20HIGH/MAIN-CHRYSALIS_MWC__4-Photo-1024x576.jpg",
+    image: "/drive-images/INSTITUTIONAL/MAIN-CHRYSALIS%20HIGH/MAIN-CHRYSALIS_MWC__4-Photo-1024x576.jpg",
     size: "large", // Takes 2 columns
   },
   {
     title: "Engineering",
     description: "Material Procurement, Schedule Optimization, Site Progress Report, Labour Management, Quality Assurance and Quality Control, Post Occupancy Support.",
-    image: "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/construction.jpg",
+    image: "https://res.cloudinary.com/dxbxd1sry/image/upload/v1779867085/construction_voxhz7.jpg",
     size: "medium", // Takes 1 column, taller
   },
   
   {
     title: "Design & Build",
     description: "Bill of Quantity, Composite Quotations, Material Specifications, Finishes Schedule, Execution Schedule, Shop Drawings, Site Measurements.",
-    image: "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/Design&build.jpg",
+    image: "https://res.cloudinary.com/dxbxd1sry/image/upload/v1779867093/Design_build_ge3bh5.jpg",
     size: "small", // Takes 1 column
   },
   {
     title: "Interior Design",
     description: "Site Measurement, Space Planning, Furniture Layout, Mood board Presentation, Conceptual Sketches, 3D Visualization, Working Drawings.",
-    image: "https://kmkgtgvewuszbgczwhyb.supabase.co/storage/v1/object/public/zionarch/INTERIORS/MAIN-MURUGESH%20BABU%20RESIDENCE/MAIN-1_1%20-%20Photo.jpg",
+    image: "/drive-images/INTERIORS/MAIN-MURUGESH%20BABU%20RESIDENCE/MAIN-1_1%20-%20Photo.jpg",
     size: "wide", // Takes 2 columns
   },
 ];
