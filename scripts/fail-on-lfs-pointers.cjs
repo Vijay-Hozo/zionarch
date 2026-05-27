@@ -39,7 +39,7 @@ for(const f of allFiles){
 if(pointers.length){
   console.error('ERROR: Found Git LFS pointer files in public/drive-images:');
   for(const p of pointers) console.error(' -', p);
-  console.error('\nRun `git lfs pull` locally and re-deploy, or upload binaries to a CDN.');
+  console.error('\nRun `git lfs pull` before building, or switch the images to a real object store/CDN.');
   process.exit(1);
 }
 
