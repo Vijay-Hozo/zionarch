@@ -4,16 +4,20 @@ import { Button } from "@/components/ui/button";
 import { ChevronDown, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
-// Optimize Cloudinary images with transformations
+// Optimize Cloudinary images with transformations and ensure encoding
 const optimizeCloudinaryUrl = (url: string, width: number = 1920) => {
-  if (!url.includes('cloudinary.com')) return url;
-  
-  // Insert transformations before the version number
-  const parts = url.split('/upload/');
-  if (parts.length === 2) {
-    return `${parts[0]}/upload/f_auto,q_auto:good,w_${width},c_limit,dpr_auto/${parts[1]}`;
+  try {
+    if (!url.includes('cloudinary.com')) return encodeURI(url);
+
+    // Insert transformations before the version number
+    const parts = url.split('/upload/');
+    if (parts.length === 2) {
+      return encodeURI(`${parts[0]}/upload/f_auto,q_auto:good,w_${width},c_limit,dpr_auto/${parts[1]}`);
+    }
+    return encodeURI(url);
+  } catch {
+    return url;
   }
-  return url;
 };
 
 const slides = [
@@ -150,7 +154,7 @@ export function Hero() {
         >
           <motion.div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${optimizeCloudinaryUrl(slides[currentSlide].image, 1920)})` }}
+            style={{ backgroundImage: `url("${optimizeCloudinaryUrl(slides[currentSlide].image, 1920)}")` }}
             animate={{ scale: [1, 1.08] }}
             transition={{ duration: 6, ease: "linear" }}
           />

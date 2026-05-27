@@ -6,8 +6,12 @@ import { Link } from "react-router-dom";
 
 // Optimize images (Supabase URLs don't need Cloudinary transformations)
 const optimizeCloudinaryUrl = (url: string, width: number = 800) => {
-  // Supabase handles optimization automatically, just return the URL
-  return url;
+  // Supabase handles optimization automatically; ensure URL is encoded for safe requests
+  try {
+    return encodeURI(url);
+  } catch {
+    return url;
+  }
 };
 
 const showcaseImages = [
