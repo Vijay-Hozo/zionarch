@@ -11,6 +11,10 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "scripts-extra": {
+    "upload:s3": "node scripts/upload-to-s3.cjs",
+    "update:cdn": "node scripts/update-projects-cdn.cjs"
+  },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-accordion": "^1.2.11",
