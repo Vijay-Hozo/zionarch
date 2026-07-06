@@ -7,37 +7,60 @@ import { ArrowRight } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 
+type UploadFile = {
+  name: string;
+  type: string;
+  dataUrl: string;
+};
+
 type InternshipApplicationForm = {
   fullName: string;
   email: string;
-  institution: string;
-  portfolioUrl: string;
-  otherAttachments?: string;
-  previousInternships?: string;
-  internshipBatch: string;
-  startDate: string;
-  internshipDuration: string;
+  positionApplied: string;
+  photoFile: File | null;
+  contactNumber: string;
+  qualification: string;
+  yearsOfExperience: string;
+  portfolioLink: string;
+  cvFile: File | null;
+};
+
+const fileToUpload = (file: File): Promise<UploadFile> => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      resolve({
+        name: file.name,
+        type: file.type || "application/octet-stream",
+        dataUrl: reader.result as string,
+      });
+    };
+
+    reader.onerror = () => reject(new Error(`Failed to read ${file.name}`));
+    reader.readAsDataURL(file);
+  });
 };
 
 const InternshipPage = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [fileInputKey, setFileInputKey] = useState(0);
   const form = useForm<InternshipApplicationForm>({
     defaultValues: {
       fullName: "",
       email: "",
-      institution: "",
-      portfolioUrl: "",
-      otherAttachments: "",
-      previousInternships: "",
-      internshipBatch: "",
-      startDate: "",
-      internshipDuration: "",
+      positionApplied: "",
+      photoFile: null,
+      contactNumber: "",
+      qualification: "",
+      yearsOfExperience: "",
+      portfolioLink: "",
+      cvFile: null,
     },
   });
 
@@ -45,13 +68,22 @@ const InternshipPage = () => {
     setIsSubmitting(true);
 
     try {
+      const [photoFile, cvFile] = await Promise.all([
+        values.photoFile ? fileToUpload(values.photoFile) : Promise.resolve(null),
+        values.cvFile ? fileToUpload(values.cvFile) : Promise.resolve(null),
+      ]);
+
       const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
       const response = await fetch(`${apiUrl}/api/internship-application`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(values),
+        body: JSON.stringify({
+          ...values,
+          photoFile,
+          cvFile,
+        }),
       });
 
       const result = await response.json();
@@ -68,7 +100,18 @@ const InternshipPage = () => {
           "We have received your internship application. Check your email for confirmation.",
       });
 
-      form.reset();
+      form.reset({
+        fullName: "",
+        email: "",
+        positionApplied: "",
+        photoFile: null,
+        contactNumber: "",
+        qualification: "",
+        yearsOfExperience: "",
+        portfolioLink: "",
+        cvFile: null,
+      });
+      setFileInputKey((current) => current + 1);
     } catch (error: any) {
       setIsSubmitting(false);
       console.error("Error submitting application:", error);
@@ -120,7 +163,7 @@ const InternshipPage = () => {
           <div className="container mx-auto px-6">
             <h2 className="text-2xl md:text-4xl font-display font-bold mb-3">Internship Application</h2>
             <p className="text-muted-foreground font-body mb-8 max-w-2xl">
-              Fill in the form below to apply for your internship at ZIONARCH.
+              Fill in the form below to apply for a careers internship at ZIONARCH.
             </p>
 
             <Form {...form}>
@@ -158,104 +201,50 @@ const InternshipPage = () => {
                   )}
                 />
 
-                {/* Institution */}
+                {/* Position Applied */}
                 <FormField
                   control={form.control}
-                  name="institution"
-                  rules={{ required: "Institution is required" }}
+                  name="positionApplied"
+                  rules={{ required: "Position applied is required" }}
                   render={({ field }) => (
                     <FormItem className="md:col-span-2">
-                      <FormLabel>Institute of Architecture *</FormLabel>
+                      <FormLabel>Position Applied For *</FormLabel>
                       <FormControl>
-                        <Input placeholder="Name of your institute" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                {/* Portfolio URL */}
-                <FormField
-                  control={form.control}
-                  name="portfolioUrl"
-                  rules={{ required: "Portfolio URL is required" }}
-                  render={({ field }) => (
-                    <FormItem className="md:col-span-2">
-                      <FormLabel>Your Portfolio (PDF/URL) *</FormLabel>
-                      <FormControl>
-                        <Input 
-                          type="url" 
-                          placeholder="https://your-portfolio.com or PDF link (max 20MB)" 
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                {/* Previous Internships */}
-                <FormField
-                  control={form.control}
-                  name="previousInternships"
-                  render={({ field }) => (
-                    <FormItem className="md:col-span-2">
-                      <FormLabel>Previous Internship Experience</FormLabel>
-                      <FormControl>
-                        <Textarea 
-                          placeholder="Details about any previous internship experience" 
-                          rows={2} 
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                {/* Internship Batch */}
-                <FormField
-                  control={form.control}
-                  name="internshipBatch"
-                  rules={{ required: "Please select an internship batch" }}
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Internship Batch *</FormLabel>
-                      <Select onValueChange={field.onChange} value={field.value}>
-                        <FormControl>
+                        <Select onValueChange={field.onChange} value={field.value}>
                           <SelectTrigger>
-                            <SelectValue placeholder="Select a batch" />
+                            <SelectValue placeholder="Select a position" />
                           </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          <SelectItem value="Jan-Mar 2024">Jan-Mar 2024</SelectItem>
-                          <SelectItem value="Apr-Jun 2024">Apr-Jun 2024</SelectItem>
-                          <SelectItem value="Jul-Sep 2024">Jul-Sep 2024</SelectItem>
-                          <SelectItem value="Oct-Dec 2024">Oct-Dec 2024</SelectItem>
-                          <SelectItem value="Jan-Mar 2025">Jan-Mar 2025</SelectItem>
-                          <SelectItem value="Apr-Jun 2025">Apr-Jun 2025</SelectItem>
-                          <SelectItem value="Jul-Sep 2025">Jul-Sep 2025</SelectItem>
-                          <SelectItem value="Oct-Dec 2025">Oct-Dec 2025</SelectItem>
-                        </SelectContent>
-                      </Select>
+                          <SelectContent>
+                            <SelectItem value="Architectural Intern">Architectural Intern</SelectItem>
+                            <SelectItem value="Interior Design Intern">Interior Design Intern</SelectItem>
+                            <SelectItem value="Junior Architect">Junior Architect</SelectItem>
+                            <SelectItem value="3D Visualizer">3D Visualizer</SelectItem>
+                            <SelectItem value="Other">Other</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
 
-                {/* Start Date */}
+                {/* Photo Upload */}
                 <FormField
                   control={form.control}
-                  name="startDate"
-                  rules={{ required: "Start date is required" }}
+                  name="photoFile"
+                  rules={{ required: "Photo upload is required" }}
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Internship Start Date *</FormLabel>
+                      <FormLabel>Upload Photo *</FormLabel>
                       <FormControl>
-                        <Input 
-                          type="date" 
-                          placeholder="mm/dd/yyyy" 
-                          {...field} 
+                        <Input
+                          key={`photo-${fileInputKey}`}
+                          type="file"
+                          accept="image/*"
+                          onChange={(event) => {
+                            const file = event.target.files?.[0] ?? null;
+                            field.onChange(file);
+                          }}
                         />
                       </FormControl>
                       <FormMessage />
@@ -263,44 +252,103 @@ const InternshipPage = () => {
                   )}
                 />
 
-                {/* Duration */}
+                {/* Contact Number */}
                 <FormField
                   control={form.control}
-                  name="internshipDuration"
-                  rules={{ required: "Duration is required" }}
+                  name="contactNumber"
+                  rules={{ required: "Contact number is required" }}
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Internship Duration (Days) *</FormLabel>
+                      <FormLabel>Contact Number *</FormLabel>
                       <FormControl>
-                        <Input 
-                          type="number" 
-                          placeholder="e.g., 60" 
-                          {...field} 
-                        />
+                        <Input type="tel" placeholder="+91 98765 43210" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
 
-                {/* Other Attachments */}
+                {/* Qualification */}
                 <FormField
                   control={form.control}
-                  name="otherAttachments"
+                  name="qualification"
+                  rules={{ required: "Qualification is required" }}
                   render={({ field }) => (
                     <FormItem className="md:col-span-2">
-                      <FormLabel>Other Attachments (Links)</FormLabel>
+                      <FormLabel>Qualification *</FormLabel>
                       <FormControl>
-                        <Textarea 
-                          placeholder="Recommendation letters from your institute or previous firms (provide links)" 
-                          rows={2} 
-                          {...field} 
+                        <Input placeholder="B.Arch, M.Arch, Diploma, or equivalent" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                {/* Years of Experience */}
+                <FormField
+                  control={form.control}
+                  name="yearsOfExperience"
+                  rules={{ required: "Years of experience is required" }}
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Years of Experience *</FormLabel>
+                      <FormControl>
+                        <Input type="number" min="0" placeholder="e.g., 2" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                {/* CV Upload */}
+                <FormField
+                  control={form.control}
+                  name="cvFile"
+                  rules={{ required: "CV upload is required" }}
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Upload CV *</FormLabel>
+                      <FormControl>
+                        <Input
+                          key={`cv-${fileInputKey}`}
+                          type="file"
+                          accept=".pdf,.doc,.docx,application/pdf"
+                          onChange={(event) => {
+                            const file = event.target.files?.[0] ?? null;
+                            field.onChange(file);
+                          }}
                         />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
+
+                {/* Portfolio Link */}
+                <FormField
+                  control={form.control}
+                  name="portfolioLink"
+                  render={({ field }) => (
+                    <FormItem className="md:col-span-2">
+                      <FormLabel>Online Portfolio Link</FormLabel>
+                      <FormControl>
+                        <Input
+                          type="url"
+                          placeholder="https://your-portfolio.com"
+                          {...field}
+                        />
+                      </FormControl>
+                      <p className="text-xs text-muted-foreground font-body">
+                        Optional. Recommended for architectural positions.
+                      </p>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <div className="md:col-span-2 rounded-lg border border-dashed border-border bg-background/50 p-4 text-sm text-muted-foreground font-body">
+                  Photo and CV are required. If you are applying for an architectural role, include your portfolio link to strengthen the application.
+                </div>
 
                 {/* Submit Button */}
                 <div className="md:col-span-2">

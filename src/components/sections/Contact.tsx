@@ -37,8 +37,9 @@ const contactInfo = [
   {
     icon: Clock,
     title: "Working Hours",
-    details: ["Mon - Sat: 10:00 AM - 7:00 PM", "Sunday: Closed"],
-    type: "text",
+    details: ["Mon - Sat: 9:30 AM - 6:30 PM", "Sunday: Closed"],
+    href: "https://maps.app.goo.gl/KN5hcrFpNa9hV7yt5?g_st=aw",
+    type: "link",
   },
 ];
 
@@ -54,17 +55,17 @@ export function Contact() {
     try {
       const formData = new FormData(e.currentTarget);
       const data = {
-        name: formData.get('name') as string,
-        email: formData.get('email') as string,
-        phone: formData.get('phone') as string,
-        message: formData.get('message') as string,
+        name: formData.get("name") as string,
+        email: formData.get("email") as string,
+        phone: formData.get("phone") as string,
+        message: formData.get("message") as string,
       };
 
       const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
       const response = await fetch(`${apiUrl}/api/contact`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       });
@@ -72,14 +73,16 @@ export function Contact() {
       const result = await response.json();
 
       if (response.ok && result.success) {
-        toast.success('Message received! We\'ll get back to you soon.');
+        toast.success("Message received! We'll get back to you soon.");
         (e.target as HTMLFormElement).reset();
       } else {
-        toast.error(result.error || 'Failed to send message. Please try again.');
+        toast.error(
+          result.error || "Failed to send message. Please try again.",
+        );
       }
     } catch (error) {
-      console.error('Error submitting form:', error);
-      toast.error('Failed to send message. Please try again.');
+      console.error("Error submitting form:", error);
+      toast.error("Failed to send message. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -178,58 +181,71 @@ export function Contact() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <form onSubmit={handleSubmit} className="bg-card p-8 lg:p-10 rounded-2xl shadow-xl border border-border/50">
-              <h3 className="text-2xl font-display font-bold mb-8">Send Us a Message</h3>
-              
+            <form
+              onSubmit={handleSubmit}
+              className="bg-card p-8 lg:p-10 rounded-2xl shadow-xl border border-border/50"
+            >
+              <h3 className="text-2xl font-display font-bold mb-8">
+                Send Us a Message
+              </h3>
+
               <div className="grid sm:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <label className="block text-sm font-body font-medium mb-2">Your Name</label>
-                  <Input 
-                    type="text" 
+                  <label className="block text-sm font-body font-medium mb-2">
+                    Your Name
+                  </label>
+                  <Input
+                    type="text"
                     name="name"
-                    placeholder="John Doe" 
-                    required 
+                    placeholder="John Doe"
+                    required
                     className="bg-background"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-body font-medium mb-2">Email Address</label>
-                  <Input 
-                    type="email" 
+                  <label className="block text-sm font-body font-medium mb-2">
+                    Email Address
+                  </label>
+                  <Input
+                    type="email"
                     name="email"
-                    placeholder="john@example.com" 
-                    required 
+                    placeholder="john@example.com"
+                    required
                     className="bg-background"
                   />
                 </div>
               </div>
 
               <div className="mb-6">
-                <label className="block text-sm font-body font-medium mb-2">Phone Number</label>
-                <Input 
-                  type="tel" 
+                <label className="block text-sm font-body font-medium mb-2">
+                  Phone Number
+                </label>
+                <Input
+                  type="tel"
                   name="phone"
-                  placeholder="+91 98400 00000" 
+                  placeholder="+91 98400 00000"
                   required
                   className="bg-background"
                 />
               </div>
 
               <div className="mb-6">
-                <label className="block text-sm font-body font-medium mb-2">Your Message</label>
-                <Textarea 
+                <label className="block text-sm font-body font-medium mb-2">
+                  Your Message
+                </label>
+                <Textarea
                   name="message"
-                  placeholder="Tell us about your project..." 
+                  placeholder="Tell us about your project..."
                   rows={5}
                   required
                   className="bg-background resize-none"
                 />
               </div>
 
-              <Button 
-                type="submit" 
-                variant="hero" 
-                size="lg" 
+              <Button
+                type="submit"
+                variant="hero"
+                size="lg"
                 className="w-full group"
                 disabled={isSubmitting}
               >
@@ -237,7 +253,11 @@ export function Contact() {
                   <span className="flex items-center gap-2">
                     <motion.span
                       animate={{ rotate: 360 }}
-                      transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+                      transition={{
+                        repeat: Infinity,
+                        duration: 1,
+                        ease: "linear",
+                      }}
                     >
                       ⏳
                     </motion.span>

@@ -27,6 +27,24 @@ const getTransporter = () => {
   return transporter;
 };
 
+const parseDataUrlFile = (file) => {
+  if (!file || !file.dataUrl) {
+    return null;
+  }
+
+  const match = file.dataUrl.match(/^data:([^;]+);base64,(.+)$/);
+  if (!match) {
+    return null;
+  }
+
+  const contentType = file.type || match[1];
+  return {
+    filename: file.name || 'attachment',
+    content: Buffer.from(match[2], 'base64'),
+    contentType,
+  };
+};
+
 /**
  * Generate plain text email for business (internship application)
  */
@@ -37,16 +55,14 @@ New internship application received.
 Personal Information:
 - Name: ${formData.fullName}
 - Email: ${formData.email}
-- Institution: ${formData.institution}
+- Contact Number: ${formData.contactNumber}
+- Position Applied: ${formData.positionApplied}
+- Qualification: ${formData.qualification}
+- Years of Experience: ${formData.yearsOfExperience}
 
-Internship Details:
-- Batch: ${formData.internshipBatch}
-- Start Date: ${formData.startDate}
-- Duration: ${formData.internshipDuration} days
-
-Portfolio: ${formData.portfolioUrl}
-${formData.previousInternships ? `\nPrevious Internship Experience:\n${formData.previousInternships}` : ''}
-${formData.otherAttachments ? `\nOther Attachments:\n${formData.otherAttachments}` : ''}
+Portfolio: ${formData.portfolioLink || 'Not provided'}
+Photo: ${formData.photoFile?.name || 'Attached'}
+CV: ${formData.cvFile?.name || 'Attached'}
 
 Submitted on: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}
   `.trim();
@@ -80,61 +96,54 @@ const generateInternshipBusinessEmailHTML = (formData) => {
             </tr>
             <tr>
               <td style="padding: 10px 0; border-bottom: 1px solid #e0e0e0;">
-                <strong style="color: #555;">Institution:</strong>
+                <strong style="color: #555;">Contact Number:</strong>
               </td>
-              <td style="padding: 10px 0; border-bottom: 1px solid #e0e0e0;">${formData.institution}</td>
+              <td style="padding: 10px 0; border-bottom: 1px solid #e0e0e0;">${formData.contactNumber}</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px 0; border-bottom: 1px solid #e0e0e0;">
+                <strong style="color: #555;">Position Applied:</strong>
+              </td>
+              <td style="padding: 10px 0; border-bottom: 1px solid #e0e0e0;">${formData.positionApplied}</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px 0; border-bottom: 1px solid #e0e0e0;">
+                <strong style="color: #555;">Qualification:</strong>
+              </td>
+              <td style="padding: 10px 0; border-bottom: 1px solid #e0e0e0;">${formData.qualification}</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px 0;">
+                <strong style="color: #555;">Years of Experience:</strong>
+              </td>
+              <td style="padding: 10px 0;">${formData.yearsOfExperience}</td>
             </tr>
           </table>
         </div>
 
         <div style="margin: 30px 0;">
-          <h2 style="color: #333; font-size: 18px; margin-top: 0; margin-bottom: 15px;">Internship Details</h2>
+          <h2 style="color: #333; font-size: 18px; margin-top: 0; margin-bottom: 15px;">Uploads</h2>
           <table style="width: 100%; border-collapse: collapse;">
             <tr style="background-color: #f9f9f9;">
               <td style="padding: 10px; border: 1px solid #e0e0e0; width: 35%;">
-                <strong style="color: #555;">Batch</strong>
+                <strong style="color: #555;">Photo</strong>
               </td>
-              <td style="padding: 10px; border: 1px solid #e0e0e0;">${formData.internshipBatch}</td>
+              <td style="padding: 10px; border: 1px solid #e0e0e0;">${formData.photoFile?.name || 'Attached'}</td>
             </tr>
             <tr>
               <td style="padding: 10px; border: 1px solid #e0e0e0;">
-                <strong style="color: #555;">Start Date</strong>
+                <strong style="color: #555;">CV</strong>
               </td>
-              <td style="padding: 10px; border: 1px solid #e0e0e0;">${formData.startDate}</td>
+              <td style="padding: 10px; border: 1px solid #e0e0e0;">${formData.cvFile?.name || 'Attached'}</td>
             </tr>
             <tr style="background-color: #f9f9f9;">
               <td style="padding: 10px; border: 1px solid #e0e0e0;">
-                <strong style="color: #555;">Duration (Days)</strong>
+                <strong style="color: #555;">Portfolio</strong>
               </td>
-              <td style="padding: 10px; border: 1px solid #e0e0e0;">${formData.internshipDuration}</td>
+              <td style="padding: 10px; border: 1px solid #e0e0e0;">${formData.portfolioLink || 'Not provided'}</td>
             </tr>
           </table>
         </div>
-
-        <div style="margin: 30px 0;">
-          <h2 style="color: #333; font-size: 18px; margin-top: 0; margin-bottom: 15px;">Portfolio</h2>
-          <p style="color: #555;">
-            <a href="${formData.portfolioUrl}" style="color: #e63946; text-decoration: none;" target="_blank">${formData.portfolioUrl}</a>
-          </p>
-        </div>
-
-        ${formData.previousInternships ? `
-        <div style="margin: 30px 0;">
-          <h2 style="color: #333; font-size: 18px; margin-top: 0; margin-bottom: 15px;">Previous Internship Experience</h2>
-          <div style="background-color: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #e63946;">
-            <p style="color: #555; line-height: 1.6; margin: 0; white-space: pre-wrap;">${formData.previousInternships}</p>
-          </div>
-        </div>
-        ` : ''}
-
-        ${formData.otherAttachments ? `
-        <div style="margin: 30px 0;">
-          <h2 style="color: #333; font-size: 18px; margin-top: 0; margin-bottom: 15px;">Other Attachments</h2>
-          <div style="background-color: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #e63946;">
-            <p style="color: #555; line-height: 1.6; margin: 0; white-space: pre-wrap;">${formData.otherAttachments}</p>
-          </div>
-        </div>
-        ` : ''}
 
         <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #e0e0e0;">
           <p style="color: #999; font-size: 12px; margin: 0;">This is an automated notification from ZIONARCH.</p>
@@ -147,11 +156,11 @@ const generateInternshipBusinessEmailHTML = (formData) => {
 /**
  * Generate plain text confirmation email for applicant
  */
-const generateInternshipApplicantEmailText = (name) => {
+const generateInternshipApplicantEmailText = (name, positionApplied) => {
   return `
 Dear ${name},
 
-Thank you for applying for an internship at ZIONARCH! We have received your application and our HR team will review it shortly.
+Thank you for applying for the ${positionApplied} role at ZIONARCH! We have received your application and our HR team will review it shortly.
 
 What happens next?
 Our HR team will carefully review your application and reach out to you within 5-7 business days to discuss next steps. We appreciate your interest in joining the ZIONARCH internship program!
@@ -168,7 +177,7 @@ Building spaces that inspire life
 /**
  * Generate HTML confirmation email for applicant
  */
-const generateInternshipApplicantEmailHTML = (name) => {
+const generateInternshipApplicantEmailHTML = (name, positionApplied) => {
   return `
     <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 700px; margin: 0 auto; background-color: #f8f9fa; padding: 20px; border-radius: 10px;">
       <div style="background-color: white; padding: 40px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
@@ -179,7 +188,7 @@ const generateInternshipApplicantEmailHTML = (name) => {
         </p>
 
         <p style="color: #555; font-size: 16px; line-height: 1.6;">
-          Thank you for applying for an internship at ZIONARCH! We have received your application and our HR team will review it shortly.
+          Thank you for applying for the <strong>${positionApplied}</strong> role at ZIONARCH! We have received your application and our HR team will review it shortly.
         </p>
 
         <div style="background-color: #f0f8ff; padding: 20px; border-radius: 8px; border-left: 4px solid #e63946; margin: 20px 0;">
@@ -206,13 +215,13 @@ const generateInternshipApplicantEmailHTML = (name) => {
  */
 export const sendInternshipApplicationEmail = async (req, res) => {
   try {
-    const { fullName, email, institution, portfolioUrl, otherAttachments, previousInternships, internshipBatch, startDate, internshipDuration } = req.body;
+    const { fullName, email, positionApplied, photoFile, contactNumber, qualification, yearsOfExperience, portfolioLink, cvFile } = req.body;
 
     // Validation
-    if (!fullName || !email || !institution || !portfolioUrl) {
+    if (!fullName || !email || !positionApplied || !photoFile || !contactNumber || !qualification || !yearsOfExperience || !cvFile) {
       return res.status(400).json({
         success: false,
-        error: 'Missing required fields: fullName, email, institution, portfolioUrl',
+        error: 'Missing required fields: fullName, email, positionApplied, photoFile, contactNumber, qualification, yearsOfExperience, cvFile',
       });
     }
 
@@ -242,35 +251,37 @@ export const sendInternshipApplicationEmail = async (req, res) => {
     console.log(`Processing internship application from: ${fullName} (${email})`);
 
     const transporter = getTransporter();
+    const attachments = [parseDataUrlFile(photoFile), parseDataUrlFile(cvFile)].filter(Boolean);
 
     // Send email to business inbox
     const hrEmailResult = await transporter.sendMail({
       from: `"ZIONARCH" <${process.env.SMTP_FROM}>`,
       to: process.env.BUSINESS_EMAIL,
       replyTo: email,
-      subject: 'New internship application received',
+      subject: `New internship application received for ${positionApplied}`,
       text: generateInternshipBusinessEmailText({
         fullName,
         email,
-        institution,
-        portfolioUrl,
-        otherAttachments,
-        previousInternships,
-        internshipBatch,
-        startDate,
-        internshipDuration,
+        positionApplied,
+        photoFile,
+        contactNumber,
+        qualification,
+        yearsOfExperience,
+        portfolioLink,
+        cvFile,
       }),
       html: generateInternshipBusinessEmailHTML({
         fullName,
         email,
-        institution,
-        portfolioUrl,
-        otherAttachments,
-        previousInternships,
-        internshipBatch,
-        startDate,
-        internshipDuration,
+        positionApplied,
+        photoFile,
+        contactNumber,
+        qualification,
+        yearsOfExperience,
+        portfolioLink,
+        cvFile,
       }),
+      attachments,
       headers: {
         'X-Category': 'notifications',
         'X-Priority': '1',
@@ -285,8 +296,8 @@ export const sendInternshipApplicationEmail = async (req, res) => {
       to: email,
       replyTo: process.env.BUSINESS_EMAIL,
       subject: 'Internship Application Received - ZIONARCH',
-      text: generateInternshipApplicantEmailText(fullName),
-      html: generateInternshipApplicantEmailHTML(fullName),
+      text: generateInternshipApplicantEmailText(fullName, positionApplied),
+      html: generateInternshipApplicantEmailHTML(fullName, positionApplied),
       headers: {
         'X-Category': 'transactional',
       },
