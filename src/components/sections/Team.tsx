@@ -3,7 +3,7 @@ import { Linkedin, Mail } from "lucide-react";
 
 const teamMembers = [
   {
-    name: "A. Karunakara Pandian",
+    name: "Ar. A. Karunakara Pandian",
     role: "Principal Architect",
     designation: "Head of Design",
     previousCompany: "Formerly at XYZ Architects",
@@ -12,25 +12,25 @@ const teamMembers = [
       "/drive-images/TEAM%20MEMBERS/A.KARUNAKARA-PANDIAN-PRINCIPAL-ARCHITECT-.jpg",
   },
    {
-    name: "Prem Raj",
-    role: "Admin",
+    name: "Premraj D",
+    role: "Admin In-Charge",
     image:
       "https://res.cloudinary.com/dxbxd1sry/image/upload/v1779867071/Admin_zkp1ul.jpg",
   },
    {
-    name: "Rayan",
+    name: "Ar. Rayan Raj Pī",
     role: "Senior Architect",
     image:
       "https://res.cloudinary.com/dxbxd1sry/image/upload/v1779867074/Seniorarchitect_ze8mbq.jpg",
   },
   {
-    name: "Menaka",
+    name: "Ar. Menaka Y",
     role: "Junior Architect",
     image:
       "/drive-images/TEAM%20MEMBERS/MENAKA%20(JUNIOR%20ARCHITECT).jpg",
   },
   {
-    name: "Desingu",
+    name: "Ar. Desingu Raja D",
     role: "Junior Architect",
     image:
       "https://res.cloudinary.com/dxbxd1sry/image/upload/v1779867075/DESINGU_JUNIOR_ARCHITECT_akuiqj.jpg",
