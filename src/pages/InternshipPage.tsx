@@ -7,7 +7,6 @@ import { ArrowRight } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 
@@ -20,11 +19,8 @@ type UploadFile = {
 type InternshipApplicationForm = {
   fullName: string;
   email: string;
-  positionApplied: string;
-  photoFile: File | null;
   contactNumber: string;
   qualification: string;
-  yearsOfExperience: string;
   portfolioLink: string;
   cvFile: File | null;
 };
@@ -54,11 +50,8 @@ const InternshipPage = () => {
     defaultValues: {
       fullName: "",
       email: "",
-      positionApplied: "",
-      photoFile: null,
       contactNumber: "",
       qualification: "",
-      yearsOfExperience: "",
       portfolioLink: "",
       cvFile: null,
     },
@@ -68,10 +61,7 @@ const InternshipPage = () => {
     setIsSubmitting(true);
 
     try {
-      const [photoFile, cvFile] = await Promise.all([
-        values.photoFile ? fileToUpload(values.photoFile) : Promise.resolve(null),
-        values.cvFile ? fileToUpload(values.cvFile) : Promise.resolve(null),
-      ]);
+      const cvFile = values.cvFile ? await fileToUpload(values.cvFile) : null;
 
       const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
       const response = await fetch(`${apiUrl}/api/internship-application`, {
@@ -80,8 +70,11 @@ const InternshipPage = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          ...values,
-          photoFile,
+          fullName: values.fullName,
+          email: values.email,
+          contactNumber: values.contactNumber,
+          qualification: values.qualification,
+          portfolioLink: values.portfolioLink,
           cvFile,
         }),
       });
@@ -103,11 +96,8 @@ const InternshipPage = () => {
       form.reset({
         fullName: "",
         email: "",
-        positionApplied: "",
-        photoFile: null,
         contactNumber: "",
         qualification: "",
-        yearsOfExperience: "",
         portfolioLink: "",
         cvFile: null,
       });
@@ -168,7 +158,7 @@ const InternshipPage = () => {
 
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
-                
+
                 {/* Full Name */}
                 <FormField
                   control={form.control}
@@ -201,57 +191,6 @@ const InternshipPage = () => {
                   )}
                 />
 
-                {/* Position Applied */}
-                <FormField
-                  control={form.control}
-                  name="positionApplied"
-                  rules={{ required: "Position applied is required" }}
-                  render={({ field }) => (
-                    <FormItem className="md:col-span-2">
-                      <FormLabel>Position Applied For *</FormLabel>
-                      <FormControl>
-                        <Select onValueChange={field.onChange} value={field.value}>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select a position" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="Architectural Intern">Architectural Intern</SelectItem>
-                            <SelectItem value="Interior Design Intern">Interior Design Intern</SelectItem>
-                            <SelectItem value="Junior Architect">Junior Architect</SelectItem>
-                            <SelectItem value="3D Visualizer">3D Visualizer</SelectItem>
-                            <SelectItem value="Other">Other</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                {/* Photo Upload */}
-                <FormField
-                  control={form.control}
-                  name="photoFile"
-                  rules={{ required: "Photo upload is required" }}
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Upload Photo *</FormLabel>
-                      <FormControl>
-                        <Input
-                          key={`photo-${fileInputKey}`}
-                          type="file"
-                          accept="image/*"
-                          onChange={(event) => {
-                            const file = event.target.files?.[0] ?? null;
-                            field.onChange(file);
-                          }}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
                 {/* Contact Number */}
                 <FormField
                   control={form.control}
@@ -278,22 +217,6 @@ const InternshipPage = () => {
                       <FormLabel>Qualification *</FormLabel>
                       <FormControl>
                         <Input placeholder="B.Arch, M.Arch, Diploma, or equivalent" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                {/* Years of Experience */}
-                <FormField
-                  control={form.control}
-                  name="yearsOfExperience"
-                  rules={{ required: "Years of experience is required" }}
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Years of Experience *</FormLabel>
-                      <FormControl>
-                        <Input type="number" min="0" placeholder="e.g., 2" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -338,17 +261,14 @@ const InternshipPage = () => {
                           {...field}
                         />
                       </FormControl>
-                      <p className="text-xs text-muted-foreground font-body">
-                        Optional. Recommended for architectural positions.
-                      </p>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
 
-                <div className="md:col-span-2 rounded-lg border border-dashed border-border bg-background/50 p-4 text-sm text-muted-foreground font-body">
+                {/* <div className="md:col-span-2 rounded-lg border border-dashed border-border bg-background/50 p-4 text-sm text-muted-foreground font-body">
                   Photo and CV are required. If you are applying for an architectural role, include your portfolio link to strengthen the application.
-                </div>
+                </div> */}
 
                 {/* Submit Button */}
                 <div className="md:col-span-2">

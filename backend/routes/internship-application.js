@@ -56,12 +56,9 @@ Personal Information:
 - Name: ${formData.fullName}
 - Email: ${formData.email}
 - Contact Number: ${formData.contactNumber}
-- Position Applied: ${formData.positionApplied}
 - Qualification: ${formData.qualification}
-- Years of Experience: ${formData.yearsOfExperience}
 
 Portfolio: ${formData.portfolioLink || 'Not provided'}
-Photo: ${formData.photoFile?.name || 'Attached'}
 CV: ${formData.cvFile?.name || 'Attached'}
 
 Submitted on: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}
@@ -100,23 +97,12 @@ const generateInternshipBusinessEmailHTML = (formData) => {
               </td>
               <td style="padding: 10px 0; border-bottom: 1px solid #e0e0e0;">${formData.contactNumber}</td>
             </tr>
-            <tr>
-              <td style="padding: 10px 0; border-bottom: 1px solid #e0e0e0;">
-                <strong style="color: #555;">Position Applied:</strong>
-              </td>
-              <td style="padding: 10px 0; border-bottom: 1px solid #e0e0e0;">${formData.positionApplied}</td>
-            </tr>
+            
             <tr>
               <td style="padding: 10px 0; border-bottom: 1px solid #e0e0e0;">
                 <strong style="color: #555;">Qualification:</strong>
               </td>
               <td style="padding: 10px 0; border-bottom: 1px solid #e0e0e0;">${formData.qualification}</td>
-            </tr>
-            <tr>
-              <td style="padding: 10px 0;">
-                <strong style="color: #555;">Years of Experience:</strong>
-              </td>
-              <td style="padding: 10px 0;">${formData.yearsOfExperience}</td>
             </tr>
           </table>
         </div>
@@ -124,12 +110,6 @@ const generateInternshipBusinessEmailHTML = (formData) => {
         <div style="margin: 30px 0;">
           <h2 style="color: #333; font-size: 18px; margin-top: 0; margin-bottom: 15px;">Uploads</h2>
           <table style="width: 100%; border-collapse: collapse;">
-            <tr style="background-color: #f9f9f9;">
-              <td style="padding: 10px; border: 1px solid #e0e0e0; width: 35%;">
-                <strong style="color: #555;">Photo</strong>
-              </td>
-              <td style="padding: 10px; border: 1px solid #e0e0e0;">${formData.photoFile?.name || 'Attached'}</td>
-            </tr>
             <tr>
               <td style="padding: 10px; border: 1px solid #e0e0e0;">
                 <strong style="color: #555;">CV</strong>
@@ -156,11 +136,11 @@ const generateInternshipBusinessEmailHTML = (formData) => {
 /**
  * Generate plain text confirmation email for applicant
  */
-const generateInternshipApplicantEmailText = (name, positionApplied) => {
+const generateInternshipApplicantEmailText = (name) => {
   return `
 Dear ${name},
 
-Thank you for applying for the ${positionApplied} role at ZIONARCH! We have received your application and our HR team will review it shortly.
+Thank you for applying for an internship at ZIONARCH! We have received your application and our HR team will review it shortly.
 
 What happens next?
 Our HR team will carefully review your application and reach out to you within 5-7 business days to discuss next steps. We appreciate your interest in joining the ZIONARCH internship program!
@@ -177,7 +157,7 @@ Building spaces that inspire life
 /**
  * Generate HTML confirmation email for applicant
  */
-const generateInternshipApplicantEmailHTML = (name, positionApplied) => {
+const generateInternshipApplicantEmailHTML = (name) => {
   return `
     <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 700px; margin: 0 auto; background-color: #f8f9fa; padding: 20px; border-radius: 10px;">
       <div style="background-color: white; padding: 40px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
@@ -188,7 +168,7 @@ const generateInternshipApplicantEmailHTML = (name, positionApplied) => {
         </p>
 
         <p style="color: #555; font-size: 16px; line-height: 1.6;">
-          Thank you for applying for the <strong>${positionApplied}</strong> role at ZIONARCH! We have received your application and our HR team will review it shortly.
+          Thank you for applying for an internship at ZIONARCH! We have received your application and our HR team will review it shortly.
         </p>
 
         <div style="background-color: #f0f8ff; padding: 20px; border-radius: 8px; border-left: 4px solid #e63946; margin: 20px 0;">
@@ -215,13 +195,13 @@ const generateInternshipApplicantEmailHTML = (name, positionApplied) => {
  */
 export const sendInternshipApplicationEmail = async (req, res) => {
   try {
-    const { fullName, email, positionApplied, photoFile, contactNumber, qualification, yearsOfExperience, portfolioLink, cvFile } = req.body;
+    const { fullName, email, contactNumber, qualification, portfolioLink, cvFile } = req.body;
 
     // Validation
-    if (!fullName || !email || !positionApplied || !photoFile || !contactNumber || !qualification || !yearsOfExperience || !cvFile) {
+    if (!fullName || !email || !contactNumber || !qualification || !cvFile) {
       return res.status(400).json({
         success: false,
-        error: 'Missing required fields: fullName, email, positionApplied, photoFile, contactNumber, qualification, yearsOfExperience, cvFile',
+        error: 'Missing required fields: fullName, email, contactNumber, qualification, cvFile',
       });
     }
 
@@ -251,33 +231,27 @@ export const sendInternshipApplicationEmail = async (req, res) => {
     console.log(`Processing internship application from: ${fullName} (${email})`);
 
     const transporter = getTransporter();
-    const attachments = [parseDataUrlFile(photoFile), parseDataUrlFile(cvFile)].filter(Boolean);
+    const attachments = [parseDataUrlFile(cvFile)].filter(Boolean);
 
     // Send email to business inbox
     const hrEmailResult = await transporter.sendMail({
       from: `"ZIONARCH" <${process.env.SMTP_FROM}>`,
       to: process.env.BUSINESS_EMAIL,
       replyTo: email,
-      subject: `New internship application received for ${positionApplied}`,
+      subject: 'New internship application received',
       text: generateInternshipBusinessEmailText({
         fullName,
         email,
-        positionApplied,
-        photoFile,
         contactNumber,
         qualification,
-        yearsOfExperience,
         portfolioLink,
         cvFile,
       }),
       html: generateInternshipBusinessEmailHTML({
         fullName,
         email,
-        positionApplied,
-        photoFile,
         contactNumber,
         qualification,
-        yearsOfExperience,
         portfolioLink,
         cvFile,
       }),
@@ -296,8 +270,8 @@ export const sendInternshipApplicationEmail = async (req, res) => {
       to: email,
       replyTo: process.env.BUSINESS_EMAIL,
       subject: 'Internship Application Received - ZIONARCH',
-      text: generateInternshipApplicantEmailText(fullName, positionApplied),
-      html: generateInternshipApplicantEmailHTML(fullName, positionApplied),
+      text: generateInternshipApplicantEmailText(fullName),
+      html: generateInternshipApplicantEmailHTML(fullName),
       headers: {
         'X-Category': 'transactional',
       },

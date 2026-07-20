@@ -15,6 +15,57 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import projects from "@/lib/Projects.json";
 
+type ProgressiveImageProps = {
+  src?: string;
+  alt: string;
+  className?: string;
+  imageClassName?: string;
+  loading?: "eager" | "lazy";
+};
+
+function ProgressiveImage({
+  src,
+  alt,
+  className = "",
+  imageClassName = "",
+  loading = "lazy",
+}: ProgressiveImageProps) {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(false);
+  }, [src]);
+
+  if (!src) {
+    return <div className={`relative overflow-hidden bg-muted ${className}`} />;
+  }
+
+  return (
+    <div className={`relative overflow-hidden bg-muted ${className}`}>
+      <div
+        className={`absolute inset-0 transition-opacity duration-500 ${
+          isLoaded ? "opacity-0" : "opacity-100"
+        }`}
+        aria-hidden="true"
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-muted via-background/80 to-muted" />
+        <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent animate-[image-shimmer_1.6s_infinite]" />
+      </div>
+      <img
+        src={src}
+        alt={alt}
+        className={`transition-opacity duration-500 ${
+          isLoaded ? "opacity-100" : "opacity-0"
+        } ${imageClassName}`}
+        loading={loading}
+        decoding="async"
+        onLoad={() => setIsLoaded(true)}
+        onError={() => setIsLoaded(true)}
+      />
+    </div>
+  );
+}
+
 // Optimize Cloudinary images with transformations
 const optimizeCloudinaryUrl = (url: string, width: number = 1200) => {
   if (!url.includes('cloudinary.com')) return url;
@@ -48,6 +99,50 @@ export function Portfolio() {
     (typeof projects)[0] | null
   >(null);
   const [modalImageIndex, setModalImageIndex] = useState(0);
+
+  useEffect(() => {
+    const visibleProjects =
+      activeCategory === "All"
+        ? projects
+        : projects.filter((project) => project.category === activeCategory);
+
+    if (!visibleProjects.length) {
+      return;
+    }
+
+    const urls = new Set<string>();
+
+    const preload = (url?: string, width: number = 1200) => {
+      if (!url) {
+        return;
+      }
+
+      const optimized = optimizeCloudinaryUrl(url, width);
+
+      if (urls.has(optimized)) {
+        return;
+      }
+
+      urls.add(optimized);
+      const image = new Image();
+      image.decoding = "async";
+      image.src = optimized;
+    };
+
+    preload(visibleProjects[currentIndex]?.image, 1200);
+    preload(visibleProjects[(currentIndex + 1) % visibleProjects.length]?.image, 1200);
+    preload(
+      visibleProjects[(currentIndex - 1 + visibleProjects.length) % visibleProjects.length]
+        ?.image,
+      1200
+    );
+
+    visibleProjects.slice(0, 4).forEach((project) => preload(project.image, 600));
+
+    if (selectedProject) {
+      selectedProject.images.slice(0, 2).forEach((image) => preload(image, 1400));
+    }
+  }, [activeCategory, currentIndex, selectedProject]);
 
   // Read category from URL params
   useEffect(() => {
@@ -214,17 +309,22 @@ export function Portfolio() {
                       clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
                     }}
                     transition={{ duration: 0.8, ease: [0.65, 0, 0.35, 1] }}
-                    className="relative overflow-hidden rounded-2xl"
+                    className="relative overflow-hidden rounded-2xl h-[500px] lg:h-[600px]"
                   >
-                    <motion.img
-                      src={optimizeCloudinaryUrl(currentProject?.image, 1200)}
-                      alt={currentProject?.title}
-                      className="w-full h-[500px] lg:h-[600px] object-cover"
-                      initial={{ scale: 1.2 }}
+                    <motion.div
+                      initial={{ scale: 1.08 }}
                       animate={{ scale: 1 }}
                       transition={{ duration: 1.2, ease: "easeOut" }}
-                      loading="eager"
-                    />
+                      className="absolute inset-0"
+                    >
+                      <ProgressiveImage
+                        src={optimizeCloudinaryUrl(currentProject?.image, 1200)}
+                        alt={currentProject?.title || "Portfolio project"}
+                        className="absolute inset-0"
+                        imageClassName="w-full h-full object-cover"
+                        loading="eager"
+                      />
+                    </motion.div>
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-60" />
 
                     {/* Overlay Content */}
@@ -371,10 +471,11 @@ export function Portfolio() {
                     : ""
                 }`}
               >
-                <img
+                <ProgressiveImage
                   src={optimizeCloudinaryUrl(project.image, 600)}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="absolute inset-0"
+                  imageClassName="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   loading={index < 4 ? "eager" : "lazy"}
                 />
                 <div
@@ -445,17 +546,25 @@ export function Portfolio() {
               <div className="relative w-full bg-background flex-shrink-0 overflow-hidden">
                 <div className="relative w-full pb-[70%] md:pb-[50%]">
                   <AnimatePresence mode="wait">
-                    <motion.img
+                    <motion.div
                       key={modalImageIndex}
-                      src={optimizeCloudinaryUrl(selectedProject.images[modalImageIndex], 1400)}
-                      alt={selectedProject.title}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="absolute inset-0 w-full h-full object-cover"
-                      loading="eager"
-                    />
+                      className="absolute inset-0"
+                    >
+                      <ProgressiveImage
+                        src={optimizeCloudinaryUrl(
+                          selectedProject.images[modalImageIndex],
+                          1400
+                        )}
+                        alt={selectedProject.title}
+                        className="absolute inset-0"
+                        imageClassName="w-full h-full object-cover"
+                        loading="eager"
+                      />
+                    </motion.div>
                   </AnimatePresence>
                 </div>
 

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/sections/Footer";
 import { motion } from "framer-motion";
@@ -6,19 +7,39 @@ import { ArrowRight } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
+
+type UploadFile = {
+  name: string;
+  type: string;
+  dataUrl: string;
+};
 
 type WorkApplicationForm = {
   fullName: string;
   email: string;
-  institution: string;
-  yearOfGraduation: string;
-  additionalQualifications: string;
-  previousWorkExperience: string;
+  contactNumber: string;
+  positionApplied: string;
   portfolioLink: string;
-  otherAttachments?: string;
+  cvFile: File | null;
+};
+
+const fileToUpload = (file: File): Promise<UploadFile> => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      resolve({
+        name: file.name,
+        type: file.type || "application/octet-stream",
+        dataUrl: reader.result as string,
+      });
+    };
+
+    reader.onerror = () => reject(new Error(`Failed to read ${file.name}`));
+    reader.readAsDataURL(file);
+  });
 };
 
 const WorkAtPage = () => {
@@ -28,12 +49,10 @@ const WorkAtPage = () => {
     defaultValues: {
       fullName: "",
       email: "",
-      institution: "",
-      yearOfGraduation: "",
-      additionalQualifications: "",
-      previousWorkExperience: "",
+      contactNumber: "",
+      positionApplied: "",
       portfolioLink: "",
-      otherAttachments: "",
+      cvFile: null,
     },
   });
 
@@ -41,13 +60,22 @@ const WorkAtPage = () => {
     setIsSubmitting(true);
 
     try {
+      const cvFile = values.cvFile ? await fileToUpload(values.cvFile) : null;
+
       const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
       const response = await fetch(`${apiUrl}/api/work-application`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(values),
+        body: JSON.stringify({
+          fullName: values.fullName,
+          email: values.email,
+          contactNumber: values.contactNumber,
+          positionApplied: values.positionApplied,
+          portfolioLink: values.portfolioLink,
+          cvFile,
+        }),
       });
 
       const result = await response.json();
@@ -121,7 +149,7 @@ const WorkAtPage = () => {
 
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
-                
+
                 {/* Full Name */}
                 <FormField
                   control={form.control}
@@ -154,72 +182,31 @@ const WorkAtPage = () => {
                   )}
                 />
 
-                {/* Institution */}
+                {/* Contact Number */}
                 <FormField
                   control={form.control}
-                  name="institution"
-                  rules={{ required: "Institution is required" }}
+                  name="contactNumber"
+                  rules={{ required: "Contact number is required" }}
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Institute of Architecture *</FormLabel>
+                      <FormLabel>Contact Number *</FormLabel>
                       <FormControl>
-                        <Input placeholder="Name of your institute" {...field} />
+                        <Input type="tel" placeholder="+91 98765 43210" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
 
-                {/* Year of Graduation */}
                 <FormField
                   control={form.control}
-                  name="yearOfGraduation"
-                  rules={{ required: "Year of graduation is required" }}
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Year of Graduation *</FormLabel>
-                      <FormControl>
-                        <Input type="number" placeholder="e.g., 2024" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                {/* Additional Qualifications */}
-                <FormField
-                  control={form.control}
-                  name="additionalQualifications"
-                  rules={{ required: "Additional qualifications are required" }}
+                  name="positionApplied"
+                  rules={{ required: "Position applied is required" }}
                   render={({ field }) => (
                     <FormItem className="md:col-span-2">
-                      <FormLabel>Additional Qualifications *</FormLabel>
+                      <FormLabel>Position Applied *</FormLabel>
                       <FormControl>
-                        <Textarea 
-                          placeholder="Masters, Summer Courses, Workshops attended (Course, Institute, Year)" 
-                          rows={3} 
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                {/* Previous Work Experience */}
-                <FormField
-                  control={form.control}
-                  name="previousWorkExperience"
-                  rules={{ required: "Work experience is required" }}
-                  render={({ field }) => (
-                    <FormItem className="md:col-span-2">
-                      <FormLabel>Previous Work Experience *</FormLabel>
-                      <FormControl>
-                        <Textarea 
-                          placeholder="Firm name and duration worked" 
-                          rows={3} 
-                          {...field} 
-                        />
+                        <Input placeholder="Architect, Interior Designer, Site Engineer, etc." {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -246,18 +233,22 @@ const WorkAtPage = () => {
                   )}
                 />
 
-                {/* Other Attachments */}
+                {/* CV Upload */}
                 <FormField
                   control={form.control}
-                  name="otherAttachments"
+                  name="cvFile"
+                  rules={{ required: "CV upload is required" }}
                   render={({ field }) => (
                     <FormItem className="md:col-span-2">
-                      <FormLabel>Other Attachments (Links)</FormLabel>
+                      <FormLabel>Upload CV *</FormLabel>
                       <FormControl>
-                        <Textarea 
-                          placeholder="Recommendation letters or other documents (provide links)" 
-                          rows={2} 
-                          {...field} 
+                        <Input
+                          type="file"
+                          accept=".pdf,.doc,.docx,application/pdf"
+                          onChange={(event) => {
+                            const file = event.target.files?.[0] ?? null;
+                            field.onChange(file);
+                          }}
                         />
                       </FormControl>
                       <FormMessage />

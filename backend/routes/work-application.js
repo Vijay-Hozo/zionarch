@@ -27,6 +27,24 @@ const getTransporter = () => {
   return transporter;
 };
 
+const parseDataUrlFile = (file) => {
+  if (!file || !file.dataUrl) {
+    return null;
+  }
+
+  const match = file.dataUrl.match(/^data:([^;]+);base64,(.+)$/);
+  if (!match) {
+    return null;
+  }
+
+  const contentType = file.type || match[1];
+  return {
+    filename: file.name || 'attachment',
+    content: Buffer.from(match[2], 'base64'),
+    contentType,
+  };
+};
+
 /**
  * Generate plain text email for business (work application)
  */
@@ -37,19 +55,11 @@ New work application received.
 Personal Information:
 - Name: ${formData.fullName}
 - Email: ${formData.email}
+- Contact Number: ${formData.contactNumber}
+- Position Applied: ${formData.positionApplied}
 
-Education & Experience:
-- Institution: ${formData.institution}
-- Year of Graduation: ${formData.yearOfGraduation}
-
-Additional Qualifications:
-${formData.additionalQualifications}
-
-Previous Work Experience:
-${formData.previousWorkExperience}
-
-Portfolio: ${formData.portfolioLink}
-${formData.otherAttachments ? `\nOther Attachments:\n${formData.otherAttachments}` : ''}
+Portfolio: ${formData.portfolioLink || 'Not provided'}
+CV: ${formData.cvFile?.name || 'Attached'}
 
 Submitted on: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}
   `.trim();
@@ -81,56 +91,40 @@ const generateWorkBusinessEmailHTML = (formData) => {
                 <a href="mailto:${formData.email}" style="color: #e63946; text-decoration: none;">${formData.email}</a>
               </td>
             </tr>
+            <tr>
+              <td style="padding: 10px 0; border-bottom: 1px solid #e0e0e0;">
+                <strong style="color: #555;">Contact Number:</strong>
+              </td>
+              <td style="padding: 10px 0; border-bottom: 1px solid #e0e0e0;">${formData.contactNumber}</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px 0; border-bottom: 1px solid #e0e0e0;">
+                <strong style="color: #555;">Position Applied:</strong>
+              </td>
+              <td style="padding: 10px 0; border-bottom: 1px solid #e0e0e0;">${formData.positionApplied}</td>
+            </tr>
           </table>
         </div>
 
         <div style="margin: 30px 0;">
-          <h2 style="color: #333; font-size: 18px; margin-top: 0; margin-bottom: 15px;">Education & Experience</h2>
+          <h2 style="color: #333; font-size: 18px; margin-top: 0; margin-bottom: 15px;">Uploads</h2>
           <table style="width: 100%; border-collapse: collapse;">
             <tr style="background-color: #f9f9f9;">
               <td style="padding: 10px; border: 1px solid #e0e0e0; width: 35%;">
-                <strong style="color: #555;">Institution</strong>
+                <strong style="color: #555;">Portfolio</strong>
               </td>
-              <td style="padding: 10px; border: 1px solid #e0e0e0;">${formData.institution}</td>
+              <td style="padding: 10px; border: 1px solid #e0e0e0;">
+                <a href="${formData.portfolioLink}" style="color: #e63946; text-decoration: none;" target="_blank" rel="noreferrer">${formData.portfolioLink}</a>
+              </td>
             </tr>
             <tr>
               <td style="padding: 10px; border: 1px solid #e0e0e0;">
-                <strong style="color: #555;">Year of Graduation</strong>
+                <strong style="color: #555;">CV</strong>
               </td>
-              <td style="padding: 10px; border: 1px solid #e0e0e0;">${formData.yearOfGraduation}</td>
+              <td style="padding: 10px; border: 1px solid #e0e0e0;">${formData.cvFile?.name || 'Attached'}</td>
             </tr>
           </table>
         </div>
-
-        <div style="margin: 30px 0;">
-          <h2 style="color: #333; font-size: 18px; margin-top: 0; margin-bottom: 15px;">Additional Qualifications</h2>
-          <div style="background-color: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #e63946;">
-            <p style="color: #555; line-height: 1.6; margin: 0; white-space: pre-wrap;">${formData.additionalQualifications}</p>
-          </div>
-        </div>
-
-        <div style="margin: 30px 0;">
-          <h2 style="color: #333; font-size: 18px; margin-top: 0; margin-bottom: 15px;">Previous Work Experience</h2>
-          <div style="background-color: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #e63946;">
-            <p style="color: #555; line-height: 1.6; margin: 0; white-space: pre-wrap;">${formData.previousWorkExperience}</p>
-          </div>
-        </div>
-
-        <div style="margin: 30px 0;">
-          <h2 style="color: #333; font-size: 18px; margin-top: 0; margin-bottom: 15px;">Portfolio</h2>
-          <p style="color: #555;">
-            <a href="${formData.portfolioLink}" style="color: #e63946; text-decoration: none;" target="_blank">${formData.portfolioLink}</a>
-          </p>
-        </div>
-
-        ${formData.otherAttachments ? `
-        <div style="margin: 30px 0;">
-          <h2 style="color: #333; font-size: 18px; margin-top: 0; margin-bottom: 15px;">Other Attachments</h2>
-          <div style="background-color: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #e63946;">
-            <p style="color: #555; line-height: 1.6; margin: 0; white-space: pre-wrap;">${formData.otherAttachments}</p>
-          </div>
-        </div>
-        ` : ''}
 
         <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #e0e0e0;">
           <p style="color: #999; font-size: 12px; margin: 0;">This is an automated notification from ZIONARCH.</p>
@@ -202,13 +196,13 @@ const generateWorkApplicantEmailHTML = (name) => {
  */
 export const sendWorkApplicationEmail = async (req, res) => {
   try {
-    const { fullName, email, institution, yearOfGraduation, additionalQualifications, previousWorkExperience, portfolioLink, otherAttachments } = req.body;
+    const { fullName, email, contactNumber, positionApplied, portfolioLink, cvFile } = req.body;
 
     // Validation
-    if (!fullName || !email || !institution || !yearOfGraduation) {
+    if (!fullName || !email || !contactNumber || !positionApplied || !portfolioLink || !cvFile) {
       return res.status(400).json({
         success: false,
-        error: 'Missing required fields: fullName, email, institution, yearOfGraduation',
+        error: 'Missing required fields: fullName, email, contactNumber, positionApplied, portfolioLink, cvFile',
       });
     }
 
@@ -238,33 +232,31 @@ export const sendWorkApplicationEmail = async (req, res) => {
     console.log(`Processing work application from: ${fullName} (${email})`);
 
     const transporter = getTransporter();
+    const attachments = [parseDataUrlFile(cvFile)].filter(Boolean);
 
     // Send email to HR
     const hrEmailResult = await transporter.sendMail({
       from: `"ZIONARCH" <${process.env.SMTP_FROM}>`,
       to: process.env.BUSINESS_EMAIL,
       replyTo: email,
-      subject: 'New work application received',
+      subject: `New work application received for ${positionApplied}`,
       text: generateWorkBusinessEmailText({
         fullName,
         email,
-        institution,
-        yearOfGraduation,
-        additionalQualifications,
-        previousWorkExperience,
+        contactNumber,
+        positionApplied,
         portfolioLink,
-        otherAttachments,
+        cvFile,
       }),
       html: generateWorkBusinessEmailHTML({
         fullName,
         email,
-        institution,
-        yearOfGraduation,
-        additionalQualifications,
-        previousWorkExperience,
+        contactNumber,
+        positionApplied,
         portfolioLink,
-        otherAttachments,
+        cvFile,
       }),
+      attachments,
       headers: {
         'X-Category': 'notifications',
         'X-Priority': '1',
@@ -278,9 +270,9 @@ export const sendWorkApplicationEmail = async (req, res) => {
       from: `"ZIONARCH" <${process.env.SMTP_FROM}>`,
       to: email,
       replyTo: process.env.BUSINESS_EMAIL,
-      subject: 'Work Application Received - ZIONARCH',
-      text: generateWorkApplicantEmailText(fullName),
-      html: generateWorkApplicantEmailHTML(fullName),
+      subject: `Work Application Received - ZIONARCH`,
+      text: generateWorkApplicantEmailText(fullName, positionApplied),
+      html: generateWorkApplicantEmailHTML(fullName, positionApplied),
       headers: {
         'X-Category': 'transactional',
       },

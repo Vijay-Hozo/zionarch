@@ -18,7 +18,7 @@ const teamMembers = [
       "https://res.cloudinary.com/dxbxd1sry/image/upload/v1779867071/Admin_zkp1ul.jpg",
   },
    {
-    name: "Ar. Rayan Raj Pī",
+    name: "Ar. Rayan Raj P",
     role: "Senior Architect",
     image:
       "https://res.cloudinary.com/dxbxd1sry/image/upload/v1779867074/Seniorarchitect_ze8mbq.jpg",
