@@ -23,18 +23,18 @@ const teamMembers = [
     image:
       "https://res.cloudinary.com/dxbxd1sry/image/upload/v1779867074/Seniorarchitect_ze8mbq.jpg",
   },
-  {
-    name: "Ar. Menaka Y",
-    role: "Junior Architect",
-    image:
-      "/drive-images/TEAM%20MEMBERS/MENAKA%20(JUNIOR%20ARCHITECT).jpg",
-  },
-  {
-    name: "Ar. Desingu Raja D",
-    role: "Junior Architect",
-    image:
-      "https://res.cloudinary.com/dxbxd1sry/image/upload/v1779867075/DESINGU_JUNIOR_ARCHITECT_akuiqj.jpg",
-  },
+  // {
+  //   name: "Ar. Menaka Y",
+  //   role: "Junior Architect",
+  //   image:
+  //     "/drive-images/TEAM%20MEMBERS/MENAKA%20(JUNIOR%20ARCHITECT).jpg",
+  // },
+  // {
+  //   name: "Ar. Desingu Raja D",
+  //   role: "Junior Architect",
+  //   image:
+  //     "https://res.cloudinary.com/dxbxd1sry/image/upload/v1779867075/DESINGU_JUNIOR_ARCHITECT_akuiqj.jpg",
+  // },
  
 ];
 

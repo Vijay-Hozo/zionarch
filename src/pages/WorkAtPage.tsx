@@ -21,7 +21,6 @@ type WorkApplicationForm = {
   email: string;
   contactNumber: string;
   positionApplied: string;
-  portfolioLink: string;
   cvFile: File | null;
 };
 
@@ -51,7 +50,6 @@ const WorkAtPage = () => {
       email: "",
       contactNumber: "",
       positionApplied: "",
-      portfolioLink: "",
       cvFile: null,
     },
   });
@@ -73,7 +71,6 @@ const WorkAtPage = () => {
           email: values.email,
           contactNumber: values.contactNumber,
           positionApplied: values.positionApplied,
-          portfolioLink: values.portfolioLink,
           cvFile,
         }),
       });
@@ -213,25 +210,6 @@ const WorkAtPage = () => {
                   )}
                 />
 
-                {/* Portfolio Link */}
-                <FormField
-                  control={form.control}
-                  name="portfolioLink"
-                  rules={{ required: "Portfolio link is required" }}
-                  render={({ field }) => (
-                    <FormItem className="md:col-span-2">
-                      <FormLabel>Online Portfolio Link *</FormLabel>
-                      <FormControl>
-                        <Input 
-                          type="url" 
-                          placeholder="https://your-portfolio.com" 
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
 
                 {/* CV Upload */}
                 <FormField

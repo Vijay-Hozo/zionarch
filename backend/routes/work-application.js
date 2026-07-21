@@ -58,7 +58,6 @@ Personal Information:
 - Contact Number: ${formData.contactNumber}
 - Position Applied: ${formData.positionApplied}
 
-Portfolio: ${formData.portfolioLink || 'Not provided'}
 CV: ${formData.cvFile?.name || 'Attached'}
 
 Submitted on: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}
@@ -109,14 +108,6 @@ const generateWorkBusinessEmailHTML = (formData) => {
         <div style="margin: 30px 0;">
           <h2 style="color: #333; font-size: 18px; margin-top: 0; margin-bottom: 15px;">Uploads</h2>
           <table style="width: 100%; border-collapse: collapse;">
-            <tr style="background-color: #f9f9f9;">
-              <td style="padding: 10px; border: 1px solid #e0e0e0; width: 35%;">
-                <strong style="color: #555;">Portfolio</strong>
-              </td>
-              <td style="padding: 10px; border: 1px solid #e0e0e0;">
-                <a href="${formData.portfolioLink}" style="color: #e63946; text-decoration: none;" target="_blank" rel="noreferrer">${formData.portfolioLink}</a>
-              </td>
-            </tr>
             <tr>
               <td style="padding: 10px; border: 1px solid #e0e0e0;">
                 <strong style="color: #555;">CV</strong>
@@ -196,13 +187,13 @@ const generateWorkApplicantEmailHTML = (name) => {
  */
 export const sendWorkApplicationEmail = async (req, res) => {
   try {
-    const { fullName, email, contactNumber, positionApplied, portfolioLink, cvFile } = req.body;
+    const { fullName, email, contactNumber, positionApplied, cvFile } = req.body;
 
     // Validation
-    if (!fullName || !email || !contactNumber || !positionApplied || !portfolioLink || !cvFile) {
+    if (!fullName || !email || !contactNumber || !positionApplied || !cvFile) {
       return res.status(400).json({
         success: false,
-        error: 'Missing required fields: fullName, email, contactNumber, positionApplied, portfolioLink, cvFile',
+        error: 'Missing required fields: fullName, email, contactNumber, positionApplied, cvFile',
       });
     }
 
@@ -245,7 +236,6 @@ export const sendWorkApplicationEmail = async (req, res) => {
         email,
         contactNumber,
         positionApplied,
-        portfolioLink,
         cvFile,
       }),
       html: generateWorkBusinessEmailHTML({
@@ -253,7 +243,6 @@ export const sendWorkApplicationEmail = async (req, res) => {
         email,
         contactNumber,
         positionApplied,
-        portfolioLink,
         cvFile,
       }),
       attachments,
