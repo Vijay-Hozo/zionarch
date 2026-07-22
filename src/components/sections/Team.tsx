@@ -1,43 +1,127 @@
 import { motion } from "framer-motion";
-import { Linkedin, Mail } from "lucide-react";
 
 const teamMembers = [
   {
     name: "Ar. A. Karunakara Pandian",
     role: "Principal Architect",
     designation: "Head of Design",
-    previousCompany: "Formerly at XYZ Architects",
     isHead: true,
     image:
       "/drive-images/TEAM%20MEMBERS/A.KARUNAKARA-PANDIAN-PRINCIPAL-ARCHITECT-.jpg",
   },
-   {
+  {
     name: "Premraj D",
     role: "Admin In-Charge",
     image:
       "https://res.cloudinary.com/dxbxd1sry/image/upload/v1779867071/Admin_zkp1ul.jpg",
   },
-   {
+  {
     name: "Ar. Rayan Raj P",
     role: "Senior Architect",
     image:
       "https://res.cloudinary.com/dxbxd1sry/image/upload/v1779867074/Seniorarchitect_ze8mbq.jpg",
   },
-  // {
-  //   name: "Ar. Menaka Y",
-  //   role: "Junior Architect",
-  //   image:
-  //     "/drive-images/TEAM%20MEMBERS/MENAKA%20(JUNIOR%20ARCHITECT).jpg",
-  // },
-  // {
-  //   name: "Ar. Desingu Raja D",
-  //   role: "Junior Architect",
-  //   image:
-  //     "https://res.cloudinary.com/dxbxd1sry/image/upload/v1779867075/DESINGU_JUNIOR_ARCHITECT_akuiqj.jpg",
-  // },
- 
+  {
+    name: "Ar. Sanjay ",
+    role: "Junior Architect",
+    image: "/drive-images/TEAM%20MEMBERS/sanjay.png",
+  },
+
+  {
+    name: "Madhan Raj M",
+    role: "Intern Architect",
+    image: "/drive-images/TEAM%20MEMBERS/madhan.jpeg",
+  },
+  {
+    name: "Mohammed",
+    role: "Intern Architect",
+    image: "/drive-images/TEAM%20MEMBERS/Mohammed.jpeg",
+  },
+  {
+    name: "Gayatri V",
+    role: "Intern Architect",
+    image: "/drive-images/TEAM%20MEMBERS/Gayatri.jpeg",
+  },
+  {
+    name: "Kaveeshvar K",
+    role: "Intern Architect",
+    image: "/drive-images/TEAM%20MEMBERS/kaveeshvar.jpeg",
+  },
+  {
+    name: "Vijai N",
+    role: "Site Engineer",
+    image: "/drive-images/TEAM%20MEMBERS/Vijai.jpeg",
+  },
 ];
 
+const featuredMember = teamMembers[0];
+const otherMembers = teamMembers.slice(1);
+
+// Group the remaining members into labeled rows
+const teamGroups = [
+  {
+    title: "Architects",
+    members: otherMembers.filter((m) =>
+      ["Admin In-Charge", "Senior Architect", "Junior Architect"].includes(
+        m.role
+      )
+    ),
+  },
+  {
+    title: "Intern Architects",
+    members: otherMembers.filter((m) => m.role === "Intern Architect"),
+  },
+  {
+    title: "Site Engineer",
+    members: otherMembers.filter((m) => m.role === "Site Engineer"),
+  },
+];
+
+function TeamCard({
+  member,
+  index,
+}: {
+  member: (typeof teamMembers)[number];
+  index: number;
+}) {
+  return (
+    <motion.div
+      key={member.name}
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      className="group relative flex flex-col"
+    >
+      <div className="relative overflow-hidden rounded-xl bg-card shadow-md border border-primary/20 aspect-[3/4]">
+        <motion.img
+          src={member.image}
+          alt={member.name}
+          className="w-full h-full object-cover object-[center_20%] transition-all duration-700 group-hover:scale-105"
+          whileHover={{ scale: 1.05 }}
+        />
+
+        <div className="absolute bottom-0 left-0 w-0 h-1 bg-primary group-hover:w-full transition-all duration-500" />
+      </div>
+
+      <div className="pt-4 text-center">
+        <h3 className="font-display font-semibold text-foreground text-lg md:text-xl">
+          {member.name}
+        </h3>
+        <p className="text-primary font-body text-sm md:text-base mt-1 whitespace-pre-line">
+          {member.role === "Intern Architect"
+            ? "Intern Architect"
+            : member.role}
+        </p>
+        {member.designation && (
+          <p className="text-foreground/60 font-body text-xs md:text-sm mt-0.5">
+            {member.designation}
+          </p>
+        )}
+      </div>
+    </motion.div>
+  );
+}
 
 export function Team() {
   return (
@@ -69,69 +153,107 @@ export function Team() {
           </p>
         </motion.div>
 
-        {/* Team Grid - all members in a uniform grid, name/role below each image */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
-          {teamMembers.map((member, index) => (
-            <motion.div
-              key={member.name}
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group relative flex flex-col"
-            >
-              {/* Image */}
-              <div className="relative overflow-hidden rounded-xl bg-card shadow-md border border-primary/20 aspect-[3/4]">
-                <motion.img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-full object-cover object-[center_20%] grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
-                  whileHover={{ scale: 1.05 }}
-                />
+        {/* Featured principal architect */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="grid gap-10 lg:grid-cols-[minmax(320px,520px)_1fr] items-center mb-16 md:mb-20"
+        >
+          <div className="group relative overflow-hidden rounded-3xl bg-card shadow-xl border border-primary/15 aspect-[4/5] lg:aspect-[5/6]">
+            <motion.img
+              src={featuredMember.image}
+              alt={featuredMember.name}
+              className="w-full h-full object-cover object-[center_18%] transition-all duration-700 group-hover:scale-105"
+              whileHover={{ scale: 1.04 }}
+            />
 
-                {/* Social icons on hover */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileHover={{ opacity: 1, y: 0 }}
-                  className="absolute bottom-4 left-0 right-0 flex justify-center gap-3 opacity-0 group-hover:opacity-100 transition-all duration-500"
-                >
-                  <motion.a
-                    href="#"
-                    whileHover={{ scale: 1.1, y: -3 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="w-9 h-9 rounded-full bg-background/20 backdrop-blur-md flex items-center justify-center text-background hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-                  >
-                    <Linkedin className="w-4 h-4" />
-                  </motion.a>
-                  <motion.a
-                    href="#"
-                    whileHover={{ scale: 1.1, y: -3 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="w-9 h-9 rounded-full bg-background/20 backdrop-blur-md flex items-center justify-center text-background hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-                  >
-                    <Mail className="w-4 h-4" />
-                  </motion.a>
-                </motion.div>
 
-                <div className="absolute bottom-0 left-0 w-0 h-1 bg-primary group-hover:w-full transition-all duration-500" />
-              </div>
+            <div className="absolute bottom-0 left-0 w-0 h-1 bg-primary group-hover:w-full transition-all duration-500" />
+          </div>
 
-              {/* Name and role - always visible below image */}
-              <div className="pt-4 text-center">
-                <h3 className="font-display font-semibold text-foreground text-lg md:text-xl">
-                  {member.name}
-                </h3>
-                <p className="text-primary font-body text-sm md:text-base mt-1">
-                  {member.role}
+          <div className="max-w-2xl">
+            <span className="inline-flex items-center rounded-full bg-primary/10 px-4 py-2 text-xs font-body tracking-[0.2em] uppercase text-primary mb-5">
+              Principal Architect
+            </span>
+            <h3 className="text-4xl md:text-5xl lg:text-5xl font-display font-semibold text-foreground leading-tight mb-6">
+              {featuredMember.name}
+            </h3>
+            <p className="text-lg md:text-xl text-foreground/75 font-body leading-relaxed mb-6">
+              {featuredMember.role}
+              {featuredMember.designation
+                ? `, ${featuredMember.designation}`
+                : ""}
+            </p>
+            <p className="text-foreground/70 font-body leading-8 mb-8">
+              Leading the studio&apos;s design vision with a focus on thoughtful
+              planning, contextual architecture, and coordinated project
+              delivery across residential and commercial work.
+            </p>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="rounded-2xl border border-primary/15 bg-card/60 p-5">
+                <p className="text-xs uppercase tracking-[0.2em] text-primary mb-2">
+                  Role
                 </p>
-                {member.designation && (
-                  <p className="text-foreground/60 font-body text-xs md:text-sm mt-0.5">
-                    {member.designation}
-                  </p>
-                )}
+                <p className="font-display text-lg text-foreground">
+                  {featuredMember.role}
+                </p>
               </div>
-            </motion.div>
-          ))}
+              {featuredMember.designation && (
+                <div className="rounded-2xl border border-primary/15 bg-card/60 p-5">
+                  <p className="text-xs uppercase tracking-[0.2em] text-primary mb-2">
+                    Designation
+                  </p>
+                  <p className="font-display text-lg text-foreground">
+                    {featuredMember.designation}
+                  </p>
+                </div>
+              )}
+              {/* {featuredMember.previousCompany && (
+                <div className="rounded-2xl border border-primary/15 bg-card/60 p-5 sm:col-span-2">
+                  <p className="text-xs uppercase tracking-[0.2em] text-primary mb-2">
+                    Previous Experience
+                  </p>
+                  <p className="font-display text-lg text-foreground">
+                    {featuredMember.previousCompany}
+                  </p>
+                </div>
+              )} */}
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Remaining team, grouped into labeled rows */}
+        <div className="space-y-14 md:space-y-16">
+          {teamGroups.map(
+            (group) =>
+              group.members.length > 0 && (
+                <div key={group.title}>
+                  <motion.h3
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="text-2xl md:text-3xl font-display font-semibold text-primary mb-6 md:mb-8 flex items-center gap-4"
+                  >
+                    {group.title}
+                    <span className="h-px flex-1 bg-primary/20" />
+                  </motion.h3>
+
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+                    {group.members.map((member, index) => (
+                      <TeamCard
+                        key={member.name}
+                        member={member}
+                        index={index}
+                      />
+                    ))}
+                  </div>
+                </div>
+              )
+          )}
         </div>
       </div>
     </section>
