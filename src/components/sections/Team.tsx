@@ -4,7 +4,7 @@ const teamMembers = [
   {
     name: "Ar. A. Karunakara Pandian",
     role: "Principal Architect",
-    designation: "Head of Design",
+    designation: "Founder & Chief Architect",
     isHead: true,
     image:
       "/drive-images/TEAM%20MEMBERS/A.KARUNAKARA-PANDIAN-PRINCIPAL-ARCHITECT-.jpg",
@@ -28,7 +28,7 @@ const teamMembers = [
   },
 
   {
-    name: "Madhan Raj M",
+    name: "Madhan Raj S",
     role: "Intern Architect",
     image: "/drive-images/TEAM%20MEMBERS/madhan.jpeg",
   },
@@ -48,6 +48,16 @@ const teamMembers = [
     image: "/drive-images/TEAM%20MEMBERS/kaveeshvar.jpeg",
   },
   {
+    name: "Hemanth S",
+    role: "Intern Architect",
+    image: "/drive-images/TEAM%20MEMBERS/hemanth.jpeg",
+  },
+  {
+    name: "Chitrarasu M",
+    role: "Site Engineer",
+    image: "/drive-images/TEAM%20MEMBERS/chitrarasu.jpeg",
+  },
+  {
     name: "Vijai N",
     role: "Site Engineer",
     image: "/drive-images/TEAM%20MEMBERS/Vijai.jpeg",
@@ -60,7 +70,7 @@ const otherMembers = teamMembers.slice(1);
 // Group the remaining members into labeled rows
 const teamGroups = [
   {
-    title: "Architects",
+    title: "Admin & Architects",
     members: otherMembers.filter((m) =>
       ["Admin In-Charge", "Senior Architect", "Junior Architect"].includes(
         m.role
@@ -193,14 +203,6 @@ export function Team() {
             </p>
 
             <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-2xl border border-primary/15 bg-card/60 p-5">
-                <p className="text-xs uppercase tracking-[0.2em] text-primary mb-2">
-                  Role
-                </p>
-                <p className="font-display text-lg text-foreground">
-                  {featuredMember.role}
-                </p>
-              </div>
               {featuredMember.designation && (
                 <div className="rounded-2xl border border-primary/15 bg-card/60 p-5">
                   <p className="text-xs uppercase tracking-[0.2em] text-primary mb-2">
