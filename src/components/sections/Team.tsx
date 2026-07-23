@@ -184,16 +184,12 @@ export function Team() {
           </div>
 
           <div className="max-w-2xl">
-            <span className="inline-flex items-center rounded-full bg-primary/10 px-4 py-2 text-xs font-body tracking-[0.2em] uppercase text-primary mb-5">
-              Principal Architect
-            </span>
             <h3 className="text-4xl md:text-5xl lg:text-5xl font-display font-semibold text-foreground leading-tight mb-6">
               {featuredMember.name}
             </h3>
             <p className="text-lg md:text-xl text-foreground/75 font-body leading-relaxed mb-6">
-              {featuredMember.role}
               {featuredMember.designation
-                ? `, ${featuredMember.designation}`
+                ? `${featuredMember.designation}`
                 : ""}
             </p>
             <p className="text-foreground/70 font-body leading-8 mb-8">
@@ -203,7 +199,7 @@ export function Team() {
             </p>
 
             <div className="grid gap-4 sm:grid-cols-2">
-              {featuredMember.designation && (
+              {/* {featuredMember.designation && (
                 <div className="rounded-2xl border border-primary/15 bg-card/60 p-5">
                   <p className="text-xs uppercase tracking-[0.2em] text-primary mb-2">
                     Designation
@@ -212,7 +208,7 @@ export function Team() {
                     {featuredMember.designation}
                   </p>
                 </div>
-              )}
+              )} */}
               {/* {featuredMember.previousCompany && (
                 <div className="rounded-2xl border border-primary/15 bg-card/60 p-5 sm:col-span-2">
                   <p className="text-xs uppercase tracking-[0.2em] text-primary mb-2">
