@@ -11,14 +11,14 @@ const services = [
   {
     title: "Engineering",
     description: "Material Procurement, Schedule Optimization, Site Progress Report, Labour Management, Quality Assurance and Quality Control, Post Occupancy Support.",
-    image: "https://res.cloudinary.com/dxbxd1sry/image/upload/v1779867085/construction_voxhz7.jpg",
+    image: "/drive-images/TEAM%20MEMBERS/construction.jpg",
     size: "medium", // Takes 1 column, taller
   },
   
   {
     title: "Design & Build",
     description: "Bill of Quantity, Composite Quotations, Material Specifications, Finishes Schedule, Execution Schedule, Shop Drawings, Site Measurements.",
-    image: "https://res.cloudinary.com/dxbxd1sry/image/upload/v1779867093/Design_build_ge3bh5.jpg",
+    image: "/drive-images/TEAM%20MEMBERS/Design&build.jpg",
     size: "small", // Takes 1 column
   },
   {

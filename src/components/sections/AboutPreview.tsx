@@ -36,7 +36,7 @@ export function AboutPreview() {
                 className="overflow-hidden rounded-lg"
               >
                 <video
-                  src="https://res.cloudinary.com/dxbxd1sry/video/upload/v1779867226/ABOUT_US_qwk9qo.mp4"
+                  src="/drive-images/TEAM%20MEMBERS/about_us.mp4"
                   className="w-full h-[500px] object-cover"
                   autoPlay
                   loop

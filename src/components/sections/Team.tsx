@@ -13,13 +13,13 @@ const teamMembers = [
     name: "Premraj D",
     role: "Admin In-Charge",
     image:
-      "https://res.cloudinary.com/dxbxd1sry/image/upload/v1779867071/Admin_zkp1ul.jpg",
+      "/drive-images/TEAM%20MEMBERS/Admin.jpg",
   },
   {
     name: "Ar. Rayan Raj P",
     role: "Senior Architect",
     image:
-      "https://res.cloudinary.com/dxbxd1sry/image/upload/v1779867074/Seniorarchitect_ze8mbq.jpg",
+      "/drive-images/TEAM%20MEMBERS/Seniorarchitect.jpg",
   },
   {
     name: "Ar. Sanjay ",

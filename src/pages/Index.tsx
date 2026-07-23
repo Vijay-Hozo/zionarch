@@ -21,7 +21,7 @@ const Index = () => {
       <Navbar />
       <main>
         <Hero />
-        <VideoShowcase />
+        {/* <VideoShowcase /> */}
         <AboutPreview />
         <Services />
         <WhyChooseUs />
