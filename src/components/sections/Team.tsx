@@ -187,7 +187,7 @@ export function Team() {
             <h3 className="text-4xl md:text-5xl lg:text-5xl font-display font-semibold text-foreground leading-tight mb-6">
               {featuredMember.name}
             </h3>
-            <p className="text-lg md:text-xl text-foreground/75 font-body leading-relaxed mb-6">
+            <p className="text-lg md:text-2xl text-primary font-semibold leading-relaxed mb-6">
               {featuredMember.designation
                 ? `${featuredMember.designation}`
                 : ""}
