@@ -41,6 +41,7 @@ const navItems = [
       { name: "Residential", href: "/portfolio?category=Residential" },
     ],
   },
+  { name: "GALLERY", href: "/gallery" },
   { name: "ENQUIRY", href: "/quote" },
   { name: "CONTACT US", href: "/contact" },
   {

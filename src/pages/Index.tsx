@@ -14,6 +14,8 @@ import { Partners } from "@/components/sections/Partners";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
 
+import { GallerySection } from "@/components/gallery/GallerySection";
+
 const Index = () => {
   return (
     <>
@@ -26,6 +28,11 @@ const Index = () => {
         <Services />
         <WhyChooseUs />
         <PortfolioPreview />
+        {/* <GallerySection
+          title="Awards & Appreciation Gallery"
+          subtitle="Hover over any event card to flip the 3D card and explore our awards, honors, and recognition citations."
+          limit={6}
+        /> */}
         <Stats />
         <Specializations />
         <FullService />
