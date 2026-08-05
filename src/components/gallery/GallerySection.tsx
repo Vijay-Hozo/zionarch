@@ -1,32 +1,112 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import projects from "@/lib/Projects.json";
 import { eventGalleryItems } from "@/lib/galleryData";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
 
 interface GallerySectionProps {
-  title?: string;
-  subtitle?: string;
   limit?: number;
 }
+
+type GalleryTab = "projects" | "office-life";
+
+type ProjectGalleryItem = {
+  id: string;
+  title: string;
+  src: string;
+};
+
+type OfficeLifeGalleryItem = {
+  id: string;
+  src: string;
+};
+
+const officeLifeLocation = "Blue Lagoon";
+const officeLifeDate = "Jan 3rd, 2026";
 
 export const GallerySection: React.FC<GallerySectionProps> = ({
   limit,
 }) => {
+  const [activeTab, setActiveTab] = useState<GalleryTab>("projects");
+
   const filteredItems = useMemo(() => {
-    if (limit) {
-      return eventGalleryItems.slice(0, limit);
+    const projectItems = (projects as Array<{
+      title: string;
+      image?: string;
+      images?: string[];
+    }>).map((project, index) => ({
+      id: `project-${index}`,
+      title: project.title,
+      src: project.image ?? project.images?.[0] ?? "",
+    }));
+
+    const officeLifeItems: OfficeLifeGalleryItem[] = eventGalleryItems.map(
+      (item) => ({
+        id: item.id,
+        src: item.src,
+      })
+    );
+
+    const items: Array<ProjectGalleryItem | OfficeLifeGalleryItem> =
+      activeTab === "projects" ? projectItems : officeLifeItems;
+
+    const validItems = items.filter((item) => item.src);
+    const tabLimit = activeTab === "projects" ? 12 : limit;
+
+    if (tabLimit) {
+      return validItems.slice(0, tabLimit);
     }
 
-    return eventGalleryItems;
-  }, [limit]);
+    return validItems;
+  }, [activeTab, limit]);
 
   return (
-    <section className="py-16 md:py-24 bg-black relative overflow-hidden">
-      <div className="absolute inset-0 opacity-35 bg-[radial-gradient(circle_at_top_left,rgba(220,38,38,0.16),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(220,38,38,0.12),transparent_28%)] pointer-events-none" />
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-red-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/3 right-0 w-96 h-96 bg-red-950/20 rounded-full blur-3xl pointer-events-none" />
+    <section className="md:pb-20 bg-background text-foreground relative overflow-hidden">
+      {/* <div className="absolute inset-0 opacity-50 bg-[radial-gradient(circle_at_top_left,hsla(var(--primary)/0.12),transparent_32%),radial-gradient(circle_at_bottom_right,hsla(var(--foreground)/0.06),transparent_28%)] pointer-events-none" />
+      <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/3 right-0 w-96 h-96 bg-foreground/5 rounded-full blur-3xl pointer-events-none" /> */}
 
       <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl relative z-10">
+        <div className="mb-8 flex justify-center">
+          <Tabs
+            value={activeTab}
+            onValueChange={(value) => setActiveTab(value as GalleryTab)}
+            className="w-full max-w-md"
+          >
+            <TabsList className="grid h-auto w-full grid-cols-2 rounded-full border border-border/70 bg-card/80 p-1.5 backdrop-blur-md shadow-sm">
+              <TabsTrigger
+                value="projects"
+                className="rounded-full px-4 py-2 text-sm font-semibold text-muted-foreground transition-all data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+              >
+                Projects
+              </TabsTrigger>
+              <TabsTrigger
+                value="office-life"
+                className="rounded-full px-4 py-2 text-sm font-semibold text-muted-foreground transition-all data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+              >
+                Office Life
+              </TabsTrigger>
+            </TabsList>
+          </Tabs>
+        </div>
+
+        {activeTab === "office-life" && (
+          <div className="mb-8 flex justify-center">
+            <div className="max-w-3xl text-center">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-display font-semibold tracking-tight text-foreground">
+                Celebrating design excellence, innovation, and the people behind every achievement.
+              </h2>
+              <p className="mt-3 text-sm sm:text-base text-muted-foreground ">
+                @{officeLifeLocation} - {officeLifeDate}
+              </p>
+            </div>
+          </div>
+        )}
+
         <motion.div
+          key={activeTab}
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -40,19 +120,39 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, delay: index * 0.04 }}
-              className="group relative aspect-[4/5] overflow-hidden rounded-2xl border border-red-500/10 bg-zinc-950 shadow-lg shadow-black/30 transition-all duration-500 hover:-translate-y-1 hover:border-red-500/30 hover:shadow-red-950/20"
+              className="group relative aspect-[4/5] overflow-hidden rounded-2xl border border-border bg-card shadow-lg shadow-black/10 transition-all duration-500 hover:-translate-y-1 hover:border-primary/40 hover:shadow-primary/10"
             >
               <img
                 src={item.src}
-                alt="Event image"
+                alt={"title" in item ? item.title : "Office life image"}
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:brightness-110"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-95" />
-              <div className="absolute inset-0 ring-1 ring-inset ring-transparent transition-colors duration-500 group-hover:ring-red-500/20" />
+              {activeTab === "projects" && (
+                <div className="absolute inset-x-0 bottom-0 p-4 text-white">
+                  <div className="inline-flex max-w-full rounded-full border border-primary/20 bg-background/85 px-3 py-1.5 text-xs font-semibold text-foreground backdrop-blur-md shadow-sm">
+                    <span className="truncate">
+                      {"title" in item ? item.title : "Project"}
+                    </span>
+                  </div>
+                </div>
+              )}
             </motion.div>
           ))}
         </motion.div>
+
+        {activeTab === "projects" && (
+          <div className="mt-10 flex justify-center">
+            <Link to="/portfolio">
+              <Button
+                size="lg"
+                className="h-12 rounded-full bg-primary px-8 font-semibold text-primary-foreground hover:bg-primary/90"
+              >
+                Click to explore more about project
+              </Button>
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );
