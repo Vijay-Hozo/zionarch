@@ -214,7 +214,7 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
               </DialogTitle>
             </DialogHeader>
 
-            <div className="grid grid-cols-2 gap-3 overflow-y-auto px-6 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+            <div className="grid grid-cols-2 overflow-y-auto gap-6 p-6 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
               {officeLifeItems.map((item, index) => (
                 <motion.div
                   key={item.id}
