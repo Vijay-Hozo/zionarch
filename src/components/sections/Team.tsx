@@ -9,12 +9,12 @@ const teamMembers = [
     image:
       "/drive-images/TEAM%20MEMBERS/A.KARUNAKARA-PANDIAN-PRINCIPAL-ARCHITECT-.jpg",
   },
-  {
-    name: "Premraj D",
-    role: "Admin In-Charge",
-    image:
-      "/drive-images/TEAM%20MEMBERS/Admin.jpg",
-  },
+  // {
+  //   name: "Premraj D",
+  //   role: "Admin In-Charge",
+  //   image:
+  //     "/drive-images/TEAM%20MEMBERS/Admin.jpg",
+  // },
   {
     name: "Ar. Rayan Raj P",
     role: "Senior Architect",
